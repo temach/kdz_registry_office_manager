@@ -25,7 +25,7 @@ namespace kdz_manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
         public int FontSize {
             get {
                 return ((int)(this["FontSize"]));
@@ -49,12 +49,12 @@ namespace kdz_manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection Setting {
+        public global::System.Collections.Specialized.StringCollection RecentFiles {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Setting"]));
+                return ((global::System.Collections.Specialized.StringCollection)(this["RecentFiles"]));
             }
             set {
-                this["Setting"] = value;
+                this["RecentFiles"] = value;
             }
         }
     }
