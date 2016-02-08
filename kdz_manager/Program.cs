@@ -22,6 +22,7 @@ namespace kdz_manager
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
         static void CurrentDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             MessageBox.Show("hello");
