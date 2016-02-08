@@ -10,7 +10,9 @@ namespace csv_parser
 {
     public static class CSV
     {
+        // The delimiter (comma, tab, pipe, etc) to separate fields
         public const char DEFAULT_DELIMITER = ',';
+        // The text qualifier (double-quote) that encapsulates fields that include delimiters
         public const char DEFAULT_QUALIFIER = '"';
         public const char DEFAULT_TAB_DELIMITER = '\t';
 
