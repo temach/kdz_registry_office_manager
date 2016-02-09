@@ -49,12 +49,24 @@ namespace kdz_manager.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection RecentFiles {
+        public global::System.Windows.Forms.ToolStripMenuItem RecentFiles {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["RecentFiles"]));
+                return ((global::System.Windows.Forms.ToolStripMenuItem)(this["RecentFiles"]));
             }
             set {
                 this["RecentFiles"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int QtyOfRecentFiles {
+            get {
+                return ((int)(this["QtyOfRecentFiles"]));
+            }
+            set {
+                this["QtyOfRecentFiles"] = value;
             }
         }
     }

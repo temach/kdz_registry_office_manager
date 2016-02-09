@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace kdz_manager.Properties
-{
-
-
+namespace kdz_manager.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,60 @@ namespace kdz_manager.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("kdz_manager.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;REVIEW_DATE&quot;,&quot;AUTHOR&quot;,&quot;ISBN&quot;,&quot;DISCOUNTED_PRICE&quot;
+        ///&quot;1985/01/21&quot;,&quot;Douglas Adams&quot;,0345391802,5.95
+        ///&quot;1990/01/12&quot;,&quot;Douglas Hofstadter&quot;,0465026567,9.95
+        ///&quot;1998/07/15&quot;,&quot;Timothy &quot;&quot;The Parser&quot;&quot; Campbell&quot;,0968411304,18.99
+        ///&quot;1999/12/03&quot;,&quot;Richard Friedman&quot;,0060630353,5.95
+        ///&quot;2001/09/19&quot;,&quot;Karen Armstrong&quot;,0345384563,9.95
+        ///&quot;2002/06/23&quot;,&quot;David Jones&quot;,0198504691,9.95
+        ///&quot;2002/06/23&quot;,&quot;Julian Jaynes&quot;,0618057072,12.50
+        ///&quot;2003/09/30&quot;,&quot;Scott Adams&quot;,0740721909,4.95
+        ///&quot;2004/10/04&quot;,&quot;Benjamin Radcliff&quot;,0804818088,4.95
+        ///&quot;2004/10/04&quot;,&quot;Rand [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string sample {
+            get {
+                return ResourceManager.GetString("sample", resourceCulture);
             }
         }
     }
