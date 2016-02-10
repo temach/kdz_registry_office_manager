@@ -101,9 +101,6 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.asdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_QtyOfRecords)).BeginInit();
@@ -261,10 +258,6 @@
             // 
             // openRecentToolStripMenuItem1
             // 
-            this.openRecentToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asdToolStripMenuItem,
-            this.sadToolStripMenuItem,
-            this.fffToolStripMenuItem});
             this.openRecentToolStripMenuItem1.Name = "openRecentToolStripMenuItem1";
             this.openRecentToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.openRecentToolStripMenuItem1.Text = "Open Recent";
@@ -703,24 +696,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // asdToolStripMenuItem
-            // 
-            this.asdToolStripMenuItem.Name = "asdToolStripMenuItem";
-            this.asdToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.asdToolStripMenuItem.Text = "asd";
-            // 
-            // sadToolStripMenuItem
-            // 
-            this.sadToolStripMenuItem.Name = "sadToolStripMenuItem";
-            this.sadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sadToolStripMenuItem.Text = "sad";
-            // 
-            // fffToolStripMenuItem
-            // 
-            this.fffToolStripMenuItem.Name = "fffToolStripMenuItem";
-            this.fffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fffToolStripMenuItem.Text = "fff";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -822,9 +797,6 @@
         private System.Windows.Forms.ToolStripMenuItem exportAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripMenuItem asdToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fffToolStripMenuItem;
     }
 }
 
