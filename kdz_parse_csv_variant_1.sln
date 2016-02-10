@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv_parser", "csv_parser\cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kdz_manager", "kdz_manager\kdz_manager.csproj", "{1CF76770-595F-4174-8FC8-58E0D641DDA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kdz_manager_tests", "kdz_manager_tests\kdz_manager_tests.csproj", "{F34E5AA1-A4DF-476F-BCCC-8C8510748D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv_parser_tests", "csv_parser_tests\csv_parser_tests.csproj", "{4BB06D4C-A60A-43B0-B29E-4E327CFA12BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1CF76770-595F-4174-8FC8-58E0D641DDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF76770-595F-4174-8FC8-58E0D641DDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF76770-595F-4174-8FC8-58E0D641DDA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34E5AA1-A4DF-476F-BCCC-8C8510748D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34E5AA1-A4DF-476F-BCCC-8C8510748D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34E5AA1-A4DF-476F-BCCC-8C8510748D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34E5AA1-A4DF-476F-BCCC-8C8510748D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB06D4C-A60A-43B0-B29E-4E327CFA12BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB06D4C-A60A-43B0-B29E-4E327CFA12BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB06D4C-A60A-43B0-B29E-4E327CFA12BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB06D4C-A60A-43B0-B29E-4E327CFA12BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
