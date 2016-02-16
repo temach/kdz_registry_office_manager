@@ -10,6 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using csv_parser;
 using System.IO;
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.Reflection;
 
 namespace kdz_manager
 {
@@ -21,8 +29,28 @@ namespace kdz_manager
 2011-04-01,test2,""What's up, buttercup?"",Ralph,1,-999
 1975-06-03,test3,""Bye and bye, dragonfly!"",Jimmy's The Bomb,12,13";
 
+        string _filter_code_template = @"
+            using System;
+            using System.IO;
+            using System.Linq;
+            using System.Windows.Forms;
+            namespace kdz_manager {
+
+            static class kdzManagerCompiledUserFilter {
+                static DataTable datatable = null;
+                static Type datarowtype = null;
+
+                public DataTable RunFilter(Type data_row_type) {
+                    var query = {{0}}   // TODO: conditionall add final semicolon
+                    DataTable new_dt = query.CopyToDataTable<datarowtype>();
+                    return new_dt;
+                }
+            }
+            }";
+
         // Will put information from csv into here
         List<RegistryOfficeDataRow> _data_rows = null;
+        BindingSource _dt_binding_source = new BindingSource();
 
         public MainForm()
         {
@@ -135,23 +163,22 @@ namespace kdz_manager
             {
                 using (var input_stream = new StreamReader(filepath))
                 {
-                    //var source = new BindingSource();
-                    //var data_rows = CSV.LoadArray<RegistryOfficeDataRow>(input_stream
-                    //    , ignore_dimension_errors: false
-                    //    , ignore_bad_columns: false
-                    //    , ignore_type_conversion_errors: false
-                    //    , delim: ','
-                    //    , qual: '"'
-                    //);
-                    //source.DataSource = data_rows;
-                    //this.dataGridView1.DataSource = source;
-                    DataTable dt = CSV.LoadDataTable(input_stream
-                        , first_row_are_headers: true
+                    _dt_binding_source = new BindingSource();
+                    _dt_binding_source.DataSource = CSV.LoadArray<RegistryOfficeDataRow>(input_stream
                         , ignore_dimension_errors: false
+                        , ignore_bad_columns: false
+                        , ignore_type_conversion_errors: false
                         , delim: ','
                         , qual: '"'
                     );
-                    this.dataGridView1.DataSource = dt;
+                    this.dataGridView1.DataSource = _dt_binding_source;
+                   // DataTable dt = CSV.LoadDataTable(input_stream
+                   //     , first_row_are_headers: true
+                   //     , ignore_dimension_errors: false
+                   //     , delim: ','
+                   //     , qual: '"'
+                   // );
+                   // this.dataGridView1.DataSource = dt;
                     return true;
                 }
             }
@@ -161,5 +188,62 @@ namespace kdz_manager
                 return false;
             }
         }
+
+        /// <summary>
+        /// Method to check that user filter looks valid and contains no harmful code.
+        /// </summary>
+        /// <param name="user_filter"></param>
+        /// <returns></returns>
+        private bool VerifyUserFilter(string user_filter)
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Run user submitted query.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SubmitFilter_Click(object sender, EventArgs e)
+        {
+            string user_filter = this.richTextBox_FilterInput.Text;
+            var basic_check = VerifyUserFilter(user_filter);
+            // if (basic_check.Errors.HasError)
+            // {
+            //     MessageBox.Show("bla bla");
+            //     return;
+            // }
+            string final_code = string.Format(_filter_code_template, user_filter); 
+
+            var csc = new CSharpCodeProvider();
+            var csc_params = new CompilerParameters(
+                new string[]{"System.dll","System.Core.dll","mscorlib.dll","System.Windows.Forms.dll"}
+            );
+            // add this as refrence assembley so we can use our types
+            csc_params.ReferencedAssemblies.Add(Path.GetFileName(Assembly.GetExecutingAssembly().Location));
+            csc_params.GenerateExecutable = false;
+            csc_params.GenerateInMemory = true;
+
+            CompilerResults compile_result = csc.CompileAssemblyFromSource(csc_params, final_code);
+            if (compile_result.Errors.HasErrors)
+            {
+                var errs = compile_result.Errors;
+                StringBuilder err_log = new StringBuilder(errs.Count + " Errors in filter: ");
+                for (int i = 0; i < errs.Count; i++)
+                {
+                    err_log.AppendFormat("\n{0}: at character {1} - {2}", i, errs[i].ErrorText, errs[i].Column);
+                }
+                MessageBox.Show(err_log + "\n\nFor this filter:\n" + user_filter, "Errors in supplied data table filter.");
+                return;
+            }
+
+            Assembly assembly = compile_result.CompiledAssembly;
+            Type compiled_class = assembly.GetType("kdz_manager.kdzManagerCompiledUserFilter");
+            MethodInfo filter_method = compiled_class.GetMethod("DoRun");
+            var filter_results = filter_method.Invoke(null, null);
+
+            _dt_binding_source.DataSource = filter_results;
+        }
+
     }
 }

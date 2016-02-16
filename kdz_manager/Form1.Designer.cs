@@ -101,6 +101,7 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.button_SubmitFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_QtyOfRecords)).BeginInit();
@@ -113,6 +114,9 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(172, 95);
             this.dataGridView1.Name = "dataGridView1";
@@ -199,7 +203,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox_FilterInput.Location = new System.Drawing.Point(53, 63);
             this.richTextBox_FilterInput.Name = "richTextBox_FilterInput";
-            this.richTextBox_FilterInput.Size = new System.Drawing.Size(599, 26);
+            this.richTextBox_FilterInput.Size = new System.Drawing.Size(359, 26);
             this.richTextBox_FilterInput.TabIndex = 6;
             this.richTextBox_FilterInput.Text = "";
             // 
@@ -696,11 +700,22 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // button_SubmitFilter
+            // 
+            this.button_SubmitFilter.Location = new System.Drawing.Point(418, 61);
+            this.button_SubmitFilter.Name = "button_SubmitFilter";
+            this.button_SubmitFilter.Size = new System.Drawing.Size(75, 23);
+            this.button_SubmitFilter.TabIndex = 9;
+            this.button_SubmitFilter.Text = "Submit Filter";
+            this.button_SubmitFilter.UseVisualStyleBackColor = true;
+            this.button_SubmitFilter.Click += new System.EventHandler(this.button_SubmitFilter_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 555);
+            this.Controls.Add(this.button_SubmitFilter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.richTextBox_FilterInput);
             this.Controls.Add(this.label2);
@@ -797,6 +812,7 @@
         private System.Windows.Forms.ToolStripMenuItem exportAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Button button_SubmitFilter;
     }
 }
 
