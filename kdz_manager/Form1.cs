@@ -330,7 +330,7 @@ namespace kdz_manager
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_ClearFilters_Click(object sender, EventArgs e)
         {
 
         }
