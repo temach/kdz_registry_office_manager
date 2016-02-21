@@ -6,6 +6,7 @@
 /// TODO: conditionall add final semicolon to user supplied cutsom query. (in user filter)
 /// TODO: Finish factoring out Save dialogs. (Open/Save dialogs to get paths from user)
 /// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
+/// TODO: Add warning on exit if there are unsaved changes to data (check _dataview.RowStatusFilter returns not empty)
 ///
 ///
 ///
