@@ -30,15 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button_AddRecord = new System.Windows.Forms.Button();
-            this.button_DeleteRecord = new System.Windows.Forms.Button();
-            this.button_EditRecord = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button_ApplyFilter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.trackBar_QtyOfRecords = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox_FilterInput = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,15 +91,33 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.button_SubmitFilter = new System.Windows.Forms.Button();
+            this.textBox_FilterAdmAreaCode = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_FilterAdmAreaName = new System.Windows.Forms.TextBox();
+            this.label_CurrentPage = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_CurrentSortColumn = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown_CurrentPage = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_RowsPerPage = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_QtyOfRecords)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CurrentPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_RowsPerPage)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -114,98 +125,31 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(172, 95);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 130);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(480, 448);
+            this.dataGridView1.Size = new System.Drawing.Size(927, 318);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button_AddRecord
-            // 
-            this.button_AddRecord.Location = new System.Drawing.Point(18, 49);
-            this.button_AddRecord.Name = "button_AddRecord";
-            this.button_AddRecord.Size = new System.Drawing.Size(105, 24);
-            this.button_AddRecord.TabIndex = 1;
-            this.button_AddRecord.Text = "Add record";
-            this.button_AddRecord.UseVisualStyleBackColor = true;
-            // 
-            // button_DeleteRecord
-            // 
-            this.button_DeleteRecord.Location = new System.Drawing.Point(18, 79);
-            this.button_DeleteRecord.Name = "button_DeleteRecord";
-            this.button_DeleteRecord.Size = new System.Drawing.Size(105, 23);
-            this.button_DeleteRecord.TabIndex = 2;
-            this.button_DeleteRecord.Text = "Delete current record";
-            this.button_DeleteRecord.UseVisualStyleBackColor = true;
-            // 
-            // button_EditRecord
-            // 
-            this.button_EditRecord.Location = new System.Drawing.Point(18, 108);
-            this.button_EditRecord.Name = "button_EditRecord";
-            this.button_EditRecord.Size = new System.Drawing.Size(105, 23);
-            this.button_EditRecord.TabIndex = 3;
-            this.button_EditRecord.Text = "Edit current record";
-            this.button_EditRecord.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button_ApplyFilter);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.trackBar_QtyOfRecords);
-            this.panel1.Controls.Add(this.button_DeleteRecord);
-            this.panel1.Controls.Add(this.button_EditRecord);
-            this.panel1.Controls.Add(this.button_AddRecord);
-            this.panel1.Location = new System.Drawing.Point(12, 95);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(154, 238);
-            this.panel1.TabIndex = 4;
-            // 
-            // button_ApplyFilter
-            // 
-            this.button_ApplyFilter.Location = new System.Drawing.Point(19, 20);
-            this.button_ApplyFilter.Name = "button_ApplyFilter";
-            this.button_ApplyFilter.Size = new System.Drawing.Size(104, 23);
-            this.button_ApplyFilter.TabIndex = 7;
-            this.button_ApplyFilter.Text = "Apply Filter";
-            this.button_ApplyFilter.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 172);
+            this.label1.Location = new System.Drawing.Point(23, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 13);
+            this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Number of records to display";
-            // 
-            // trackBar_QtyOfRecords
-            // 
-            this.trackBar_QtyOfRecords.Location = new System.Drawing.Point(19, 188);
-            this.trackBar_QtyOfRecords.Name = "trackBar_QtyOfRecords";
-            this.trackBar_QtyOfRecords.Size = new System.Drawing.Size(104, 45);
-            this.trackBar_QtyOfRecords.TabIndex = 4;
+            this.label1.Text = "Records per page:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 66);
+            this.label2.Location = new System.Drawing.Point(11, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Filter";
-            // 
-            // richTextBox_FilterInput
-            // 
-            this.richTextBox_FilterInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_FilterInput.Location = new System.Drawing.Point(53, 63);
-            this.richTextBox_FilterInput.Name = "richTextBox_FilterInput";
-            this.richTextBox_FilterInput.Size = new System.Drawing.Size(359, 26);
-            this.richTextBox_FilterInput.TabIndex = 6;
-            this.richTextBox_FilterInput.Text = "";
+            this.label2.Text = "By AdmAreaCode:";
             // 
             // menuStrip1
             // 
@@ -217,7 +161,7 @@
             this.helpToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(664, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(951, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -285,6 +229,7 @@
             this.saveToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.saveToolStripMenuItem1.Text = "&Save";
+            this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
@@ -563,12 +508,12 @@
             this.toolStripButton5,
             this.toolStripButton4,
             this.toolStripSeparator3,
-            this.toolStripProgressBar1,
-            this.helpToolStripButton,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(664, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(951, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -677,20 +622,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 22);
-            // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "He&lp";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -700,39 +631,219 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "toolStripButton6";
+            // 
             // button_SubmitFilter
             // 
-            this.button_SubmitFilter.Location = new System.Drawing.Point(418, 61);
+            this.button_SubmitFilter.Location = new System.Drawing.Point(434, 19);
             this.button_SubmitFilter.Name = "button_SubmitFilter";
-            this.button_SubmitFilter.Size = new System.Drawing.Size(75, 23);
+            this.button_SubmitFilter.Size = new System.Drawing.Size(120, 23);
             this.button_SubmitFilter.TabIndex = 9;
-            this.button_SubmitFilter.Text = "Submit Filter";
+            this.button_SubmitFilter.Text = "Submit Basic Filter";
             this.button_SubmitFilter.UseVisualStyleBackColor = true;
             this.button_SubmitFilter.Click += new System.EventHandler(this.button_SubmitFilter_Click);
+            // 
+            // textBox_FilterAdmAreaCode
+            // 
+            this.textBox_FilterAdmAreaCode.Location = new System.Drawing.Point(110, 18);
+            this.textBox_FilterAdmAreaCode.Name = "textBox_FilterAdmAreaCode";
+            this.textBox_FilterAdmAreaCode.Size = new System.Drawing.Size(100, 20);
+            this.textBox_FilterAdmAreaCode.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(225, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "By AdmAreaName:";
+            // 
+            // textBox_FilterAdmAreaName
+            // 
+            this.textBox_FilterAdmAreaName.Location = new System.Drawing.Point(327, 18);
+            this.textBox_FilterAdmAreaName.Name = "textBox_FilterAdmAreaName";
+            this.textBox_FilterAdmAreaName.Size = new System.Drawing.Size(100, 20);
+            this.textBox_FilterAdmAreaName.TabIndex = 12;
+            // 
+            // label_CurrentPage
+            // 
+            this.label_CurrentPage.AutoSize = true;
+            this.label_CurrentPage.Location = new System.Drawing.Point(135, 19);
+            this.label_CurrentPage.Name = "label_CurrentPage";
+            this.label_CurrentPage.Size = new System.Drawing.Size(71, 13);
+            this.label_CurrentPage.TabIndex = 15;
+            this.label_CurrentPage.Text = "Current page:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(23, 48);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Advanced filter:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(110, 45);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(317, 20);
+            this.textBox3.TabIndex = 17;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_CurrentSortColumn,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 451);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(951, 22);
+            this.statusStrip1.TabIndex = 20;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel_CurrentSortColumn
+            // 
+            this.toolStripStatusLabel_CurrentSortColumn.Name = "toolStripStatusLabel_CurrentSortColumn";
+            this.toolStripStatusLabel_CurrentSortColumn.Size = new System.Drawing.Size(117, 17);
+            this.toolStripStatusLabel_CurrentSortColumn.Text = "Current sort column:";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(71, 17);
+            this.toolStripStatusLabel1.Text = "Total pages:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.button_SubmitFilter);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.textBox_FilterAdmAreaCode);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textBox_FilterAdmAreaName);
+            this.groupBox1.Location = new System.Drawing.Point(12, 53);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(617, 71);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filter controls";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(434, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Apply Advanced Filter";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.numericUpDown_CurrentPage);
+            this.groupBox2.Controls.Add(this.numericUpDown_RowsPerPage);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label_CurrentPage);
+            this.groupBox2.Location = new System.Drawing.Point(648, 52);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(214, 72);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "View controls";
+            // 
+            // numericUpDown_CurrentPage
+            // 
+            this.numericUpDown_CurrentPage.Location = new System.Drawing.Point(138, 36);
+            this.numericUpDown_CurrentPage.Name = "numericUpDown_CurrentPage";
+            this.numericUpDown_CurrentPage.Size = new System.Drawing.Size(68, 20);
+            this.numericUpDown_CurrentPage.TabIndex = 17;
+            this.numericUpDown_CurrentPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.numericUpDown_CurrentPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
+            // 
+            // numericUpDown_RowsPerPage
+            // 
+            this.numericUpDown_RowsPerPage.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDown_RowsPerPage.Location = new System.Drawing.Point(26, 35);
+            this.numericUpDown_RowsPerPage.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numericUpDown_RowsPerPage.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown_RowsPerPage.Name = "numericUpDown_RowsPerPage";
+            this.numericUpDown_RowsPerPage.Size = new System.Drawing.Size(89, 20);
+            this.numericUpDown_RowsPerPage.TabIndex = 16;
+            this.numericUpDown_RowsPerPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.numericUpDown_RowsPerPage.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericUpDown_RowsPerPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(560, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 44);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Clear filters";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 555);
-            this.Controls.Add(this.button_SubmitFilter);
+            this.ClientSize = new System.Drawing.Size(951, 473);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.richTextBox_FilterInput);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_QtyOfRecords)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CurrentPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_RowsPerPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -741,15 +852,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button_AddRecord;
-        private System.Windows.Forms.Button button_DeleteRecord;
-        private System.Windows.Forms.Button button_EditRecord;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar_QtyOfRecords;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox_FilterInput;
-        private System.Windows.Forms.Button button_ApplyFilter;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -803,8 +907,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem fontLargerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontSmallerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reopenUsingEncodingToolStripMenuItem;
@@ -813,6 +915,23 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Button button_SubmitFilter;
+        private System.Windows.Forms.TextBox textBox_FilterAdmAreaCode;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_FilterAdmAreaName;
+        private System.Windows.Forms.Label label_CurrentPage;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentSortColumn;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.NumericUpDown numericUpDown_RowsPerPage;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
+        private System.Windows.Forms.NumericUpDown numericUpDown_CurrentPage;
+        private System.Windows.Forms.Button button2;
     }
 }
 

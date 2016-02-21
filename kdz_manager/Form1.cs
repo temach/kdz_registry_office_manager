@@ -23,12 +23,6 @@ namespace kdz_manager
 {
     public partial class MainForm : Form
     {
-        // sample string not used anymore
-        string source = @"timestamp,TestString,SetComment,PropertyString,IntField,IntProperty
-2012-05-01,test1,""Hi there, I said!"",Bob,57,0
-2011-04-01,test2,""What's up, buttercup?"",Ralph,1,-999
-1975-06-03,test3,""Bye and bye, dragonfly!"",Jimmy's The Bomb,12,13";
-
         string _filter_code_template = @"
             using System;
             using System.IO;
@@ -49,8 +43,35 @@ namespace kdz_manager
             }";
 
         // Will put information from csv into here
-        List<RegistryOfficeDataRow> _data_rows = null;
-        BindingSource _dt_binding_source = new BindingSource();
+        DataTable _datatable;
+        DataView _dataview;
+
+        /// <summary>
+        /// Get set current page to display in dataGridView1
+        /// </summary>
+        private int CurrentPage
+        {
+            get { return (int)this.numericUpDown_CurrentPage.Value;  }
+            set
+            {
+                this.numericUpDown_CurrentPage.Value = value;
+                RefreshDataGridViewPager(null, EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Get set number of record per page in dataGridView1
+        /// </summary>
+        private int RowsPerPage
+        {
+            get { return (int)this.numericUpDown_RowsPerPage.Value;  }
+            set
+            {
+                this.numericUpDown_RowsPerPage.Value = value;
+                RefreshDataGridViewPager(null, EventArgs.Empty);
+            }
+        }
+        
 
         public MainForm()
         {
@@ -69,7 +90,7 @@ namespace kdz_manager
             if (Properties.Settings.Default.RecentDirectory == null)
             {
                 // if the recent direcotry is screwed up or not set
-                Properties.Settings.Default.RecentDirectory 
+                Properties.Settings.Default.RecentDirectory
                     = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
             }
         }
@@ -97,14 +118,14 @@ namespace kdz_manager
                 openRecentToolStripMenuItem1.DropDownItems.Add("No recent files...");
                 return;
             }
-
             openRecentToolStripMenuItem1.DropDownItems.Clear();
             foreach (var str in Properties.Settings.Default.RecentFiles)
             {
                 var tool = openRecentToolStripMenuItem1.DropDownItems.Add(str);
                 // so that "s" var is not cached by LINQ use "tool.Text"
-                // only add to recent if file opened ok
-                tool.Click += delegate {
+                // if (file opened ok) only then add it to recent
+                tool.Click += delegate
+                {
                     if (OpenFileCSV(tool.Text)) { AddOpenRecentEntry(tool.Text); }
                 };
             }
@@ -125,7 +146,6 @@ namespace kdz_manager
             recent.Remove(file);
             recent.Insert(0, file);
             Properties.Settings.Default.Save();
-
             RefreshOpenRecentToolStripDropDown();
         }
 
@@ -136,25 +156,42 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void openToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var recent_dir = Properties.Settings.Default.RecentDirectory;
-
-            OpenFileDialog file_dialog = new OpenFileDialog();
-            file_dialog.InitialDirectory = recent_dir;
-            file_dialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
-            file_dialog.FilterIndex = 0;
-            file_dialog.RestoreDirectory = true;
-            file_dialog.Title = "Select a csv file...";
-
-            if (file_dialog.ShowDialog() == DialogResult.OK)
+            OpenFileDialog file_dialog = new OpenFileDialog
             {
-                // next time we start go to this direcory
-                recent_dir = Path.GetDirectoryName(file_dialog.FileName);
-                if (OpenFileCSV(file_dialog.FileName))
-                {
-                    // only add good files to open recent
-                    AddOpenRecentEntry(file_dialog.FileName);
-                }
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select a csv file...",
+            };
+            if (file_dialog.ShowDialog() != DialogResult.OK) {
+                return;
             }
+            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(file_dialog.FileName);
+            if (OpenFileCSV(file_dialog.FileName))
+            {
+                AddOpenRecentEntry(file_dialog.FileName);
+            }
+        }
+
+        public static DataTable ToDataTable<T>(IList<T> data)
+        {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            DataTable table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+            {
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+            foreach (T item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                }
+                table.Rows.Add(row);
+            }
+            return table;
         }
 
         private bool OpenFileCSV(string filepath)
@@ -163,22 +200,17 @@ namespace kdz_manager
             {
                 using (var input_stream = new StreamReader(filepath))
                 {
-                    _dt_binding_source = new BindingSource();
-                    _dt_binding_source.DataSource = CSV.LoadArray<RegistryOfficeDataRow>(input_stream
+                    var datarows = CSV.LoadArray<RegistryOfficeDataRow>(input_stream
                         , ignore_dimension_errors: false
                         , ignore_bad_columns: false
                         , ignore_type_conversion_errors: false
                         , delim: ','
                         , qual: '"'
                     );
-                    this.dataGridView1.DataSource = _dt_binding_source;
-                   // DataTable dt = CSV.LoadDataTable(input_stream
-                   //     , first_row_are_headers: true
-                   //     , ignore_dimension_errors: false
-                   //     , delim: ','
-                   //     , qual: '"'
-                   // );
-                   // this.dataGridView1.DataSource = dt;
+                    // convert list to table
+                    _datatable = ToDataTable(datarows);
+                    _dataview = new DataView(_datatable);
+                    this.dataGridView1.DataSource = _dataview;
                     return true;
                 }
             }
@@ -204,20 +236,20 @@ namespace kdz_manager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button_SubmitFilter_Click(object sender, EventArgs e)
+        private void run_custom_created_filter(object sender, EventArgs e)
         {
-            string user_filter = this.richTextBox_FilterInput.Text;
+            string user_filter = this.textBox_FilterAdmAreaName.Text;
             var basic_check = VerifyUserFilter(user_filter);
             // if (basic_check.Errors.HasError)
             // {
             //     MessageBox.Show("bla bla");
             //     return;
             // }
-            string final_code = string.Format(_filter_code_template, user_filter); 
+            string final_code = string.Format(_filter_code_template, user_filter);
 
             var csc = new CSharpCodeProvider();
             var csc_params = new CompilerParameters(
-                new string[]{"System.dll","System.Core.dll","mscorlib.dll","System.Windows.Forms.dll"}
+                new string[] { "System.dll", "System.Core.dll", "mscorlib.dll", "System.Windows.Forms.dll" }
             );
             // add this as refrence assembley so we can use our types
             csc_params.ReferencedAssemblies.Add(Path.GetFileName(Assembly.GetExecutingAssembly().Location));
@@ -242,8 +274,115 @@ namespace kdz_manager
             MethodInfo filter_method = compiled_class.GetMethod("DoRun");
             var filter_results = filter_method.Invoke(null, null);
 
-            _dt_binding_source.DataSource = filter_results;
+            //_data_loaded.DataSource = filter_results;
         }
 
+
+
+        public static string EscapeLikeFilterValue(string valueWithoutWildcards)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < valueWithoutWildcards.Length; i++)
+            {
+                char c = valueWithoutWildcards[i];
+                if (c == '*' || c == '%' || c == '[' || c == ']')
+                    sb.Append("[").Append(c).Append("]");
+                else if (c == '\'')
+                    sb.Append("''");
+                else
+                    sb.Append(c);
+            }
+            return sb.ToString();
+        }
+
+
+        /// <summary>
+        /// Changing the row filter must be done in an orderly fashion.
+        /// Otherwise chaos will ensue.
+        /// </summary>
+        /// <param name="newfilter"></param>
+        private void SetRowFilter(string filter, RowFilterType type)
+        {
+            // if (type == RowFilterType.UserFilter)
+            // {
+            //     _dataview.RowFilter = string.Format(@"AUTHOR like '*{0}*'", area_name);
+            // }
+
+        }
+
+        /// <summary>
+        /// Run user submitted query.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_SubmitFilter_Click(object sender, EventArgs e)
+        {
+            string area_code = this.textBox_FilterAdmAreaCode.Text;
+            string area_name = this.textBox_FilterAdmAreaName.Text;
+
+            bool filter_code = area_code.Count() > 0;
+            bool filter_name = area_name.Count() > 0;
+
+            try
+            {
+                if (filter_code && filter_name)
+                {
+                    area_code = EscapeLikeFilterValue(area_code);
+                    area_name = EscapeLikeFilterValue(area_name);
+                    _dataview.RowFilter = string.Format(@"(AUTHOR like '*{0}*') AND (ISBN like '*{1}*')", area_name, area_code);
+                    MessageBox.Show("__" + _dataview.RowFilter + "__");
+                }
+                else if (filter_code)
+                {
+                    area_code = EscapeLikeFilterValue(area_code);
+                    _dataview.RowFilter = string.Format(@"ISBN like '*{0}*'", area_code);
+                }
+                else if (filter_name)
+                {
+                    area_name = EscapeLikeFilterValue(area_name);
+                    _dataview.RowFilter = string.Format(@"AUTHOR like '*{0}*'", area_name);
+                    MessageBox.Show("__" + _dataview.RowFilter + "__");
+                }
+                else
+                {
+                    _dataview.RowFilter = String.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Called when we change to another page or change number rows per page.
+        /// Takes the filters into account.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefreshDataGridViewPager(object sender, EventArgs e)
+        {
+            if (_datatable == null)
+            {
+                return;
+            }
+            int rows_per_page = (int)this.numericUpDown_RowsPerPage.Value;
+            int cur_page = (int)this.numericUpDown_CurrentPage.Value;
+            IEnumerable<DataRow> toshow = _datatable.Select(_dataview.RowFilter, _dataview.Sort)
+                .Skip(cur_page * rows_per_page)
+                .Take(rows_per_page);
+            DataView paged_view = new DataView(toshow.CopyToDataTable());
+            this.dataGridView1.DataSource = paged_view;
+            // EnumerableRowCollection<DataRow> query =
+            //     from row in _datatable.AsEnumerable()
+            //     select row;
+            // DataView view = query.AsDataView();
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
