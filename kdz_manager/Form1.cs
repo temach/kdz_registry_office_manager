@@ -131,7 +131,7 @@ namespace kdz_manager
                 RestoreDirectory = true,
                 Title = "Select a csv file...",
             };
-            if (file_dialog.ShowDialog() != DialogResult.OK) {
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
                 return file_dialog.FileName;
             }
             return null;
@@ -364,7 +364,7 @@ namespace kdz_manager
                 RestoreDirectory = true,
                 Title = "Select where to save your csv file...",
             };
-            if (file_dialog.ShowDialog() != DialogResult.Yes) {
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
                 return file_dialog.FileName;
             }
             return null;

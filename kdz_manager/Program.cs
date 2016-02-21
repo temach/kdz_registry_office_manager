@@ -4,6 +4,7 @@
 ///
 /// TODO: Test OpenFileDialog try to click open when multiple files are selected.
 /// TODO: conditionall add final semicolon to user supplied cutsom query. (in user filter)
+/// TODO: Finish factoring out Save dialogs. (Open/Save dialogs to get paths from user)
 /// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
 ///
 ///
