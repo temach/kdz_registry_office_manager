@@ -23,25 +23,6 @@ namespace kdz_manager
 {
     public partial class MainForm : Form
     {
-        string _filter_code_template = @"
-            using System;
-            using System.IO;
-            using System.Linq;
-            using System.Windows.Forms;
-            namespace kdz_manager {
-
-            static class kdzManagerCompiledUserFilter {
-                static DataTable datatable = null;
-                static Type datarowtype = null;
-
-                public DataTable RunFilter(Type data_row_type) {
-                    var query = {{0}}   // TODO: conditionall add final semicolon
-                    DataTable new_dt = query.CopyToDataTable<datarowtype>();
-                    return new_dt;
-                }
-            }
-            }";
-
         // Will put information from csv into here
         DataTable _datatable;
         DataView _dataview;
@@ -220,64 +201,6 @@ namespace kdz_manager
                 return false;
             }
         }
-
-        /// <summary>
-        /// Method to check that user filter looks valid and contains no harmful code.
-        /// </summary>
-        /// <param name="user_filter"></param>
-        /// <returns></returns>
-        private bool VerifyUserFilter(string user_filter)
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Run user submitted query.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void run_custom_created_filter(object sender, EventArgs e)
-        {
-            string user_filter = this.textBox_FilterAdmAreaName.Text;
-            var basic_check = VerifyUserFilter(user_filter);
-            // if (basic_check.Errors.HasError)
-            // {
-            //     MessageBox.Show("bla bla");
-            //     return;
-            // }
-            string final_code = string.Format(_filter_code_template, user_filter);
-
-            var csc = new CSharpCodeProvider();
-            var csc_params = new CompilerParameters(
-                new string[] { "System.dll", "System.Core.dll", "mscorlib.dll", "System.Windows.Forms.dll" }
-            );
-            // add this as refrence assembley so we can use our types
-            csc_params.ReferencedAssemblies.Add(Path.GetFileName(Assembly.GetExecutingAssembly().Location));
-            csc_params.GenerateExecutable = false;
-            csc_params.GenerateInMemory = true;
-
-            CompilerResults compile_result = csc.CompileAssemblyFromSource(csc_params, final_code);
-            if (compile_result.Errors.HasErrors)
-            {
-                var errs = compile_result.Errors;
-                StringBuilder err_log = new StringBuilder(errs.Count + " Errors in filter: ");
-                for (int i = 0; i < errs.Count; i++)
-                {
-                    err_log.AppendFormat("\n{0}: at character {1} - {2}", i, errs[i].ErrorText, errs[i].Column);
-                }
-                MessageBox.Show(err_log + "\n\nFor this filter:\n" + user_filter, "Errors in supplied data table filter.");
-                return;
-            }
-
-            Assembly assembly = compile_result.CompiledAssembly;
-            Type compiled_class = assembly.GetType("kdz_manager.kdzManagerCompiledUserFilter");
-            MethodInfo filter_method = compiled_class.GetMethod("DoRun");
-            var filter_results = filter_method.Invoke(null, null);
-
-            //_data_loaded.DataSource = filter_results;
-        }
-
-
 
         public static string EscapeLikeFilterValue(string valueWithoutWildcards)
         {
