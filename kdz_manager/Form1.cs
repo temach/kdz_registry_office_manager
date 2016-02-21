@@ -8,13 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using csv_parser;
 using System.IO;
-using System;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 using System.Reflection;
@@ -273,13 +267,8 @@ namespace kdz_manager
             {
                 using (var input_stream = new StreamReader(filepath))
                 {
-                    var datarows = CSV.LoadArray<RegistryOfficeDataRow>(input_stream
-                        , ignore_dimension_errors: false
-                        , ignore_bad_columns: false
-                        , ignore_type_conversion_errors: false
-                        , delim: ','
-                        , qual: '"'
-                    );
+                    var datarows 
+                        = OpenData.LoadArray<RegistryOfficeDataRow>(input_stream);
                     // convert list to table
                     _openfilepath = filepath;
                     _datatable = ToDataTable(datarows);
@@ -396,11 +385,8 @@ namespace kdz_manager
             {
                 using (var output_stream = new StreamWriter(filepath, append))
                 {
-                    CSV.WriteToStream(_dataview.ToTable()
+                    SaveData.WriteToStream(_dataview.ToTable()
                         , output_stream
-                        , save_column_names: true
-                        , delim: ','
-                        , qual: '"'
                     );
                     _openfilepath = filepath;
                 }
@@ -425,7 +411,7 @@ namespace kdz_manager
                 RestoreDirectory = true,
                 Title = "Select where to save your csv file...",
             };
-            if (file_dialog.ShowDialog() != DialogResult.OK) {
+            if (file_dialog.ShowDialog() != DialogResult.Yes) {
                 return file_dialog.FileName;
             }
             return null;
