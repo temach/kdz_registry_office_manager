@@ -303,16 +303,18 @@ namespace kdz_manager
             {
                 _dataview.RowFilter = String.Empty;
             }
-            RefreshDataGridViewPager(null, EventArgs.Empty);
+            RefreshDataGridViewPager();
         }
 
         /// <summary>
         /// Called when we change to another page or change number rows per page.
         /// Takes the filters into account.
+        /// 
+        /// This is the event handler for numericUpDown.... ValueChanged event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RefreshDataGridViewPager(object sender, EventArgs e)
+        private void RefreshDataGridViewPager(object sender=null, EventArgs e = null)
         {
             if (_datatable == null)
             {
@@ -332,7 +334,8 @@ namespace kdz_manager
 
         private void button_ClearFilters_Click(object sender, EventArgs e)
         {
-
+            _dataview.RowFilter = String.Empty;
+            RefreshDataGridViewPager();
         }
     }
 }
