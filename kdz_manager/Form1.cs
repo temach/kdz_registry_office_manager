@@ -220,20 +220,6 @@ namespace kdz_manager
 
 
         /// <summary>
-        /// Changing the row filter must be done in an orderly fashion.
-        /// Otherwise chaos will ensue.
-        /// </summary>
-        /// <param name="newfilter"></param>
-        private void SetRowFilter(string filter, RowFilterType type)
-        {
-            // if (type == RowFilterType.UserFilter)
-            // {
-            //     _dataview.RowFilter = string.Format(@"AUTHOR like '*{0}*'", area_name);
-            // }
-
-        }
-
-        /// <summary>
         /// Run user submitted query.
         /// </summary>
         /// <param name="sender"></param>
