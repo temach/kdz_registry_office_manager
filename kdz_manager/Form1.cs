@@ -27,6 +27,8 @@ namespace kdz_manager
         DataTable _datatable;
         DataView _dataview;
 
+        string _openfilepath;
+
         /// <summary>
         /// Get total number of rows that we have (after filtering and sorting on the datatable)
         /// </summary>
@@ -94,6 +96,13 @@ namespace kdz_manager
             this.toolStripStatusLabel_CurrentSortColumn.Text = "none" + "\t";
             this.toolStripStatusLabel_TotalPages.Text = TotalPages.ToString() + "\t";
             this.toolStripStatusLabel_TotalRows.Text = TotalRows.ToString() + "\t";
+        }
+
+        private void InitOnOpenFileCSV()
+        {
+            _dataview = new DataView(_datatable);
+            this.dataGridView1.DataSource = _dataview;
+            InitPagingCtrlsFromFileLoad();
         }
 
         /// <summary>
@@ -197,13 +206,8 @@ namespace kdz_manager
         /// <returns></returns>
         public static DataTable ToDataTable<T>(IList<T> data)
         {
+            var table = EmptyTableFromType<T>();
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            var table = new DataTable();
-            foreach (PropertyDescriptor prop in properties)
-            {
-               // handle nullable types
-               table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
             foreach (T item in data)
             {
                 DataRow row = table.NewRow();
@@ -212,6 +216,24 @@ namespace kdz_manager
                     row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
                 }
                 table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// Make an empty data table with layout to contain type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable EmptyTableFromType<T>()
+        {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            var table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+            {
+               // handle nullable types
+               table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
             }
             return table;
         }
@@ -236,8 +258,7 @@ namespace kdz_manager
                     );
                     // convert list to table
                     _datatable = ToDataTable(datarows);
-                    _dataview = new DataView(_datatable);
-                    this.dataGridView1.DataSource = _dataview;
+                    _openfilepath = filepath;
                 }
             }
             catch (Exception ex)
@@ -246,7 +267,7 @@ namespace kdz_manager
                 return false;
             }
             // do various initialisations on file opening
-            InitPagingCtrlsFromFileLoad();
+            InitOnOpenFileCSV();
             return true;
         }
 
@@ -332,10 +353,28 @@ namespace kdz_manager
 
         }
 
+        /// <summary>
+        /// Clears the internal filters and updates grid view.
+        /// Does not erase the strings that user entered into Fileter text boxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_ClearFilters_Click(object sender, EventArgs e)
         {
             _dataview.RowFilter = String.Empty;
             RefreshDataGridViewPager();
+        }
+
+        /// <summary>
+        /// Clicking on "New" menu entry creates empty datatable with default type.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _datatable = EmptyTableFromType<RegistryOfficeDataRow>();
+            _openfilepath = null;
+            InitOnOpenFileCSV();
         }
     }
 }
