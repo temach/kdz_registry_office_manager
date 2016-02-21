@@ -103,13 +103,23 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel_CurrentSortColumn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_TotalPages = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_CurrentPage = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_RowsPerPage = new System.Windows.Forms.NumericUpDown();
-            this.button2 = new System.Windows.Forms.Button();
+            this.toolStripStatusLabel_TotalRows = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelvertbar = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_CurrentFilteredRows = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_CurrentFilteredPages = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4vertbar = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -710,8 +720,18 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel_CurrentSortColumn,
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel3,
+            this.toolStripStatusLabel_TotalRows,
+            this.toolStripStatusLabel2,
+            this.toolStripStatusLabel_TotalPages,
+            this.toolStripStatusLabelvertbar,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel_CurrentFilteredRows,
+            this.toolStripStatusLabel6,
+            this.toolStripStatusLabel_CurrentFilteredPages,
+            this.toolStripStatusLabel4vertbar,
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel_CurrentSortColumn});
             this.statusStrip1.Location = new System.Drawing.Point(0, 451);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(951, 22);
@@ -721,14 +741,12 @@
             // toolStripStatusLabel_CurrentSortColumn
             // 
             this.toolStripStatusLabel_CurrentSortColumn.Name = "toolStripStatusLabel_CurrentSortColumn";
-            this.toolStripStatusLabel_CurrentSortColumn.Size = new System.Drawing.Size(117, 17);
-            this.toolStripStatusLabel_CurrentSortColumn.Text = "Current sort column:";
+            this.toolStripStatusLabel_CurrentSortColumn.Size = new System.Drawing.Size(0, 17);
             // 
-            // toolStripStatusLabel1
+            // toolStripStatusLabel_TotalPages
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(71, 17);
-            this.toolStripStatusLabel1.Text = "Total pages:";
+            this.toolStripStatusLabel_TotalPages.Name = "toolStripStatusLabel_TotalPages";
+            this.toolStripStatusLabel_TotalPages.Size = new System.Drawing.Size(0, 17);
             // 
             // groupBox1
             // 
@@ -747,6 +765,16 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter controls";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(560, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 44);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Clear filters";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -781,41 +809,69 @@
             // 
             // numericUpDown_RowsPerPage
             // 
-            this.numericUpDown_RowsPerPage.Increment = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
             this.numericUpDown_RowsPerPage.Location = new System.Drawing.Point(26, 35);
-            this.numericUpDown_RowsPerPage.Maximum = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
-            this.numericUpDown_RowsPerPage.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericUpDown_RowsPerPage.Name = "numericUpDown_RowsPerPage";
             this.numericUpDown_RowsPerPage.Size = new System.Drawing.Size(89, 20);
             this.numericUpDown_RowsPerPage.TabIndex = 16;
             this.numericUpDown_RowsPerPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            this.numericUpDown_RowsPerPage.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
             this.numericUpDown_RowsPerPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
             // 
-            // button2
+            // toolStripStatusLabel_TotalRows
             // 
-            this.button2.Location = new System.Drawing.Point(560, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 44);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Clear filters";
-            this.button2.UseVisualStyleBackColor = true;
+            this.toolStripStatusLabel_TotalRows.Name = "toolStripStatusLabel_TotalRows";
+            this.toolStripStatusLabel_TotalRows.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(117, 17);
+            this.toolStripStatusLabel1.Text = "Current sort column:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(71, 17);
+            this.toolStripStatusLabel2.Text = "Total pages:";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(79, 17);
+            this.toolStripStatusLabel3.Text = "Total records:";
+            // 
+            // toolStripStatusLabelvertbar
+            // 
+            this.toolStripStatusLabelvertbar.Name = "toolStripStatusLabelvertbar";
+            this.toolStripStatusLabelvertbar.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabelvertbar.Text = "|";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(132, 17);
+            this.toolStripStatusLabel5.Text = "Current filtered records:";
+            // 
+            // toolStripStatusLabel_CurrentFilteredRows
+            // 
+            this.toolStripStatusLabel_CurrentFilteredRows.Name = "toolStripStatusLabel_CurrentFilteredRows";
+            this.toolStripStatusLabel_CurrentFilteredRows.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel6
+            // 
+            this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(124, 17);
+            this.toolStripStatusLabel6.Text = "Current filtered pages:";
+            // 
+            // toolStripStatusLabel_CurrentFilteredPages
+            // 
+            this.toolStripStatusLabel_CurrentFilteredPages.Name = "toolStripStatusLabel_CurrentFilteredPages";
+            this.toolStripStatusLabel_CurrentFilteredPages.Size = new System.Drawing.Size(0, 17);
+            // 
+            // toolStripStatusLabel4vertbar
+            // 
+            this.toolStripStatusLabel4vertbar.Name = "toolStripStatusLabel4vertbar";
+            this.toolStripStatusLabel4vertbar.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel4vertbar.Text = "|";
             // 
             // MainForm
             // 
@@ -923,7 +979,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentSortColumn;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TotalPages;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -932,6 +988,16 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.NumericUpDown numericUpDown_CurrentPage;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TotalRows;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelvertbar;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentFilteredPages;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentFilteredRows;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4vertbar;
     }
 }
 

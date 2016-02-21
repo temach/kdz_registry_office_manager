@@ -28,29 +28,35 @@ namespace kdz_manager
         DataView _dataview;
 
         /// <summary>
-        /// Get set current page to display in dataGridView1
+        /// Get total number of rows that we have (after filtering and sorting on the datatable)
+        /// </summary>
+        private int TotalRows
+        {
+            get { return (_dataview == null) ? 0 : _dataview.Count; }
+        }
+
+        /// <summary>
+        /// Get set index of current page to display in dataGridView1
         /// </summary>
         private int CurrentPage
         {
             get { return (int)this.numericUpDown_CurrentPage.Value;  }
-            set
-            {
-                this.numericUpDown_CurrentPage.Value = value;
-                RefreshDataGridViewPager(null, EventArgs.Empty);
-            }
         }
 
         /// <summary>
-        /// Get set number of record per page in dataGridView1
+        /// Get the total number of pages
+        /// </summary>
+        private int TotalPages
+        {
+            get { return (_dataview == null) ? 0 : (TotalRows/RowsPerPage + 1); }
+        }
+
+        /// <summary>
+        /// Get set number of records per page to show in dataGridView1
         /// </summary>
         private int RowsPerPage
         {
             get { return (int)this.numericUpDown_RowsPerPage.Value;  }
-            set
-            {
-                this.numericUpDown_RowsPerPage.Value = value;
-                RefreshDataGridViewPager(null, EventArgs.Empty);
-            }
         }
         
 
@@ -60,8 +66,35 @@ namespace kdz_manager
 
             InitRecentDir();
             InitOpenRecentList();
+            InitPagingCtrlsFromDefaults();
         }
 
+        /// <summary>
+        /// Initialise controls before any file is loaded.
+        /// </summary>
+        private void InitPagingCtrlsFromDefaults()
+        {
+            this.numericUpDown_CurrentPage.Maximum = int.MaxValue;
+            this.numericUpDown_CurrentPage.Minimum = 0;
+            this.numericUpDown_CurrentPage.Value = 0;
+            this.numericUpDown_RowsPerPage.Maximum = int.MaxValue;
+            this.numericUpDown_RowsPerPage.Minimum = 1;
+            this.numericUpDown_RowsPerPage.Value = Properties.Settings.Default.RowsPerPage;
+        }
+
+        /// <summary>
+        /// On file load adjust some boundaries and reset user modifiable values.
+        /// </summary>
+        private void InitPagingCtrlsFromFileLoad()
+        {
+            // Note: here the order of initialisation is very important. :)
+            this.numericUpDown_RowsPerPage.Value = Properties.Settings.Default.RowsPerPage;
+            this.numericUpDown_CurrentPage.Value = 0;
+            // show some stats
+            this.toolStripStatusLabel_CurrentSortColumn.Text = "none" + "\t";
+            this.toolStripStatusLabel_TotalPages.Text = TotalPages.ToString() + "\t";
+            this.toolStripStatusLabel_TotalRows.Text = TotalRows.ToString() + "\t";
+        }
 
         /// <summary>
         /// Set sensible value for directory in OpenFile dialog.
@@ -155,13 +188,21 @@ namespace kdz_manager
             }
         }
 
+        /// <summary>
+        /// Read through the properties of T and 
+        /// assemble a DataTable that would represent it.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public static DataTable ToDataTable<T>(IList<T> data)
         {
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            DataTable table = new DataTable();
+            var table = new DataTable();
             foreach (PropertyDescriptor prop in properties)
             {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+               // handle nullable types
+               table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
             }
             foreach (T item in data)
             {
@@ -175,6 +216,11 @@ namespace kdz_manager
             return table;
         }
 
+        /// <summary>
+        /// Open file, read and verify data, make data table and run control intialisations.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
         private bool OpenFileCSV(string filepath)
         {
             try
@@ -192,7 +238,6 @@ namespace kdz_manager
                     _datatable = ToDataTable(datarows);
                     _dataview = new DataView(_datatable);
                     this.dataGridView1.DataSource = _dataview;
-                    return true;
                 }
             }
             catch (Exception ex)
@@ -200,8 +245,16 @@ namespace kdz_manager
                 MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 return false;
             }
+            // do various initialisations on file opening
+            InitPagingCtrlsFromFileLoad();
+            return true;
         }
 
+        /// <summary>
+        /// Useful so user can supply their match exactly.
+        /// </summary>
+        /// <param name="valueWithoutWildcards"></param>
+        /// <returns></returns>
         public static string EscapeLikeFilterValue(string valueWithoutWildcards)
         {
             StringBuilder sb = new StringBuilder();
@@ -220,7 +273,7 @@ namespace kdz_manager
 
 
         /// <summary>
-        /// Run user submitted query.
+        /// Apply user submitted query to data table rows.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -228,41 +281,30 @@ namespace kdz_manager
         {
             string area_code = this.textBox_FilterAdmAreaCode.Text;
             string area_name = this.textBox_FilterAdmAreaName.Text;
-
             bool filter_code = area_code.Count() > 0;
             bool filter_name = area_name.Count() > 0;
-
-            try
+            if (filter_code && filter_name)
             {
-                if (filter_code && filter_name)
-                {
-                    area_code = EscapeLikeFilterValue(area_code);
-                    area_name = EscapeLikeFilterValue(area_name);
-                    _dataview.RowFilter = string.Format(@"(AUTHOR like '*{0}*') AND (ISBN like '*{1}*')", area_name, area_code);
-                    MessageBox.Show("__" + _dataview.RowFilter + "__");
-                }
-                else if (filter_code)
-                {
-                    area_code = EscapeLikeFilterValue(area_code);
-                    _dataview.RowFilter = string.Format(@"ISBN like '*{0}*'", area_code);
-                }
-                else if (filter_name)
-                {
-                    area_name = EscapeLikeFilterValue(area_name);
-                    _dataview.RowFilter = string.Format(@"AUTHOR like '*{0}*'", area_name);
-                    MessageBox.Show("__" + _dataview.RowFilter + "__");
-                }
-                else
-                {
-                    _dataview.RowFilter = String.Empty;
-                }
+                area_code = EscapeLikeFilterValue(area_code);
+                area_name = EscapeLikeFilterValue(area_name);
+                _dataview.RowFilter = string.Format(@"(AUTHOR like '*{0}*') AND (ISBN like '*{1}*')", area_name, area_code);
             }
-            catch (Exception ex)
+            else if (filter_code)
             {
-                MessageBox.Show(ex.Message);
+                area_code = EscapeLikeFilterValue(area_code);
+                _dataview.RowFilter = string.Format(@"ISBN like '*{0}*'", area_code);
             }
+            else if (filter_name)
+            {
+                area_name = EscapeLikeFilterValue(area_name);
+                _dataview.RowFilter = string.Format(@"AUTHOR like '*{0}*'", area_name);
+            }
+            else
+            {
+                _dataview.RowFilter = String.Empty;
+            }
+            RefreshDataGridViewPager(null, EventArgs.Empty);
         }
-
 
         /// <summary>
         /// Called when we change to another page or change number rows per page.
@@ -276,20 +318,19 @@ namespace kdz_manager
             {
                 return;
             }
-            int rows_per_page = (int)this.numericUpDown_RowsPerPage.Value;
-            int cur_page = (int)this.numericUpDown_CurrentPage.Value;
             IEnumerable<DataRow> toshow = _datatable.Select(_dataview.RowFilter, _dataview.Sort)
-                .Skip(cur_page * rows_per_page)
-                .Take(rows_per_page);
+                .Skip(CurrentPage * RowsPerPage)
+                .Take(RowsPerPage);
             DataView paged_view = new DataView(toshow.Count() > 0 ? toshow.CopyToDataTable() : _datatable.Clone());
             this.dataGridView1.DataSource = paged_view;
-            // EnumerableRowCollection<DataRow> query =
-            //     from row in _datatable.AsEnumerable()
-            //     select row;
-            // DataView view = query.AsDataView();
         }
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

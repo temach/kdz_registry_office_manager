@@ -71,5 +71,29 @@ namespace kdz_manager.Properties {
                 this["QtyOfRecentFiles"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int RowsPerPage {
+            get {
+                return ((int)(this["RowsPerPage"]));
+            }
+            set {
+                this["RowsPerPage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public int MaxRowsPerPage {
+            get {
+                return ((int)(this["MaxRowsPerPage"]));
+            }
+            set {
+                this["MaxRowsPerPage"] = value;
+            }
+        }
     }
 }
