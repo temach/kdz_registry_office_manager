@@ -281,7 +281,7 @@ namespace kdz_manager
             IEnumerable<DataRow> toshow = _datatable.Select(_dataview.RowFilter, _dataview.Sort)
                 .Skip(cur_page * rows_per_page)
                 .Take(rows_per_page);
-            DataView paged_view = new DataView(toshow.CopyToDataTable());
+            DataView paged_view = new DataView(toshow.Count() > 0 ? toshow.CopyToDataTable() : _datatable.Clone());
             this.dataGridView1.DataSource = paged_view;
             // EnumerableRowCollection<DataRow> query =
             //     from row in _datatable.AsEnumerable()
