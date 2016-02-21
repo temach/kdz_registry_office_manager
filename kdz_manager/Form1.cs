@@ -27,6 +27,9 @@ namespace kdz_manager
         DataTable _datatable;
         DataView _dataview;
 
+        /// <summary>
+        /// currently open file path
+        /// </summary>
         string _openfilepath;
 
         /// <summary>
@@ -172,12 +175,7 @@ namespace kdz_manager
             RefreshOpenRecentToolStripDropDown();
         }
 
-        /// <summary>
-        /// Show open file dialog to choose csv file.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        private string OpenFileDialogGetPath()
         {
             OpenFileDialog file_dialog = new OpenFileDialog
             {
@@ -188,13 +186,39 @@ namespace kdz_manager
                 Title = "Select a csv file...",
             };
             if (file_dialog.ShowDialog() != DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Show open file dialog to choose csv file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void openToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string filepath = OpenFileDialogGetPath();
+            if (filepath == null) {
                 return;
             }
-            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(file_dialog.FileName);
-            if (OpenFileCSV(file_dialog.FileName))
+            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
+            if (OpenFileCSV(filepath))
             {
-                AddOpenRecentEntry(file_dialog.FileName);
+                AddOpenRecentEntry(filepath);
             }
+        }
+
+        /// <summary>
+        /// Clicking on "New" menu entry creates empty datatable with default type.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _datatable = EmptyTableFromType<RegistryOfficeDataRow>();
+            _openfilepath = null;
+            InitOnOpenFileCSV();
         }
 
         /// <summary>
@@ -257,6 +281,7 @@ namespace kdz_manager
                         , qual: '"'
                     );
                     // convert list to table
+                    _openfilepath = filepath;
                     _datatable = ToDataTable(datarows);
                     _openfilepath = filepath;
                 }
@@ -292,6 +317,18 @@ namespace kdz_manager
             return sb.ToString();
         }
 
+
+        /// <summary>
+        /// Clears the internal filters and updates grid view.
+        /// Does not erase the strings that user entered into Fileter text boxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button_ClearFilters_Click(object sender, EventArgs e)
+        {
+            _dataview.RowFilter = String.Empty;
+            RefreshDataGridViewPager();
+        }
 
         /// <summary>
         /// Apply user submitted query to data table rows.
@@ -348,33 +385,109 @@ namespace kdz_manager
             this.dataGridView1.DataSource = paged_view;
         }
 
+        /// <summary>
+        /// Write the datatable from memory to file.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <param name="append"></param>
+        private void SaveFileCSV(string filepath, bool append)
+        {
+            try
+            {
+                using (var output_stream = new StreamWriter(filepath, append))
+                {
+                    CSV.WriteToStream(_dataview.ToTable()
+                        , output_stream
+                        , save_column_names: true
+                        , delim: ','
+                        , qual: '"'
+                    );
+                    _openfilepath = filepath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: Could not save file to disk. Original error: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Opens the dialog to get the path at which to save the current data.
+        /// </summary>
+        /// <returns></returns>
+        private string SaveFileDialogGetPath()
+        {
+            SaveFileDialog file_dialog = new SaveFileDialog
+            {
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select where to save your csv file...",
+            };
+            if (file_dialog.ShowDialog() != DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Save As (new file) button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string filepath = SaveFileDialogGetPath();
+            if (filepath == null) {
+                // user canceled save operation
+                return;
+            }
+            _openfilepath = filepath;
+            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
+            SaveFileCSV(filepath, append: false);
+        }
+
+        /// <summary>
+        /// Save To (append) menu entry is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // if we just created this file in memory and don't know where to save it yet.
+            // run file selection dialog
+            if (_openfilepath == null)
+            {
+                string filepath = SaveFileDialogGetPath();
+                if (filepath == null) {
+                    // user canceled save operation
+                    return;
+                }
+                _openfilepath = filepath;
+                SaveFileCSV(_openfilepath, append: true);
+            }
+        }
+
+        /// <summary>
+        /// Save (overwrite) menu button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        /// <summary>
-        /// Clears the internal filters and updates grid view.
-        /// Does not erase the strings that user entered into Fileter text boxes.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_ClearFilters_Click(object sender, EventArgs e)
-        {
-            _dataview.RowFilter = String.Empty;
-            RefreshDataGridViewPager();
-        }
-
-        /// <summary>
-        /// Clicking on "New" menu entry creates empty datatable with default type.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _datatable = EmptyTableFromType<RegistryOfficeDataRow>();
-            _openfilepath = null;
-            InitOnOpenFileCSV();
+            // if we just created this file in memory and don't know where to save it yet.
+            // run file selection dialog
+            if (_openfilepath == null)
+            {
+                string filepath = SaveFileDialogGetPath();
+                if (filepath == null) {
+                    // user canceled save operation
+                    return;
+                }
+                _openfilepath = filepath;
+                SaveFileCSV(_openfilepath, append: false);
+            }
         }
     }
 }

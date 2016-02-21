@@ -40,6 +40,7 @@
             this.reopenUsingEncodingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,6 +185,7 @@
             this.reopenUsingEncodingToolStripMenuItem,
             this.toolStripSeparator1,
             this.saveToolStripMenuItem1,
+            this.toolStripMenuItem1,
             this.saveAsToolStripMenuItem1,
             this.toolStripSeparator9,
             this.printToolStripMenuItem,
@@ -239,14 +241,24 @@
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
             this.saveToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
-            this.saveToolStripMenuItem1.Text = "&Save";
+            this.saveToolStripMenuItem1.Text = "&Save (overwrite)";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItem1.Text = "Save &As (new file)";
+            this.toolStripMenuItem1.ToolTipText = "Create a new file";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem1
             // 
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
             this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
-            this.saveAsToolStripMenuItem1.Text = "Save &As";
+            this.saveAsToolStripMenuItem1.Text = "Save &To (append)";
+            this.saveAsToolStripMenuItem1.ToolTipText = "Create a new file";
+            this.saveAsToolStripMenuItem1.Click += new System.EventHandler(this.saveAsToolStripMenuItem1_Click);
             // 
             // toolStripSeparator9
             // 
@@ -999,6 +1011,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentFilteredRows;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4vertbar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 
