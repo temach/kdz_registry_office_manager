@@ -7,6 +7,7 @@
 /// TODO: Finish factoring out Save dialogs. (Open/Save dialogs to get paths from user)
 /// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
 /// TODO: Add warning on exit if there are unsaved changes to data (check _dataview.RowStatusFilter returns not empty)
+/// TODO: Save To (append) does not work becasue dialog with replace pops up.
 ///
 ///
 ///

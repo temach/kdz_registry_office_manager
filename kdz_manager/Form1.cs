@@ -22,11 +22,6 @@ namespace kdz_manager
         DataView _dataview;
 
         /// <summary>
-        /// currently open file path
-        /// </summary>
-        string _openfilepath;
-
-        /// <summary>
         /// Get total number of rows that we have (after filtering and sorting on the datatable)
         /// </summary>
         private int TotalRows
@@ -164,7 +159,7 @@ namespace kdz_manager
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _datatable = EmptyTableFromType<RegistryOfficeDataRow>();
-            _openfilepath = null;
+            Recent.CurrentlyOpenFilePath = null;
             InitOnOpenFileCSV();
         }
 
@@ -223,9 +218,9 @@ namespace kdz_manager
                     var datarows 
                         = OpenData.LoadArray<RegistryOfficeDataRow>(input_stream);
                     // convert list to table
-                    _openfilepath = filepath;
+                    Recent.CurrentlyOpenFilePath = filepath;
                     _datatable = ToDataTable(datarows);
-                    _openfilepath = filepath;
+                    Recent.CurrentlyOpenFilePath = filepath;
                 }
             }
             catch (Exception ex)
@@ -341,7 +336,7 @@ namespace kdz_manager
                     SaveData.WriteToStream(_dataview.ToTable()
                         , output_stream
                     );
-                    _openfilepath = filepath;
+                    Recent.CurrentlyOpenFilePath = filepath;
                 }
             }
             catch (Exception ex)
@@ -382,7 +377,7 @@ namespace kdz_manager
                 // user canceled save operation
                 return;
             }
-            _openfilepath = filepath;
+            Recent.CurrentlyOpenFilePath = filepath;
             Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
             SaveFileCSV(filepath, append: false);
             Recent.AddRecentFile(filepath);
@@ -398,15 +393,15 @@ namespace kdz_manager
         {
             // if we just created this file in memory and don't know where to save it yet.
             // run file selection dialog
-            if (_openfilepath == null)
+            if (Recent.CurrentlyOpenFilePath == null)
             {
                 string filepath = SaveFileDialogGetPath();
                 if (filepath == null) {
                     // user canceled save operation
                     return;
                 }
-                _openfilepath = filepath;
-                SaveFileCSV(_openfilepath, append: true);
+                Recent.CurrentlyOpenFilePath = filepath;
+                SaveFileCSV(Recent.CurrentlyOpenFilePath, append: true);
                 Recent.AddRecentFile(filepath);
                 RefreshOpenRecentMenu();
             }
@@ -421,14 +416,14 @@ namespace kdz_manager
         {
             // if we just created this file in memory and don't know where to save it yet.
             // run file selection dialog
-            if (_openfilepath == null)
+            if (Recent.CurrentlyOpenFilePath == null)
             {
                 string filepath = SaveFileDialogGetPath();
                 if (filepath == null) {
                     // user canceled save operation
                     return;
                 }
-                _openfilepath = filepath;
+                Recent.CurrentlyOpenFilePath = filepath;
                 SaveFileCSV(filepath, append: false);
                 Recent.AddRecentFile(filepath);
                 RefreshOpenRecentMenu();
