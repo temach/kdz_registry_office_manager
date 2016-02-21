@@ -57,14 +57,14 @@ namespace kdz_manager
         {
             get { return (int)this.numericUpDown_RowsPerPage.Value;  }
         }
-        
+
+        RecentFilesFolders Recent = new RecentFilesFolders();
 
         public MainForm()
         {
             InitializeComponent();
 
-            InitRecentDir();
-            InitOpenRecentList();
+            RefreshOpenRecentMenu();
             InitPagingCtrlsFromDefaults();
         }
 
@@ -103,70 +103,22 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Set sensible value for directory in OpenFile dialog.
+        /// Get the items to show in open recent menu
         /// </summary>
-        private void InitRecentDir()
+        private void RefreshOpenRecentMenu()
         {
-            if (Properties.Settings.Default.RecentDirectory == null)
-            {
-                // if the recent direcotry is screwed up or not set
-                Properties.Settings.Default.RecentDirectory
-                    = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
-            }
-        }
-
-        /// <summary>
-        /// Initially build the Recent-Files menu
-        /// </summary>
-        private void InitOpenRecentList()
-        {
-            if (Properties.Settings.Default.RecentFiles == null)
-            {
-                Properties.Settings.Default.RecentFiles = new StringCollection();
-                Properties.Settings.Default.Save();
-            }
-            RefreshOpenRecentToolStripDropDown();
-        }
-
-        /// <summary>
-        /// The OpenRecent files have changed. Refresh the view in menu.
-        /// </summary>
-        private void RefreshOpenRecentToolStripDropDown()
-        {
-            if (Properties.Settings.Default.RecentFiles.Count == 0)
-            {
-                openRecentToolStripMenuItem1.DropDownItems.Add("No recent files...");
-                return;
-            }
-            openRecentToolStripMenuItem1.DropDownItems.Clear();
-            foreach (var str in Properties.Settings.Default.RecentFiles)
-            {
-                var tool = openRecentToolStripMenuItem1.DropDownItems.Add(str);
-                // so that "s" var is not cached by LINQ use "tool.Text"
-                // if (file opened ok) only then add it to recent
-                tool.Click += delegate
-                {
-                    if (OpenFileCSV(tool.Text)) { AddOpenRecentEntry(tool.Text); }
-                };
-            }
-        }
-
-        /// <summary>
-        /// Add a new item to the Recent-Files menu and save it persistently
-        /// </summary>
-        /// <param name="file"></param>
-        private void AddOpenRecentEntry(string file)
-        {
-            var recent = Properties.Settings.Default.RecentFiles;
-            if (recent.Count > Properties.Settings.Default.QtyOfRecentFiles)
-            {
-                recent.RemoveAt(recent.Count - 1);
-            }
-            // Reinsert at 0 position (does not throw if not found)
-            recent.Remove(file);
-            recent.Insert(0, file);
-            Properties.Settings.Default.Save();
-            RefreshOpenRecentToolStripDropDown();
+            // just replace old menu item wth a new one to refresh it
+            Recent.ReplaceOpenRecentMenu(openRecentToolStripMenuItem1
+                , (filepath) 
+                => {
+                    // if (file opened ok) then push it to recent
+                    if (OpenFileCSV(filepath))
+                    {
+                        Recent.AddRecentFile(filepath);
+                        RefreshOpenRecentMenu();
+                    }
+                }
+            );
         }
 
         private string OpenFileDialogGetPath()
@@ -199,7 +151,8 @@ namespace kdz_manager
             Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
             if (OpenFileCSV(filepath))
             {
-                AddOpenRecentEntry(filepath);
+                Recent.AddRecentFile(filepath);
+                RefreshOpenRecentMenu();
             }
         }
 
@@ -432,6 +385,8 @@ namespace kdz_manager
             _openfilepath = filepath;
             Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
             SaveFileCSV(filepath, append: false);
+            Recent.AddRecentFile(filepath);
+            RefreshOpenRecentMenu();
         }
 
         /// <summary>
@@ -452,6 +407,8 @@ namespace kdz_manager
                 }
                 _openfilepath = filepath;
                 SaveFileCSV(_openfilepath, append: true);
+                Recent.AddRecentFile(filepath);
+                RefreshOpenRecentMenu();
             }
         }
 
@@ -472,7 +429,9 @@ namespace kdz_manager
                     return;
                 }
                 _openfilepath = filepath;
-                SaveFileCSV(_openfilepath, append: false);
+                SaveFileCSV(filepath, append: false);
+                Recent.AddRecentFile(filepath);
+                RefreshOpenRecentMenu();
             }
         }
     }

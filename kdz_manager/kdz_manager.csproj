@@ -55,6 +55,7 @@
     <Compile Include="OpenData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecentFilesFolders.cs" />
     <Compile Include="RegistryOfficeDataRow.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Settings.cs" />

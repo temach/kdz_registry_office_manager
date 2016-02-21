@@ -221,13 +221,13 @@
             // 
             this.openRecentToolStripMenuItem1.Name = "openRecentToolStripMenuItem1";
             this.openRecentToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
-            this.openRecentToolStripMenuItem1.Text = "Open Recent";
+            this.openRecentToolStripMenuItem1.Text = "Open &Recent";
             // 
             // reopenUsingEncodingToolStripMenuItem
             // 
             this.reopenUsingEncodingToolStripMenuItem.Name = "reopenUsingEncodingToolStripMenuItem";
             this.reopenUsingEncodingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.reopenUsingEncodingToolStripMenuItem.Text = "&Reopen Using Encoding";
+            this.reopenUsingEncodingToolStripMenuItem.Text = "Reopen Using &Encoding";
             // 
             // toolStripSeparator1
             // 
