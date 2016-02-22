@@ -12,6 +12,7 @@
 /// TODO: Show filepath of current table in form status
 /// TODO: More robust parsing?
 /// TODO: On Save (overwrite) we should really ask what mode do you want in a message box.
+/// TODO: What if column for filtering has a wierd char that will mess everythign up? See ViewData.
 ///
 ///
 ///

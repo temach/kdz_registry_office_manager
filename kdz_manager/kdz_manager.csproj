@@ -59,6 +59,7 @@
     <Compile Include="RegistryOfficeDataRow.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewData.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
