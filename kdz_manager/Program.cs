@@ -8,7 +8,10 @@
 /// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
 /// TODO: Add warning on exit if there are unsaved changes to data (check _dataview.RowStatusFilter returns not empty)
 /// TODO: Save To (append) does not work becasue dialog with replace pops up.
-///
+/// TODO: Fix CurrentlyOpneDirectory along with CurrentlyOpenFilename into RecentFilesFilders.cs
+/// TODO: Show filepath of current table in form status
+/// TODO: More robust parsing?
+/// TODO: On Save (overwrite) we should really ask what mode do you want in a message box.
 ///
 ///
 ///

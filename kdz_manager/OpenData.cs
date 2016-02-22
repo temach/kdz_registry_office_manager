@@ -7,6 +7,7 @@ using System.IO;
 using System.Data;
 using System.Reflection;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace kdz_manager
 {
@@ -94,8 +95,8 @@ namespace kdz_manager
         /// <summary>
         /// Deserialize a CSV file into a list of typed objects
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">The type of objects to deserialize from this CSV.</typeparam>
+        /// <returns>An array of objects that were retrieved from the CSV file.</returns>
         public List<T> Deserialize<T>() where T : class, new()
         {
             List<T> result = new List<T>();
@@ -302,17 +303,84 @@ namespace kdz_manager
     {
 
         /// <summary>
-        /// Read in a single CSV file as an array of objects
+        /// Opens a dialog to get path of file to open from te user.
         /// </summary>
-        /// <typeparam name="T">The type of objects to deserialize from this CSV.</typeparam>
-        /// <param name="stream">The stream to read.</param>
-        /// <returns>An array of objects that were retrieved from the CSV file.</returns>
-        public static List<T> LoadArray<T>(StreamReader stream) where T : class, new()
+        /// <returns></returns>
+        public static string OpenFileDialogGetPath()
         {
-            using (CSVReader cr = new CSVReader(stream, separator: ',', text_escape: '"'))
+            OpenFileDialog file_dialog = new OpenFileDialog
             {
-                return cr.Deserialize<T>();
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select a csv file...",
+            };
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Open file, read and verify data, make data table and run control intialisations.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
+        public static DataTable ParseFileCSV<T>(string filepath) where T : class, new()
+        {
+            using (var input_stream = new StreamReader(filepath))
+            {
+                using (CSVReader cr = new CSVReader(input_stream, separator: ',', text_escape: '"'))
+                {
+                    // read into list then convert to data table
+                    return ToDataTable(cr.Deserialize<T>());
+                }
             }
         }
+
+        /// <summary>
+        /// Read through the properties of T and 
+        /// assemble a DataTable that would represent it.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable ToDataTable<T>(IList<T> data)
+        {
+            // make columns
+            var table = EmptyTableFromType<T>();
+            // fill table with rows
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            foreach (T item in data)
+            {
+                DataRow row = table.NewRow();
+                foreach (PropertyDescriptor prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
+                }
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        /// <summary>
+        /// Make an empty data table with layout to contain type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static DataTable EmptyTableFromType<T>()
+        {
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            var table = new DataTable();
+            foreach (PropertyDescriptor prop in properties)
+            {
+               // handle nullable types
+               table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+            return table;
+        }
+
     }
 }

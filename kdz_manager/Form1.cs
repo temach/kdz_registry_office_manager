@@ -79,22 +79,49 @@ namespace kdz_manager
         /// <summary>
         /// On file load adjust some boundaries and reset user modifiable values.
         /// </summary>
-        private void InitPagingCtrlsFromFileLoad()
+        private void CalculateFileStats()
         {
-            // Note: here the order of initialisation is very important. :)
-            this.numericUpDown_RowsPerPage.Value = Properties.Settings.Default.RowsPerPage;
-            this.numericUpDown_CurrentPage.Value = 0;
-            // show some stats
             this.toolStripStatusLabel_CurrentSortColumn.Text = "none" + "\t";
             this.toolStripStatusLabel_TotalPages.Text = TotalPages.ToString() + "\t";
             this.toolStripStatusLabel_TotalRows.Text = TotalRows.ToString() + "\t";
         }
 
-        private void InitOnOpenFileCSV()
+        private void InitOnCreateNewTable()
         {
+            // clear path so its not added to open recent
+            Recent.CurrentlyOpenFilePath = null;
+            // reset page and items per page
+            this.numericUpDown_RowsPerPage.Value = Properties.Settings.Default.RowsPerPage;
+            this.numericUpDown_CurrentPage.Value = 0;
+            // assign to datagrid
             _dataview = new DataView(_datatable);
             this.dataGridView1.DataSource = _dataview;
-            InitPagingCtrlsFromFileLoad();
+            // update status bar
+            CalculateFileStats();
+        }
+
+        private void InitOnSaveDiskFile(string filepath)
+        {
+            Recent.CurrentlyOpenFilePath = filepath;
+            // add to open recent
+            Recent.AddRecentFile(filepath);
+            RefreshOpenRecentMenu();
+        }
+
+        private void InitOnOpenDiskFile(string filepath)
+        {
+            Recent.CurrentlyOpenFilePath = filepath;
+            // add to open recent
+            Recent.AddRecentFile(filepath);
+            RefreshOpenRecentMenu();
+            // reset page and items per page
+            this.numericUpDown_RowsPerPage.Value = Properties.Settings.Default.RowsPerPage;
+            this.numericUpDown_CurrentPage.Value = 0;
+            // assign to datagrid
+            _dataview = new DataView(_datatable);
+            this.dataGridView1.DataSource = _dataview;
+            // update status bar
+            CalculateFileStats();
         }
 
         /// <summary>
@@ -104,32 +131,25 @@ namespace kdz_manager
         {
             // just replace old menu item wth a new one to refresh it
             Recent.ReplaceOpenRecentMenu(openRecentToolStripMenuItem1
-                , (filepath) 
-                => {
-                    // if (file opened ok) then push it to recent
-                    if (OpenFileCSV(filepath))
-                    {
-                        Recent.AddRecentFile(filepath);
-                        RefreshOpenRecentMenu();
-                    }
-                }
+                , filepath => OpenFileCSV(filepath)
             );
         }
 
-        private string OpenFileDialogGetPath()
+        /// <summary>
+        /// Open file, read and verify data, make data table and run control intialisations.
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
+        private void OpenFileCSV(string filepath)
         {
-            OpenFileDialog file_dialog = new OpenFileDialog
-            {
-                InitialDirectory = Properties.Settings.Default.RecentDirectory,
-                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
-                FilterIndex = 0,
-                RestoreDirectory = true,
-                Title = "Select a csv file...",
-            };
-            if (file_dialog.ShowDialog() == DialogResult.OK) {
-                return file_dialog.FileName;
+            try {
+                _datatable = OpenData.ParseFileCSV<RegistryOfficeDataRow>(filepath);
             }
-            return null;
+            catch (Exception ex) {
+                MessageBox.Show("Error: Could not open file from disk. " + ex.Message);
+                return;
+            }
+            InitOnOpenDiskFile(filepath);
         }
 
         /// <summary>
@@ -139,16 +159,12 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void openToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string filepath = OpenFileDialogGetPath();
+            string filepath = OpenData.OpenFileDialogGetPath();
             if (filepath == null) {
                 return;
             }
             Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
-            if (OpenFileCSV(filepath))
-            {
-                Recent.AddRecentFile(filepath);
-                RefreshOpenRecentMenu();
-            }
+            OpenFileCSV(filepath);
         }
 
         /// <summary>
@@ -158,79 +174,8 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _datatable = EmptyTableFromType<RegistryOfficeDataRow>();
-            Recent.CurrentlyOpenFilePath = null;
-            InitOnOpenFileCSV();
-        }
-
-        /// <summary>
-        /// Read through the properties of T and 
-        /// assemble a DataTable that would represent it.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static DataTable ToDataTable<T>(IList<T> data)
-        {
-            var table = EmptyTableFromType<T>();
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            foreach (T item in data)
-            {
-                DataRow row = table.NewRow();
-                foreach (PropertyDescriptor prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
-        }
-
-        /// <summary>
-        /// Make an empty data table with layout to contain type T.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static DataTable EmptyTableFromType<T>()
-        {
-            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
-            var table = new DataTable();
-            foreach (PropertyDescriptor prop in properties)
-            {
-               // handle nullable types
-               table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-            return table;
-        }
-
-        /// <summary>
-        /// Open file, read and verify data, make data table and run control intialisations.
-        /// </summary>
-        /// <param name="filepath"></param>
-        /// <returns></returns>
-        private bool OpenFileCSV(string filepath)
-        {
-            try
-            {
-                using (var input_stream = new StreamReader(filepath))
-                {
-                    var datarows 
-                        = OpenData.LoadArray<RegistryOfficeDataRow>(input_stream);
-                    // convert list to table
-                    Recent.CurrentlyOpenFilePath = filepath;
-                    _datatable = ToDataTable(datarows);
-                    Recent.CurrentlyOpenFilePath = filepath;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                return false;
-            }
-            // do various initialisations on file opening
-            InitOnOpenFileCSV();
-            return true;
+            _datatable = OpenData.EmptyTableFromType<RegistryOfficeDataRow>();
+            InitOnCreateNewTable();
         }
 
         /// <summary>
@@ -311,8 +256,7 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void RefreshDataGridViewPager(object sender=null, EventArgs e = null)
         {
-            if (_datatable == null)
-            {
+            if (_datatable == null) {
                 return;
             }
             IEnumerable<DataRow> toshow = _datatable.Select(_dataview.RowFilter, _dataview.Sort)
@@ -326,43 +270,21 @@ namespace kdz_manager
         /// Write the datatable from memory to file.
         /// </summary>
         /// <param name="filepath"></param>
-        /// <param name="append"></param>
+        /// <returns></returns>
         private void SaveFileCSV(string filepath, bool append)
         {
-            try
-            {
-                using (var output_stream = new StreamWriter(filepath, append))
-                {
-                    SaveData.WriteToStream(_dataview.ToTable()
-                        , output_stream
-                    );
-                    Recent.CurrentlyOpenFilePath = filepath;
+            try {
+                if (append) {
+                    SaveData.AppendFileCSV(_dataview.ToTable(), filepath);
+                }
+                else {
+                    SaveData.WriteFileCSV(_dataview.ToTable(), filepath);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: Could not save file to disk. Original error: " + ex.Message);
+            catch (Exception ex) {
+                MessageBox.Show("Error: Could not write to disk. " + ex.Message);
+                return;
             }
-        }
-
-        /// <summary>
-        /// Opens the dialog to get the path at which to save the current data.
-        /// </summary>
-        /// <returns></returns>
-        private string SaveFileDialogGetPath()
-        {
-            SaveFileDialog file_dialog = new SaveFileDialog
-            {
-                InitialDirectory = Properties.Settings.Default.RecentDirectory,
-                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
-                FilterIndex = 0,
-                RestoreDirectory = true,
-                Title = "Select where to save your csv file...",
-            };
-            if (file_dialog.ShowDialog() == DialogResult.OK) {
-                return file_dialog.FileName;
-            }
-            return null;
         }
 
         /// <summary>
@@ -372,16 +294,15 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            string filepath = SaveFileDialogGetPath();
+            string filepath = SaveData.SaveFileDialogGetPath();
             if (filepath == null) {
                 // user canceled save operation
                 return;
             }
-            Recent.CurrentlyOpenFilePath = filepath;
-            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
             SaveFileCSV(filepath, append: false);
-            Recent.AddRecentFile(filepath);
-            RefreshOpenRecentMenu();
+            InitOnSaveDiskFile(filepath);
+            // set recent directory
+            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(filepath);
         }
 
         /// <summary>
@@ -391,20 +312,14 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // if we just created this file in memory and don't know where to save it yet.
-            // run file selection dialog
-            if (Recent.CurrentlyOpenFilePath == null)
-            {
-                string filepath = SaveFileDialogGetPath();
-                if (filepath == null) {
-                    // user canceled save operation
-                    return;
-                }
-                Recent.CurrentlyOpenFilePath = filepath;
-                SaveFileCSV(Recent.CurrentlyOpenFilePath, append: true);
-                Recent.AddRecentFile(filepath);
-                RefreshOpenRecentMenu();
+            string filepath = SaveData.AppendFileDialogGetPath();
+            if (filepath == null) {
+                // user canceled save operation
+                return;
             }
+            SaveFileCSV(filepath, append: true);
+            // set recent directory
+            Properties.Settings.Default.RecentDirectory = Path.GetDirectoryName(Recent.CurrentlyOpenFilePath);
         }
 
         /// <summary>
@@ -414,20 +329,18 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            // if we just created this file in memory and don't know where to save it yet.
-            // run file selection dialog
+            // if user created this file in memory and we don't 
+            // know where to save it, run file selection dialog
             if (Recent.CurrentlyOpenFilePath == null)
             {
-                string filepath = SaveFileDialogGetPath();
-                if (filepath == null) {
+                Recent.CurrentlyOpenFilePath = SaveData.SaveFileDialogGetPath();
+                if (Recent.CurrentlyOpenFilePath == null) {
                     // user canceled save operation
                     return;
                 }
-                Recent.CurrentlyOpenFilePath = filepath;
-                SaveFileCSV(filepath, append: false);
-                Recent.AddRecentFile(filepath);
-                RefreshOpenRecentMenu();
             }
+            SaveFileCSV(Recent.CurrentlyOpenFilePath, append: false);
+            InitOnSaveDiskFile(Recent.CurrentlyOpenFilePath);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.IO;
 using System.Data;
 using System.Reflection;
 using System.ComponentModel;
-
+using System.Windows.Forms;
 
 namespace kdz_manager
 {
@@ -44,16 +44,19 @@ namespace kdz_manager
         /// Write the data table to a stream in CSV format
         /// </summary>
         /// <param name="dt">The data table to write</param>
-        /// <param name="sw">The stream where the CSV text will be written</param>
-        public void Write(DataTable dt)
+        /// <param name="write_header">Do not write the headers when appending</param>
+        public void Write(DataTable dt, bool write_header)
         {
-            // Write headers, if the caller requested we do so
-            List<string> headers = new List<string>();
-            foreach (DataColumn col in dt.Columns)
+            if (write_header)
             {
-                headers.Add(col.ColumnName);
+                // Write headers, if the caller requested we do so
+                List<string> headers = new List<string>();
+                foreach (DataColumn col in dt.Columns)
+                {
+                    headers.Add(col.ColumnName);
+                }
+                WriteLine(headers);
             }
-            WriteLine(headers);
             // Now produce the rows
             foreach (DataRow dr in dt.Rows)
             {
@@ -119,17 +122,86 @@ namespace kdz_manager
 
     class SaveData
     {
+
         /// <summary>
         /// Write the data table to a stream in CSV format
         /// </summary>
         /// <param name="dt">The data table to write</param>
-        /// <param name="sw">The stream where the CSV text will be written</param>
-        public static void WriteToStream(DataTable dt, StreamWriter sw)
+        /// <param name="filepath">The file path where the CSV text will be written</param>
+        /// <param name="write_headers">Should we write the header line.</param>
+        private static void DumpToDisk(DataTable dt, string filepath, bool append, bool write_headers) 
         {
-            using (CSVWriter cw = new CSVWriter(sw, separator: ',', text_escape: '"'))
+            using (var output_stream = new StreamWriter(filepath, append))
             {
-                cw.Write(dt);
+                using (CSVWriter cw = new CSVWriter(output_stream, separator: ',', text_escape: '"'))
+                {
+                    cw.Write(dt, write_header: write_headers);
+                }
             }
         }
+
+        /// <summary>
+        /// Write the data table to a stream in CSV format
+        /// </summary>
+        /// <param name="dt">The data table to write</param>
+        /// <param name="filepath">The file path where the CSV text will be written</param>
+        public static void WriteFileCSV(DataTable dt, string filepath) 
+        {
+            DumpToDisk(dt, filepath, append:false, write_headers:true);
+        }
+
+        /// <summary>
+        /// Write the data table to a stream in CSV format
+        /// Append to existing file.
+        /// </summary>
+        /// <param name="dt">The data table to write</param>
+        /// <param name="filepath">The file path where the CSV text will be written</param>
+        public static void AppendFileCSV(DataTable dt, string filepath) 
+        {
+            DumpToDisk(dt, filepath, append:true, write_headers:false);
+        }
+
+        /// <summary>
+        /// Opens the dialog to get the path at which to save the current data.
+        /// </summary>
+        /// <returns></returns>
+        public static string SaveFileDialogGetPath()
+        {
+            SaveFileDialog file_dialog = new SaveFileDialog
+            {
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select where to save your csv file...",
+            };
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Opens the dialog to get the path at which to save the current data.
+        /// Does not warn the user about overwriting a file.
+        /// </summary>
+        /// <returns></returns>
+        public static string AppendFileDialogGetPath()
+        {
+            SaveFileDialog file_dialog = new SaveFileDialog
+            {
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select where to save your csv file...",
+                OverwritePrompt = false,
+            };
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
+        }
+
     }
 }
