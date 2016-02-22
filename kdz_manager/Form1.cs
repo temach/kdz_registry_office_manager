@@ -33,6 +33,7 @@ namespace kdz_manager
             RefreshOpenRecentMenu();
         }
 
+
         /// <summary>
         /// On file load adjust some boundaries and reset user modifiable values.
         /// </summary>
@@ -278,5 +279,14 @@ namespace kdz_manager
             InitOnSaveDiskFile(Recent.CurrentlyOpenFilePath);
         }
 
+        /// <summary>
+        /// Save user settings on exit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Save();
+        }
     }
 }

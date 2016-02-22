@@ -67,7 +67,6 @@
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -101,6 +100,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_CurrentPage = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_RowsPerPage = new System.Windows.Forms.NumericUpDown();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -109,6 +112,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CurrentPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_RowsPerPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -137,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 21);
+            this.label2.Location = new System.Drawing.Point(45, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 5;
@@ -223,6 +227,7 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem1.Text = "Save &As (new file)";
@@ -231,6 +236,7 @@
             // 
             // saveAsToolStripMenuItem1
             // 
+            this.saveAsToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem1.Image")));
             this.saveAsToolStripMenuItem1.Name = "saveAsToolStripMenuItem1";
             this.saveAsToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.saveAsToolStripMenuItem1.Text = "Save &To (append)";
@@ -265,6 +271,7 @@
             // 
             // undoToolStripMenuItem
             // 
+            this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
@@ -272,6 +279,7 @@
             // 
             // redoToolStripMenuItem
             // 
+            this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
@@ -323,18 +331,21 @@
             // 
             // fullscreenToolStripMenuItem
             // 
+            this.fullscreenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fullscreenToolStripMenuItem.Image")));
             this.fullscreenToolStripMenuItem.Name = "fullscreenToolStripMenuItem";
             this.fullscreenToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.fullscreenToolStripMenuItem.Text = "Toggle &Fullscreen";
             // 
             // fontLargerToolStripMenuItem
             // 
+            this.fontLargerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fontLargerToolStripMenuItem.Image")));
             this.fontLargerToolStripMenuItem.Name = "fontLargerToolStripMenuItem";
             this.fontLargerToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.fontLargerToolStripMenuItem.Text = "Font &Bigger";
             // 
             // fontSmallerToolStripMenuItem
             // 
+            this.fontSmallerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fontSmallerToolStripMenuItem.Image")));
             this.fontSmallerToolStripMenuItem.Name = "fontSmallerToolStripMenuItem";
             this.fontSmallerToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.fontSmallerToolStripMenuItem.Text = "Font &Smaller";
@@ -376,8 +387,9 @@
             // 
             // aboutToolStripMenuItem1
             // 
+            this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
             // 
             // toolStrip1
@@ -386,14 +398,16 @@
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
-            this.toolStripButton3,
             this.toolStripSeparator,
             this.toolStripButton5,
             this.toolStripButton4,
             this.toolStripSeparator3,
             this.toolStripButton1,
             this.toolStripButton2,
-            this.toolStripButton6});
+            this.toolStripButton6,
+            this.toolStripSeparator2,
+            this.toolStripButton3,
+            this.toolStripButton7});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(951, 25);
@@ -427,15 +441,6 @@
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.saveToolStripButton.Text = "&Save";
             // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
@@ -448,7 +453,7 @@
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.Text = "q";
             // 
             // toolStripButton4
             // 
@@ -493,7 +498,7 @@
             // 
             // button_SubmitFilter
             // 
-            this.button_SubmitFilter.Location = new System.Drawing.Point(434, 19);
+            this.button_SubmitFilter.Location = new System.Drawing.Point(468, 22);
             this.button_SubmitFilter.Name = "button_SubmitFilter";
             this.button_SubmitFilter.Size = new System.Drawing.Size(120, 23);
             this.button_SubmitFilter.TabIndex = 9;
@@ -503,7 +508,7 @@
             // 
             // textBox_FilterAdmAreaCode
             // 
-            this.textBox_FilterAdmAreaCode.Location = new System.Drawing.Point(110, 18);
+            this.textBox_FilterAdmAreaCode.Location = new System.Drawing.Point(144, 21);
             this.textBox_FilterAdmAreaCode.Name = "textBox_FilterAdmAreaCode";
             this.textBox_FilterAdmAreaCode.Size = new System.Drawing.Size(100, 20);
             this.textBox_FilterAdmAreaCode.TabIndex = 10;
@@ -511,7 +516,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(225, 21);
+            this.label3.Location = new System.Drawing.Point(259, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 11;
@@ -519,7 +524,7 @@
             // 
             // textBox_FilterAdmAreaName
             // 
-            this.textBox_FilterAdmAreaName.Location = new System.Drawing.Point(327, 18);
+            this.textBox_FilterAdmAreaName.Location = new System.Drawing.Point(361, 21);
             this.textBox_FilterAdmAreaName.Name = "textBox_FilterAdmAreaName";
             this.textBox_FilterAdmAreaName.Size = new System.Drawing.Size(100, 20);
             this.textBox_FilterAdmAreaName.TabIndex = 12;
@@ -536,7 +541,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 48);
+            this.label5.Location = new System.Drawing.Point(57, 51);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 16;
@@ -544,7 +549,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 45);
+            this.textBox3.Location = new System.Drawing.Point(144, 48);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(317, 20);
             this.textBox3.TabIndex = 17;
@@ -648,16 +653,17 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox_FilterAdmAreaName);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(617, 71);
+            this.groupBox1.Size = new System.Drawing.Size(650, 71);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter controls";
             // 
             // button_ClearFilters
             // 
-            this.button_ClearFilters.Location = new System.Drawing.Point(560, 21);
+            this.button_ClearFilters.Location = new System.Drawing.Point(594, 20);
             this.button_ClearFilters.Name = "button_ClearFilters";
             this.button_ClearFilters.Size = new System.Drawing.Size(50, 44);
             this.button_ClearFilters.TabIndex = 19;
@@ -667,7 +673,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(434, 45);
+            this.button1.Location = new System.Drawing.Point(468, 48);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 23);
             this.button1.TabIndex = 18;
@@ -680,7 +686,7 @@
             this.groupBox2.Controls.Add(this.numericUpDown_RowsPerPage);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label_CurrentPage);
-            this.groupBox2.Location = new System.Drawing.Point(648, 52);
+            this.groupBox2.Location = new System.Drawing.Point(668, 53);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(214, 72);
             this.groupBox2.TabIndex = 22;
@@ -705,6 +711,39 @@
             this.numericUpDown_RowsPerPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.numericUpDown_RowsPerPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "toolStripButton7";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 36);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -719,6 +758,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "CSV Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -732,6 +772,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_CurrentPage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_RowsPerPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -772,7 +813,6 @@
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -811,6 +851,10 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentFilteredRows;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4vertbar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
