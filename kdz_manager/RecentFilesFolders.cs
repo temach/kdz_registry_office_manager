@@ -17,7 +17,21 @@ namespace kdz_manager
 {
     class RecentFilesFolders
     {
-        public string CurrentlyOpenFilePath;
+        private string _currently_open_filepath;
+        public string CurrentlyOpenFilePath
+        {
+            get { return _currently_open_filepath; }
+            set {
+                _currently_open_filepath = value;
+                CurrentlyOpenFilePathChanged(_currently_open_filepath);
+            }
+        }
+
+        /// <summary>
+        /// Event to fire on current filepath change.
+        /// </summary>
+        public event Action<string> CurrentlyOpenFilePathChanged;
+
 
         public RecentFilesFolders()
         {

@@ -26,6 +26,10 @@ namespace kdz_manager
             InitializeComponent();
 
             View = new ViewData(this.numericUpDown_CurrentPage, this.numericUpDown_RowsPerPage);
+
+            Recent.CurrentlyOpenFilePathChanged
+                += (new_filepath) => this.Text = "CSV Manager current file: " + new_filepath;
+
             RefreshOpenRecentMenu();
         }
 
