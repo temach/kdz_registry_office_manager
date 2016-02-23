@@ -59,24 +59,5 @@ namespace kdz_manager.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &quot;REVIEW_DATE&quot;,&quot;AUTHOR&quot;,&quot;ISBN&quot;,&quot;DISCOUNTED_PRICE&quot;
-        ///&quot;1985/01/21&quot;,&quot;Douglas Adams&quot;,0345391802,5.95
-        ///&quot;1990/01/12&quot;,&quot;Douglas Hofstadter&quot;,0465026567,9.95
-        ///&quot;1998/07/15&quot;,&quot;Timothy &quot;&quot;The Parser&quot;&quot; Campbell&quot;,0968411304,18.99
-        ///&quot;1999/12/03&quot;,&quot;Richard Friedman&quot;,0060630353,5.95
-        ///&quot;2001/09/19&quot;,&quot;Karen Armstrong&quot;,0345384563,9.95
-        ///&quot;2002/06/23&quot;,&quot;David Jones&quot;,0198504691,9.95
-        ///&quot;2002/06/23&quot;,&quot;Julian Jaynes&quot;,0618057072,12.50
-        ///&quot;2003/09/30&quot;,&quot;Scott Adams&quot;,0740721909,4.95
-        ///&quot;2004/10/04&quot;,&quot;Benjamin Radcliff&quot;,0804818088,4.95
-        ///&quot;2004/10/04&quot;,&quot;Rand [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string sample {
-            get {
-                return ResourceManager.GetString("sample", resourceCulture);
-            }
-        }
     }
 }
