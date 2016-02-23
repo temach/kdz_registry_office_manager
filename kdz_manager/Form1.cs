@@ -26,6 +26,8 @@ namespace kdz_manager
         {
             InitializeComponent();
 
+            this.comboBox_FilterOperation.SelectedIndex = 0;
+
             View = new ViewData(this.numericUpDown_CurrentPage, this.numericUpDown_RowsPerPage);
 
             Recent.CurrentlyOpenFilePathChanged
@@ -169,18 +171,12 @@ namespace kdz_manager
         private void button_SubmitFilter_Click(object sender, EventArgs e)
         {
             View.DropFilters();
+            string combine = this.comboBox_FilterOperation.SelectedItem.ToString();
             string area_name = this.textBox_FilterAdmAreaName.Text;
-            bool filter_name = area_name.Count() > 0;
-            if (filter_name)
-            {
-                View.AddFilter(View.MakeFilter("AUTHOR", area_name));
-            }
             string area_code = this.textBox_FilterAdmAreaCode.Text;
-            bool filter_code = area_code.Count() > 0;
-            if (filter_code)
-            {
-                View.AddFilter(View.MakeFilter("ISBN", area_code));
-            }
+            string filter = View.MakeFilter("AUTHOR", area_name) 
+                + combine + View.MakeFilter("ISBN", area_code);
+            View.AddFilter(filter);
             this.dataGridView1.DataSource = View.ViewOfData;
             CalculateFileStats();
         }
@@ -338,5 +334,21 @@ namespace kdz_manager
             this.dataGridView1.Invalidate();
         }
 
+        private void button_ApplyAdvancedFilter_Click(object sender, EventArgs e)
+        {
+            if (View.ViewOfData == null) {
+                return;
+            }
+            try
+            {
+                View.ViewOfData.RowFilter = this.comboBox_AdvancedFilter.Text;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(@"Invalid advanced filter (see 
+http://www.csharp-examples.net/dataview-rowfilter/ for 
+details and filter dropdown for exmaples): \n" + ex.Message);
+            }
+        }
     }
 }

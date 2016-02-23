@@ -98,12 +98,13 @@
             this.toolStripStatusLabel_CurrentSortColumn = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_ClearFilters = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_ApplyAdvancedFilter = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_CurrentPage = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_RowsPerPage = new System.Windows.Forms.NumericUpDown();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox_FilterOperation = new System.Windows.Forms.ComboBox();
+            this.comboBox_AdvancedFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -126,9 +127,9 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 130);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 139);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(927, 318);
+            this.dataGridView1.Size = new System.Drawing.Size(927, 309);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_ColumnHeaderMouseClick);
             // 
@@ -144,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 24);
+            this.label2.Location = new System.Drawing.Point(151, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 5;
@@ -533,21 +534,21 @@
             this.button_SubmitFilter.Name = "button_SubmitFilter";
             this.button_SubmitFilter.Size = new System.Drawing.Size(120, 23);
             this.button_SubmitFilter.TabIndex = 9;
-            this.button_SubmitFilter.Text = "Submit Basic Filter";
+            this.button_SubmitFilter.Text = "Apply Basic Filter";
             this.button_SubmitFilter.UseVisualStyleBackColor = true;
             this.button_SubmitFilter.Click += new System.EventHandler(this.button_SubmitFilter_Click);
             // 
             // textBox_FilterAdmAreaCode
             // 
-            this.textBox_FilterAdmAreaCode.Location = new System.Drawing.Point(144, 21);
+            this.textBox_FilterAdmAreaCode.Location = new System.Drawing.Point(144, 25);
             this.textBox_FilterAdmAreaCode.Name = "textBox_FilterAdmAreaCode";
-            this.textBox_FilterAdmAreaCode.Size = new System.Drawing.Size(100, 20);
+            this.textBox_FilterAdmAreaCode.Size = new System.Drawing.Size(113, 20);
             this.textBox_FilterAdmAreaCode.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(259, 24);
+            this.label3.Location = new System.Drawing.Point(365, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 11;
@@ -555,9 +556,9 @@
             // 
             // textBox_FilterAdmAreaName
             // 
-            this.textBox_FilterAdmAreaName.Location = new System.Drawing.Point(361, 21);
+            this.textBox_FilterAdmAreaName.Location = new System.Drawing.Point(351, 25);
             this.textBox_FilterAdmAreaName.Name = "textBox_FilterAdmAreaName";
-            this.textBox_FilterAdmAreaName.Size = new System.Drawing.Size(100, 20);
+            this.textBox_FilterAdmAreaName.Size = new System.Drawing.Size(110, 20);
             this.textBox_FilterAdmAreaName.TabIndex = 12;
             // 
             // label_CurrentPage
@@ -668,19 +669,20 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_AdvancedFilter);
+            this.groupBox1.Controls.Add(this.comboBox_FilterOperation);
             this.groupBox1.Controls.Add(this.button_ClearFilters);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button_SubmitFilter);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.button_ApplyAdvancedFilter);
             this.groupBox1.Controls.Add(this.textBox_FilterAdmAreaCode);
-            this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox_FilterAdmAreaName);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 53);
+            this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(650, 71);
+            this.groupBox1.Size = new System.Drawing.Size(650, 81);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter controls";
@@ -695,14 +697,15 @@
             this.button_ClearFilters.UseVisualStyleBackColor = true;
             this.button_ClearFilters.Click += new System.EventHandler(this.button_ClearFilters_Click);
             // 
-            // button1
+            // button_ApplyAdvancedFilter
             // 
-            this.button1.Location = new System.Drawing.Point(468, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Apply Advanced Filter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_ApplyAdvancedFilter.Location = new System.Drawing.Point(468, 48);
+            this.button_ApplyAdvancedFilter.Name = "button_ApplyAdvancedFilter";
+            this.button_ApplyAdvancedFilter.Size = new System.Drawing.Size(120, 23);
+            this.button_ApplyAdvancedFilter.TabIndex = 18;
+            this.button_ApplyAdvancedFilter.Text = "Apply Advanced Filter";
+            this.button_ApplyAdvancedFilter.UseVisualStyleBackColor = true;
+            this.button_ApplyAdvancedFilter.Click += new System.EventHandler(this.button_ApplyAdvancedFilter_Click);
             // 
             // pictureBox1
             // 
@@ -745,12 +748,25 @@
             this.numericUpDown_RowsPerPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.numericUpDown_RowsPerPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
             // 
-            // textBox3
+            // comboBox_FilterOperation
             // 
-            this.textBox3.Location = new System.Drawing.Point(144, 48);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(317, 20);
-            this.textBox3.TabIndex = 17;
+            this.comboBox_FilterOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_FilterOperation.FormattingEnabled = true;
+            this.comboBox_FilterOperation.Items.AddRange(new object[] {
+            " AND ",
+            " OR "});
+            this.comboBox_FilterOperation.Location = new System.Drawing.Point(263, 25);
+            this.comboBox_FilterOperation.Name = "comboBox_FilterOperation";
+            this.comboBox_FilterOperation.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_FilterOperation.TabIndex = 21;
+            // 
+            // comboBox_AdvancedFilter
+            // 
+            this.comboBox_AdvancedFilter.FormattingEnabled = true;
+            this.comboBox_AdvancedFilter.Location = new System.Drawing.Point(145, 52);
+            this.comboBox_AdvancedFilter.Name = "comboBox_AdvancedFilter";
+            this.comboBox_AdvancedFilter.Size = new System.Drawing.Size(316, 21);
+            this.comboBox_AdvancedFilter.TabIndex = 22;
             // 
             // MainForm
             // 
@@ -840,7 +856,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_CurrentSortColumn;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_TotalPages;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_ApplyAdvancedFilter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.NumericUpDown numericUpDown_RowsPerPage;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -862,7 +878,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox_FilterOperation;
+        private System.Windows.Forms.ComboBox comboBox_AdvancedFilter;
     }
 }
 

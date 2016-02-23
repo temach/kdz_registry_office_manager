@@ -131,16 +131,10 @@ namespace kdz_manager
         /// Apply user submitted query to data table rows.
         /// </summary>
         /// <param name="filter"></param>
+        /// <param name="combining_operation">"how to combine the filter with previous: AND/OR"</param>
         public void AddFilter(string filter)
         {
-            if (ViewOfData.RowFilter.Length > 2)
-            {
-                ViewOfData.RowFilter += " AND " + filter;
-            }
-            else
-            {
-                ViewOfData.RowFilter = filter;
-            }
+            ViewOfData.RowFilter = filter;
             RePageViewOfData();
         }
 
@@ -162,10 +156,14 @@ namespace kdz_manager
             if (ViewOfData == null) {
                 return;
             }
+            string filter = ViewOfData.RowFilter;
+            string sort = ViewOfData.Sort;
             IEnumerable<DataRow> toshow = TableOfData.Select(ViewOfData.RowFilter, ViewOfData.Sort)
                 .Skip(CurrentPage * RowsPerPage)
                 .Take(RowsPerPage);
             ViewOfData = new DataView(toshow.Count() > 0 ? toshow.CopyToDataTable() : TableOfData.Clone());
+            ViewOfData.RowFilter = filter;
+            ViewOfData.Sort = sort;
         }
 
     }
