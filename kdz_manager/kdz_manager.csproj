@@ -65,6 +65,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IDeepCopy.cs" />
+    <Compile Include="IFromMapDataRow.cs" />
     <Compile Include="MapDataRow.cs" />
     <Compile Include="OpenData.cs" />
     <Compile Include="Program.cs" />

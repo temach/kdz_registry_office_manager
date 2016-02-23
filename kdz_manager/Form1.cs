@@ -116,7 +116,9 @@ namespace kdz_manager
         {
             try {
                 Open.ParseAsMapDataCSV(filepath);
+                Open.ImportProcessing();
                 View.TableOfData = OpenData.ToDataTable(Open.Raw);
+                // Open.AddQtyOrRegionsPerAreaColumn(View.TableOfData);
             }
             catch (Exception ex) {
                 MessageBox.Show("Error: Could not open file from disk. " + ex.Message);

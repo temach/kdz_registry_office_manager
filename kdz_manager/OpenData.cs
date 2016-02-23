@@ -315,27 +315,12 @@ namespace kdz_manager
         /// </summary>
         public List<MapDataRow> Raw;
 
-        public OpenData() { }
-
         /// <summary>
-        /// Opens a dialog to get path of file to open from te user.
+        /// Connect multiple inner to a few outer.
         /// </summary>
-        /// <returns></returns>
-        public static string OpenFileDialogGetPath()
-        {
-            OpenFileDialog file_dialog = new OpenFileDialog
-            {
-                InitialDirectory = Properties.Settings.Default.RecentDirectory,
-                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
-                FilterIndex = 0,
-                RestoreDirectory = true,
-                Title = "Select a csv file...",
-            };
-            if (file_dialog.ShowDialog() == DialogResult.OK) {
-                return file_dialog.FileName;
-            }
-            return null;
-        }
+        private Dictionary<string, List<RegistryOfficeDataRow>> Author2books;
+
+        public OpenData() { }
 
         /// <summary>
         /// Open file, read and verify data, make data table and run control intialisations.
@@ -354,7 +339,7 @@ namespace kdz_manager
             }
         }
 
-        public IEnumerable<string> GetUniqAdmCodes()
+        private IEnumerable<string> GetUniqAdmCodes()
         {
             // this will be AdmCode
             return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
@@ -372,26 +357,34 @@ namespace kdz_manager
         /// </summary>
         public void ImportProcessing()
         {
-            var author2books = new Dictionary<string,List<RegistryOfficeDataRow>>();
+            Inner = new List<RegistryOfficeDataRow>();
+            Outer = new List<AdminAreaDataRow>();
+            Author2books = new Dictionary<string,List<RegistryOfficeDataRow>>();
             foreach (var c in GetUniqAdmCodes())
             {
-                author2books[c] = new List<RegistryOfficeDataRow>();
+                Author2books[c] = new List<RegistryOfficeDataRow>();
             }
             foreach (IGrouping<string,MapDataRow> grp in GetRegistryOfficeByArea())
             {
                 foreach (MapDataRow raw in  grp)
                 {
                     var book = new RegistryOfficeDataRow(raw);
-                    author2books[grp.Key].Add(book);
+                    Author2books[grp.Key].Add(book);
                     // we must build the inner list here, then "book" refers to the same object
                     Inner.Add(book);
                 }
             }
             // all of the dictionary tricks were necessary so that we can now this:
-            Outer = Raw.Select(raw => new AdminAreaDataRow(raw)).ToList();
+            Outer = GetRegistryOfficeByArea().Select(grp => grp.First())
+                .Select(raw => new AdminAreaDataRow(raw)).ToList();
             foreach (AdminAreaDataRow area in Outer)
             {
-                area.BOOKS = author2books[area.AUTHOR];
+                area.BOOKS = Author2books[area.AUTHOR];
+                area.QTY_DISTINCT_PRICES = area.GetQtyOfDistinctBookPrices();
+            }
+            foreach (var raw in Raw)
+            {
+                raw.QTY_DISCOUNT_PRICE = Outer.Find(area => area.AUTHOR == raw.AUTHOR).QTY_DISTINCT_PRICES;
             }
         }
 
@@ -436,6 +429,48 @@ namespace kdz_manager
                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
             }
             return table;
+        }
+
+        /// <summary>
+        /// Calculate the value to sort by quantity of regions in an area
+        /// </summary>
+        /// <param name="dt"></param>
+        public void AddQtyOrRegionsPerAreaColumn(DataTable dt)
+        {
+            // calculate cached
+            var author2qty_distinct_price = new Dictionary<string, int>();
+            foreach (string author in Author2books.Keys)
+            {
+                author2qty_distinct_price[author]
+                    = Author2books[author]
+                    .GroupBy(o => o.DISCOUNTED_PRICE).Count();
+            }
+            // get values
+            var qtycol = dt.Columns.Add("RegionsInArea", typeof(int));
+            foreach (DataRow row in dt.AsEnumerable())
+            {
+                row[qtycol] = author2qty_distinct_price[(string)row["AUTHOR"]];
+            }
+        }
+
+        /// <summary>
+        /// Opens a dialog to get path of file to open from te user.
+        /// </summary>
+        /// <returns></returns>
+        public static string OpenFileDialogGetPath()
+        {
+            OpenFileDialog file_dialog = new OpenFileDialog
+            {
+                InitialDirectory = Properties.Settings.Default.RecentDirectory,
+                Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 0,
+                RestoreDirectory = true,
+                Title = "Select a csv file...",
+            };
+            if (file_dialog.ShowDialog() == DialogResult.OK) {
+                return file_dialog.FileName;
+            }
+            return null;
         }
 
     }

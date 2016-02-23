@@ -16,6 +16,9 @@ namespace kdz_manager
         public string ISBN { get; set; }
         public decimal DISCOUNTED_PRICE { get; set; }
 
+        // Used in DataTable construction
+        public int QTY_DISCOUNT_PRICE { get; set; }
+
         /// <summary>
         /// Parameterless constructor necessary for use in CSV parser.
         /// </summary>
