@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminAreaDataRow.cs" />
     <Compile Include="EditorTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +65,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IDeepCopy.cs" />
+    <Compile Include="MapDataRow.cs" />
     <Compile Include="OpenData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

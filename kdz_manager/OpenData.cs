@@ -303,6 +303,21 @@ namespace kdz_manager
     {
 
         /// <summary>
+        /// Simple type.
+        /// </summary>
+        public List<RegistryOfficeDataRow> Inner;
+        /// <summary>
+        /// Advanced type that aggregates simple types.
+        /// </summary>
+        public List<AdminAreaDataRow> Outer;
+        /// <summary>
+        /// Result of parsing CSV file
+        /// </summary>
+        public List<MapDataRow> Raw;
+
+        public OpenData() { }
+
+        /// <summary>
         /// Opens a dialog to get path of file to open from te user.
         /// </summary>
         /// <returns></returns>
@@ -327,16 +342,61 @@ namespace kdz_manager
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
-        public static DataTable ParseFileCSV<T>(string filepath) where T : class, new()
+        public void ParseAsMapDataCSV(string filepath)
         {
             using (var input_stream = new StreamReader(filepath))
             {
                 using (CSVReader cr = new CSVReader(input_stream, separator: ',', text_escape: '"'))
                 {
                     // read into list then convert to data table
-                    return ToDataTable(cr.Deserialize<T>());
+                    Raw = cr.Deserialize<MapDataRow>();
                 }
             }
+        }
+
+
+        public void FillInner()
+        {
+            Inner = Raw.Select(raw => new RegistryOfficeDataRow(raw)).ToList();
+        }
+
+        public IEnumerable<string> GetUniqAdmCode()
+        {
+            // this will be AdmCode
+            return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
+        }
+
+        public IEnumerable<string> Get()
+        {
+            // this will be AdmCode
+            return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
+        }
+
+        /// <summary>
+        /// Function to fill Inner and Outer Lists based on data in Raw list.
+        /// </summary>
+        public void ImportProcessing()
+        {
+
+
+
+            var extended_inner = Raw.Select(r
+                => new { key = r.AUTHOR, value = new RegistryOfficeDataRow(r) }).ToList();
+            // each author's name is tied to a list.
+            // put books into each list based on author name
+            var dict_author2books = new Dictionary<string, List<RegistryOfficeDataRow>>();
+            foreach (var anon in extended_inner)
+            {
+                dict_author2books[anon.key].Add(anon.value);
+            }
+            Outer = Raw.Select(raw => new AdminAreaDataRow(raw)).ToList();
+            // assign books from dictionary
+            foreach (AdminAreaDataRow area in Outer)
+            {
+                area.BOOKS = dict_author2books[area.AUTHOR];
+            }
+            // Finally the outer group is compete now make the inner group
+            Inner = extended_inner.Select(anon => anon.value).ToList();
         }
 
         /// <summary>

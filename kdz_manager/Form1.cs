@@ -19,8 +19,9 @@ namespace kdz_manager
     {
 
         RecentFilesFolders Recent = new RecentFilesFolders();
-        EditRowForm Editor = new EditRowForm(typeof(RegistryOfficeDataRow));
+        EditRowForm Editor = new EditRowForm(typeof(MapDataRow));
         ViewData View;
+        OpenData Open = new OpenData();
 
         public MainForm()
         {
@@ -114,7 +115,8 @@ namespace kdz_manager
         private void OpenFileCSV(string filepath)
         {
             try {
-                View.TableOfData = OpenData.ParseFileCSV<RegistryOfficeDataRow>(filepath);
+                Open.ParseAsMapDataCSV(filepath);
+                View.TableOfData = OpenData.ToDataTable(Open.Raw);
             }
             catch (Exception ex) {
                 MessageBox.Show("Error: Could not open file from disk. " + ex.Message);
@@ -145,7 +147,7 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.TableOfData = OpenData.EmptyTableFromType<RegistryOfficeDataRow>();
+            View.TableOfData = OpenData.EmptyTableFromType<MapDataRow>();
             InitOnCreateNewTable();
         }
 
