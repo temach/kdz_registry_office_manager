@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditorTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditorTextBox.Designer.cs">
+      <DependentUpon>EditorTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRowForm.Designer.cs">
+      <DependentUpon>EditRowForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     <Compile Include="SaveData.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewData.cs" />
+    <EmbeddedResource Include="EditorTextBox.resx">
+      <DependentUpon>EditorTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRowForm.resx">
+      <DependentUpon>EditRowForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

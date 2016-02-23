@@ -19,6 +19,7 @@ namespace kdz_manager
     {
 
         RecentFilesFolders Recent = new RecentFilesFolders();
+        EditRowForm Editor = new EditRowForm(typeof(RegistryOfficeDataRow));
         ViewData View;
 
         public MainForm()
@@ -288,5 +289,54 @@ namespace kdz_manager
         {
             Properties.Settings.Default.Save();
         }
+
+        /// <summary>
+        /// Launches the form to edit a row.
+        /// </summary>
+        /// <param name="source"></param>
+        private void EditRow(DataRowView source)
+        {
+            source.BeginEdit();
+            Editor.ReBindControlsToDataRow(source);
+            if (Editor.ShowDialog() == DialogResult.OK)
+            {
+                source.EndEdit();
+            }
+            else
+            {
+                source.CancelEdit();
+            }
+        }
+
+        /// <summary>
+        /// Add new record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (View.ViewOfData == null) {
+                return;
+            }
+            DataRowView source = View.ViewOfData.AddNew();
+            EditRow(source);
+            this.dataGridView1.Invalidate();
+        }
+
+        /// <summary>
+        /// Edit existing record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (View.ViewOfData == null) {
+                return;
+            }
+            DataRowView source = (DataRowView)this.dataGridView1.CurrentRow.DataBoundItem;
+            EditRow(source);
+            this.dataGridView1.Invalidate();
+        }
+
     }
 }
