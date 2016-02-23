@@ -45,9 +45,6 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.newRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +65,6 @@
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
@@ -97,14 +91,14 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_CurrentSortColumn = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_AdvancedFilter = new System.Windows.Forms.ComboBox();
+            this.comboBox_FilterOperation = new System.Windows.Forms.ComboBox();
             this.button_ClearFilters = new System.Windows.Forms.Button();
             this.button_ApplyAdvancedFilter = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.numericUpDown_CurrentPage = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_RowsPerPage = new System.Windows.Forms.NumericUpDown();
-            this.comboBox_FilterOperation = new System.Windows.Forms.ComboBox();
-            this.comboBox_AdvancedFilter = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -261,9 +255,6 @@
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
-            this.toolStripSeparator6,
             this.newRecordToolStripMenuItem,
             this.editRecordToolStripMenuItem,
             this.deleteSelectedToolStripMenuItem,
@@ -272,27 +263,6 @@
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             this.editToolStripMenuItem1.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem1.Text = "&Edit";
-            // 
-            // undoToolStripMenuItem
-            // 
-            this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripMenuItem.Image")));
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.undoToolStripMenuItem.Text = "&Undo";
-            // 
-            // redoToolStripMenuItem
-            // 
-            this.redoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripMenuItem.Image")));
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.redoToolStripMenuItem.Text = "&Redo";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(196, 6);
             // 
             // newRecordToolStripMenuItem
             // 
@@ -367,18 +337,18 @@
             // verifyCSVToolStripMenuItem1
             // 
             this.verifyCSVToolStripMenuItem1.Name = "verifyCSVToolStripMenuItem1";
-            this.verifyCSVToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.verifyCSVToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.verifyCSVToolStripMenuItem1.Text = "&Verify CSV";
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(125, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customizeToolStripMenuItem.Text = "&Options...";
             // 
             // helpToolStripMenuItem1
@@ -393,7 +363,7 @@
             // 
             this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
             // 
             // toolStrip1
@@ -403,9 +373,6 @@
             this.openToolStripButton,
             this.saveToolStripButton,
             this.toolStripSeparator,
-            this.toolStripButton5,
-            this.toolStripButton4,
-            this.toolStripSeparator3,
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton6,
@@ -449,29 +416,6 @@
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "q";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // toolStripButton1
             // 
@@ -687,6 +631,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter controls";
             // 
+            // comboBox_AdvancedFilter
+            // 
+            this.comboBox_AdvancedFilter.FormattingEnabled = true;
+            this.comboBox_AdvancedFilter.Location = new System.Drawing.Point(145, 52);
+            this.comboBox_AdvancedFilter.Name = "comboBox_AdvancedFilter";
+            this.comboBox_AdvancedFilter.Size = new System.Drawing.Size(316, 21);
+            this.comboBox_AdvancedFilter.TabIndex = 22;
+            // 
+            // comboBox_FilterOperation
+            // 
+            this.comboBox_FilterOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_FilterOperation.FormattingEnabled = true;
+            this.comboBox_FilterOperation.Items.AddRange(new object[] {
+            " AND ",
+            " OR "});
+            this.comboBox_FilterOperation.Location = new System.Drawing.Point(263, 25);
+            this.comboBox_FilterOperation.Name = "comboBox_FilterOperation";
+            this.comboBox_FilterOperation.Size = new System.Drawing.Size(82, 21);
+            this.comboBox_FilterOperation.TabIndex = 21;
+            // 
             // button_ClearFilters
             // 
             this.button_ClearFilters.Location = new System.Drawing.Point(594, 20);
@@ -748,26 +712,6 @@
             this.numericUpDown_RowsPerPage.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.numericUpDown_RowsPerPage.ValueChanged += new System.EventHandler(this.RefreshDataGridViewPager);
             // 
-            // comboBox_FilterOperation
-            // 
-            this.comboBox_FilterOperation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_FilterOperation.FormattingEnabled = true;
-            this.comboBox_FilterOperation.Items.AddRange(new object[] {
-            " AND ",
-            " OR "});
-            this.comboBox_FilterOperation.Location = new System.Drawing.Point(263, 25);
-            this.comboBox_FilterOperation.Name = "comboBox_FilterOperation";
-            this.comboBox_FilterOperation.Size = new System.Drawing.Size(82, 21);
-            this.comboBox_FilterOperation.TabIndex = 21;
-            // 
-            // comboBox_AdvancedFilter
-            // 
-            this.comboBox_AdvancedFilter.FormattingEnabled = true;
-            this.comboBox_AdvancedFilter.Location = new System.Drawing.Point(145, 52);
-            this.comboBox_AdvancedFilter.Name = "comboBox_AdvancedFilter";
-            this.comboBox_AdvancedFilter.Size = new System.Drawing.Size(316, 21);
-            this.comboBox_AdvancedFilter.TabIndex = 22;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -818,9 +762,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem newRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteSelectedToolStripMenuItem;
@@ -838,9 +779,6 @@
         private System.Windows.Forms.ToolStripButton openToolStripButton;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem fontLargerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontSmallerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reopenUsingEncodingToolStripMenuItem;
