@@ -354,22 +354,17 @@ namespace kdz_manager
             }
         }
 
-
-        public void FillInner()
-        {
-            Inner = Raw.Select(raw => new RegistryOfficeDataRow(raw)).ToList();
-        }
-
-        public IEnumerable<string> GetUniqAdmCode()
+        public IEnumerable<string> GetUniqAdmCodes()
         {
             // this will be AdmCode
             return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
         }
 
-        public IEnumerable<string> Get()
+        private IEnumerable<IGrouping<string,MapDataRow>> GetRegistryOfficeByArea()
         {
-            // this will be AdmCode
-            return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
+            // like a dictionary
+            // area1 : [regoffice8, regoffice5, regoffice3]; area2 : [regoffice6, regoffice13];
+            return Raw.GroupBy(o => o.AUTHOR);
         }
 
         /// <summary>
@@ -377,26 +372,27 @@ namespace kdz_manager
         /// </summary>
         public void ImportProcessing()
         {
-
-
-
-            var extended_inner = Raw.Select(r
-                => new { key = r.AUTHOR, value = new RegistryOfficeDataRow(r) }).ToList();
-            // each author's name is tied to a list.
-            // put books into each list based on author name
-            var dict_author2books = new Dictionary<string, List<RegistryOfficeDataRow>>();
-            foreach (var anon in extended_inner)
+            var author2books = new Dictionary<string,List<RegistryOfficeDataRow>>();
+            foreach (var c in GetUniqAdmCodes())
             {
-                dict_author2books[anon.key].Add(anon.value);
+                author2books[c] = new List<RegistryOfficeDataRow>();
             }
+            foreach (IGrouping<string,MapDataRow> grp in GetRegistryOfficeByArea())
+            {
+                foreach (MapDataRow raw in  grp)
+                {
+                    var book = new RegistryOfficeDataRow(raw);
+                    author2books[grp.Key].Add(book);
+                    // we must build the inner list here, then "book" refers to the same object
+                    Inner.Add(book);
+                }
+            }
+            // all of the dictionary tricks were necessary so that we can now this:
             Outer = Raw.Select(raw => new AdminAreaDataRow(raw)).ToList();
-            // assign books from dictionary
             foreach (AdminAreaDataRow area in Outer)
             {
-                area.BOOKS = dict_author2books[area.AUTHOR];
+                area.BOOKS = author2books[area.AUTHOR];
             }
-            // Finally the outer group is compete now make the inner group
-            Inner = extended_inner.Select(anon => anon.value).ToList();
         }
 
         /// <summary>
