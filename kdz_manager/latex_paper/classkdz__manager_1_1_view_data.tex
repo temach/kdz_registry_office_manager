@@ -1,0 +1,181 @@
+\subsection{Класс View\+Data}
+\label{classkdz__manager_1_1_view_data}\index{View\+Data@{View\+Data}}
+\subsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries View\+Data} (Numeric\+Up\+Down current\+\_\+page, Numeric\+Up\+Down rows\+\_\+per\+\_\+page)\label{classkdz__manager_1_1_view_data_ae1a1da13bff2e5d8259d85c70dae2942}
+
+\item 
+string {\bf Escape\+Like\+Filter\+Value} (string value\+Without\+Wildcards)
+\begin{DoxyCompactList}\small\item\em Useful so user can supply their match exactly. (we escape wierd characters) \end{DoxyCompactList}\item 
+string {\bf Make\+Filter} (string column, string match)
+\begin{DoxyCompactList}\small\item\em Create a basic filter based on column name and string to match. \end{DoxyCompactList}\item 
+void {\bf Add\+Filter} (string filter)
+\begin{DoxyCompactList}\small\item\em Apply user submitted query to data table rows. \end{DoxyCompactList}\item 
+void {\bf Drop\+Filters} ()
+\begin{DoxyCompactList}\small\item\em Remove all filters \end{DoxyCompactList}\item 
+void {\bf Re\+Page\+View\+Of\+Data} ()
+\begin{DoxyCompactList}\small\item\em Called when we change to another page or change number rows per page. Takes the filters and sorting into account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+Data\+View {\bfseries View\+Of\+Data}\label{classkdz__manager_1_1_view_data_a67265c8fe68255aced381b1e695edb0f}
+
+\end{DoxyCompactItemize}
+\subsubsection*{Свойства}
+\begin{DoxyCompactItemize}
+\item 
+Data\+Table {\bfseries Table\+Of\+Data}\hspace{0.3cm}{\ttfamily  [get, set]}\label{classkdz__manager_1_1_view_data_ad84722e9a8f5adae9bac98f2f7f75079}
+
+\item 
+Data\+View {\bfseries Paged\+View\+Of\+Data}\hspace{0.3cm}{\ttfamily  [get]}\label{classkdz__manager_1_1_view_data_a2ad9133ee389a2b7f848e73494695bcc}
+
+\item 
+int {\bf Total\+Rows}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get total number of rows that we have (after filtering and sorting on the datatable) \end{DoxyCompactList}\item 
+int {\bf Total\+Pages}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get the total number of pages \end{DoxyCompactList}\item 
+int {\bf Total\+Filtered\+Rows}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get number of records after filters have been applied. \end{DoxyCompactList}\item 
+int {\bf Total\+Filtered\+Pages}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get number of pages full of records after filters have been applied. \end{DoxyCompactList}\item 
+int {\bf Rows\+Per\+Page}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get set number of records per page to show in data\+Grid\+View1 \end{DoxyCompactList}\item 
+int {\bf Current\+Page}\hspace{0.3cm}{\ttfamily  [get]}
+\begin{DoxyCompactList}\small\item\em Get set index of current page to display in data\+Grid\+View1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Подробное описание}
+
+
+См. определение в файле View\+Data.\+cs строка 18
+
+
+
+\subsubsection{Методы}
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Add\+Filter@{Add\+Filter}}
+\index{Add\+Filter@{Add\+Filter}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Add\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}void Add\+Filter (
+\begin{DoxyParamCaption}
+\item[{string}]{filter}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_view_data_af96c57ad60c3b7650ec32b134c7c2880_af96c57ad60c3b7650ec32b134c7c2880}
+
+\begin{DoxyParams}{Аргументы}
+{\em filter} & \\
+\hline
+{\em combining\+\_\+operation} & \char`\"{}how to combine the filter with previous\+: A\+N\+D/\+O\+R\char`\"{}\\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле View\+Data.\+cs строка 150
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Drop\+Filters@{Drop\+Filters}}
+\index{Drop\+Filters@{Drop\+Filters}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Drop\+Filters}]{\setlength{\rightskip}{0pt plus 5cm}void Drop\+Filters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_view_data_a98d9e09a6945dbedb1cc24474526f044_a98d9e09a6945dbedb1cc24474526f044}
+
+
+См. определение в файле View\+Data.\+cs строка 158
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}}
+\index{Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Escape\+Like\+Filter\+Value}]{\setlength{\rightskip}{0pt plus 5cm}string Escape\+Like\+Filter\+Value (
+\begin{DoxyParamCaption}
+\item[{string}]{value\+Without\+Wildcards}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_view_data_a1503d03c86374737cc60a8c22b0fcf64_a1503d03c86374737cc60a8c22b0fcf64}
+
+\begin{DoxyParams}{Аргументы}
+{\em value\+Without\+Wildcards} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле View\+Data.\+cs строка 116
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Make\+Filter@{Make\+Filter}}
+\index{Make\+Filter@{Make\+Filter}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Make\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}string Make\+Filter (
+\begin{DoxyParamCaption}
+\item[{string}]{column, }
+\item[{string}]{match}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_view_data_a3b29cef7485b55fb08f9e49df5fc10d2_a3b29cef7485b55fb08f9e49df5fc10d2}
+
+\begin{DoxyParams}{Аргументы}
+{\em column} & \\
+\hline
+{\em match} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле View\+Data.\+cs строка 138
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}}
+\index{Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Re\+Page\+View\+Of\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Re\+Page\+View\+Of\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_view_data_a4b35f94f974509e6304bedb19a280497_a4b35f94f974509e6304bedb19a280497}
+
+
+См. определение в файле View\+Data.\+cs строка 167
+
+
+
+\subsubsection{Полный список свойств}
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Current\+Page@{Current\+Page}}
+\index{Current\+Page@{Current\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Current\+Page}]{\setlength{\rightskip}{0pt plus 5cm}int Current\+Page\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_a0bc5ae8741e4b235828624d3525dcf5e_a0bc5ae8741e4b235828624d3525dcf5e}
+
+
+См. определение в файле View\+Data.\+cs строка 94
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Rows\+Per\+Page@{Rows\+Per\+Page}}
+\index{Rows\+Per\+Page@{Rows\+Per\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Rows\+Per\+Page}]{\setlength{\rightskip}{0pt plus 5cm}int Rows\+Per\+Page\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_abad1fd6b7f3fa177f2c2f3ba0f739144_abad1fd6b7f3fa177f2c2f3ba0f739144}
+
+
+См. определение в файле View\+Data.\+cs строка 86
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Pages@{Total\+Filtered\+Pages}}
+\index{Total\+Filtered\+Pages@{Total\+Filtered\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Total\+Filtered\+Pages}]{\setlength{\rightskip}{0pt plus 5cm}int Total\+Filtered\+Pages\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_a16df6a6b8f801ed64dda17850896c66c_a16df6a6b8f801ed64dda17850896c66c}
+
+
+См. определение в файле View\+Data.\+cs строка 78
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Rows@{Total\+Filtered\+Rows}}
+\index{Total\+Filtered\+Rows@{Total\+Filtered\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Total\+Filtered\+Rows}]{\setlength{\rightskip}{0pt plus 5cm}int Total\+Filtered\+Rows\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_a50aa9ad8f5a80c35aca04b1c9b795b02_a50aa9ad8f5a80c35aca04b1c9b795b02}
+
+
+См. определение в файле View\+Data.\+cs строка 70
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Pages@{Total\+Pages}}
+\index{Total\+Pages@{Total\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Total\+Pages}]{\setlength{\rightskip}{0pt plus 5cm}int Total\+Pages\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_a6fd109fb4ab2670e860c6066a0660e8d_a6fd109fb4ab2670e860c6066a0660e8d}
+
+
+См. определение в файле View\+Data.\+cs строка 62
+
+\index{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Rows@{Total\+Rows}}
+\index{Total\+Rows@{Total\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}
+\paragraph[{Total\+Rows}]{\setlength{\rightskip}{0pt plus 5cm}int Total\+Rows\hspace{0.3cm}{\ttfamily [get]}}\label{classkdz__manager_1_1_view_data_a1cf135b7e3d9471cc49d72dc4bf4de12_a1cf135b7e3d9471cc49d72dc4bf4de12}
+
+
+См. определение в файле View\+Data.\+cs строка 54
+

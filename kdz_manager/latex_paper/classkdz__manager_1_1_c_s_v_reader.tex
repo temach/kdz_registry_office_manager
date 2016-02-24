@@ -1,0 +1,184 @@
+\subsection{Класс C\+S\+V\+Reader}
+\label{classkdz__manager_1_1_c_s_v_reader}\index{C\+S\+V\+Reader@{C\+S\+V\+Reader}}
+
+
+Class to actually parse lines in C\+S\+V file.  
+
+
+Граф наследования\+:C\+S\+V\+Reader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classkdz__manager_1_1_c_s_v_reader}
+\end{center}
+\end{figure}
+\subsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+{\bf C\+S\+V\+Reader} (Stream\+Reader source, char separator, char text\+\_\+escape)
+\begin{DoxyCompactList}\small\item\em Construct a new C\+S\+V reader off a streamed source \end{DoxyCompactList}\item 
+I\+Enumerable$<$ string[$\,$]$>$ {\bf Get\+Lines} ()
+\begin{DoxyCompactList}\small\item\em Iterate through all lines in this C\+S\+V file \end{DoxyCompactList}\item 
+string[$\,$] {\bf Next\+Line} ()
+\begin{DoxyCompactList}\small\item\em Retrieve the next line from the file. \end{DoxyCompactList}\item 
+void {\bf Dispose} ()
+\begin{DoxyCompactList}\small\item\em Close our resources -\/ specifically, the stream reader \end{DoxyCompactList}\item 
+List$<$ T $>$ {\bf Deserialize$<$ T $>$} ()
+\begin{DoxyCompactList}\small\item\em Deserialize a C\+S\+V file into a list of typed objects \end{DoxyCompactList}\item 
+string[$\,$] {\bf Parse\+Multi\+Line} (Stream\+Reader sr)
+\begin{DoxyCompactList}\small\item\em Parse a line whose values may include newline symbols or C\+R/\+L\+F \end{DoxyCompactList}\item 
+string[$\,$] {\bf Parse\+Line} (string s)
+\begin{DoxyCompactList}\small\item\em Parse the line and return the array if it succeeds, or as best as we can get \end{DoxyCompactList}\item 
+bool {\bf Try\+Parse\+Line} (string s, out string[$\,$] array)
+\begin{DoxyCompactList}\small\item\em Read in a line of text, and use the Add() function to add these items to the current C\+S\+V structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Подробное описание}
+
+
+См. определение в файле Open\+Data.\+cs строка 17
+
+
+
+\subsubsection{Конструктор(ы)}
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!C\+S\+V\+Reader@{C\+S\+V\+Reader}}
+\index{C\+S\+V\+Reader@{C\+S\+V\+Reader}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{C\+S\+V\+Reader}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+S\+V\+Reader} (
+\begin{DoxyParamCaption}
+\item[{Stream\+Reader}]{source, }
+\item[{char}]{separator, }
+\item[{char}]{text\+\_\+escape}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_ac368737bf9ddbb9cb351f00c3cacda20_ac368737bf9ddbb9cb351f00c3cacda20}
+
+\begin{DoxyParams}{Аргументы}
+{\em source} & \\
+\hline
+{\em separator} & \\
+\hline
+{\em text\+\_\+escape} & \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Open\+Data.\+cs строка 32
+
+
+
+\subsubsection{Методы}
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Deserialize$<$ T $>$@{Deserialize$<$ T $>$}}
+\index{Deserialize$<$ T $>$@{Deserialize$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Deserialize$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}List$<$T$>$ Deserialize$<$ T $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_ab826689c78796b51d5cd7b169ebf98b6_ab826689c78796b51d5cd7b169ebf98b6}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of objects to deserialize from this C\+S\+V.\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Возвращает}
+An array of objects that were retrieved from the C\+S\+V file.
+\end{DoxyReturn}
+\begin{Desc}
+\item[Согласование типов]\begin{description}
+\item[{\em T} : {\em class}]\item[{\em T} : {\em new()}]\end{description}
+\end{Desc}
+
+
+См. определение в файле Open\+Data.\+cs строка 100
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Dispose}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_a6e2d745cdb7a7b983f861ed6a9a541a7_a6e2d745cdb7a7b983f861ed6a9a541a7}
+
+
+См. определение в файле Open\+Data.\+cs строка 89
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Get\+Lines@{Get\+Lines}}
+\index{Get\+Lines@{Get\+Lines}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Get\+Lines}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$string[$\,$]$>$ Get\+Lines (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_ae72278a935106bdf1717fea8d2a6bda4_ae72278a935106bdf1717fea8d2a6bda4}
+\begin{DoxyReturn}{Возвращает}
+An array of all data columns in the line
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 61
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Next\+Line@{Next\+Line}}
+\index{Next\+Line@{Next\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Next\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Next\+Line (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_aa2edaf8d7d8ab24d318b8fb54d7bc9d6_aa2edaf8d7d8ab24d318b8fb54d7bc9d6}
+\begin{DoxyReturn}{Возвращает}
+One line from the file.
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 81
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Parse\+Line@{Parse\+Line}}
+\index{Parse\+Line@{Parse\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Parse\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Line (
+\begin{DoxyParamCaption}
+\item[{string}]{s}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_ab017555795c09b898ff49d06bf6bc24a_ab017555795c09b898ff49d06bf6bc24a}
+
+\begin{DoxyParams}{Аргументы}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 216
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Parse\+Multi\+Line@{Parse\+Multi\+Line}}
+\index{Parse\+Multi\+Line@{Parse\+Multi\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Parse\+Multi\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Multi\+Line (
+\begin{DoxyParamCaption}
+\item[{Stream\+Reader}]{sr}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_a78c48cf76d5e5b05a7024caee6da2880_a78c48cf76d5e5b05a7024caee6da2880}
+
+\begin{DoxyParams}{Аргументы}
+{\em sr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 186
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Try\+Parse\+Line@{Try\+Parse\+Line}}
+\index{Try\+Parse\+Line@{Try\+Parse\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
+\paragraph[{Try\+Parse\+Line}]{\setlength{\rightskip}{0pt plus 5cm}bool Try\+Parse\+Line (
+\begin{DoxyParamCaption}
+\item[{string}]{s, }
+\item[{out string[$\,$]}]{array}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_reader_af8102a03b7b1aa448fea0f8cbd7eaaa8_af8102a03b7b1aa448fea0f8cbd7eaaa8}
+
+\begin{DoxyParams}{Аргументы}
+{\em s} & \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Open\+Data.\+cs строка 227
+
