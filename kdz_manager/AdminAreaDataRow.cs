@@ -15,8 +15,6 @@ namespace kdz_manager
         public string AUTHOR { get; set; }
         public List<RegistryOfficeDataRow> BOOKS { get; set; }
 
-        public int QTY_DISTINCT_PRICES { get; set; }
-
         /// <summary>
         /// Returns quantity of distinct book prices. 
         /// (e.g. if three books have the same price they count as one)

@@ -61,7 +61,7 @@ namespace kdz_manager
         public void ReBindControlsToDataRow(DataRowView rowview)
         {
             var columns = rowview.DataView.Table.Columns;
-            for (int i = 0; i < columns.Count; i++)
+            for (int i = 0; i < TextInputs.Count; i++)
             {
                 TextInputs[i].UnbindFromData();
                 TextInputs[i].BindToDataRowView(rowview, columns[i].ColumnName);

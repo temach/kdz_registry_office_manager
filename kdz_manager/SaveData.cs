@@ -31,36 +31,34 @@ namespace kdz_manager
             _string_escape = text_escape;
         }
 
-        /// <summary>
-        /// Write one line to the file
-        /// </summary>
-        /// <param name="line">The array of values for this line</param>
-        public void WriteLine(IEnumerable<object> line)
-        {
-            _outstream.WriteLine(MakeOutput(line));
-        }
 
         /// <summary>
         /// Write the data table to a stream in CSV format
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="write_header">Do not write the headers when appending</param>
-        public void Write(DataTable dt, bool write_header)
+        public void Write<T>(DataTable dt, bool write_header)
         {
+            List<string> headers = new List<string>();
+            PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+            foreach (PropertyDescriptor prop in properties)
+            {
+                headers.Add(prop.Name);
+            }
+            // Write headers, if the caller requested we do so
             if (write_header)
             {
-                // Write headers, if the caller requested we do so
-                List<string> headers = new List<string>();
-                foreach (DataColumn col in dt.Columns)
-                {
-                    headers.Add(col.ColumnName);
-                }
                 WriteLine(headers);
             }
             // Now produce the rows
             foreach (DataRow dr in dt.Rows)
             {
-                WriteLine(dr.ItemArray);
+                List<object> writeobjs = new List<object>();
+                foreach (string colname in headers)
+                {
+                    writeobjs.Add(dr[colname]);
+                }
+                WriteLine(writeobjs);
             }
             // Flush the stream
             _outstream.Flush();
@@ -74,6 +72,15 @@ namespace kdz_manager
             _outstream.Flush();
             _outstream.Close();
             _outstream.Dispose();
+        }
+
+        /// <summary>
+        /// Write one line to the file
+        /// </summary>
+        /// <param name="line">The array of values for this line</param>
+        public void WriteLine(IEnumerable<object> line)
+        {
+            _outstream.WriteLine(MakeOutput(line));
         }
 
         /// <summary>
@@ -129,13 +136,13 @@ namespace kdz_manager
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
         /// <param name="write_headers">Should we write the header line.</param>
-        private static void DumpToDisk(DataTable dt, string filepath, bool append, bool write_headers) 
+        private static void DumpToDisk<T>(DataTable dt, string filepath, bool append, bool write_headers) 
         {
             using (var output_stream = new StreamWriter(filepath, append))
             {
                 using (CSVWriter cw = new CSVWriter(output_stream, separator: ',', text_escape: '"'))
                 {
-                    cw.Write(dt, write_header: write_headers);
+                    cw.Write<T>(dt, write_header: write_headers);
                 }
             }
         }
@@ -145,9 +152,9 @@ namespace kdz_manager
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
-        public static void WriteFileCSV(DataTable dt, string filepath) 
+        public static void WriteFileCSV<T>(DataTable dt, string filepath) 
         {
-            DumpToDisk(dt, filepath, append:false, write_headers:true);
+            DumpToDisk<T>(dt, filepath, append:false, write_headers:true);
         }
 
         /// <summary>
@@ -156,9 +163,9 @@ namespace kdz_manager
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
-        public static void AppendFileCSV(DataTable dt, string filepath) 
+        public static void AppendFileCSV<T>(DataTable dt, string filepath) 
         {
-            DumpToDisk(dt, filepath, append:true, write_headers:false);
+            DumpToDisk<T>(dt, filepath, append:true, write_headers:false);
         }
 
         /// <summary>

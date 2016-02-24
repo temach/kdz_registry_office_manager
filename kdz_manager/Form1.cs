@@ -117,7 +117,7 @@ namespace kdz_manager
             try {
                 Open.ParseAsMapDataCSV(filepath);
                 Open.ImportProcessing();
-                View.TableOfData = OpenData.ToDataTable(Open.Raw);
+                View.TableOfData = Open.ToDataTable(Open.Raw);
                 // Open.AddQtyOrRegionsPerAreaColumn(View.TableOfData);
             }
             catch (Exception ex) {
@@ -149,7 +149,8 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            View.TableOfData = OpenData.EmptyTableFromType<MapDataRow>();
+            var dummy = new List<MapDataRow>();
+            View.TableOfData = Open.ToDataTable(dummy);
             InitOnCreateNewTable();
         }
 
@@ -212,10 +213,10 @@ namespace kdz_manager
         {
             try {
                 if (append) {
-                    SaveData.AppendFileCSV(View.ViewOfData.ToTable(), filepath);
+                    SaveData.AppendFileCSV<MapDataRow>(View.ViewOfData.ToTable(), filepath);
                 }
                 else {
-                    SaveData.WriteFileCSV(View.ViewOfData.ToTable(), filepath);
+                    SaveData.WriteFileCSV<MapDataRow>(View.ViewOfData.ToTable(), filepath);
                 }
             }
             catch (Exception ex) {

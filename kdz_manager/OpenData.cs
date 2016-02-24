@@ -318,7 +318,11 @@ namespace kdz_manager
         /// <summary>
         /// Connect multiple inner to a few outer.
         /// </summary>
-        private Dictionary<string, List<RegistryOfficeDataRow>> Author2books;
+        private Dictionary<string, List<RegistryOfficeDataRow>> Outer2Inner;
+        private Dictionary<string, int> Outer2InnerQty;
+
+        public string Outer2InnerQtyDynamicColumn = "QTY_DISTINCT";
+        public string OuterKeyColumn = "AUTHOR";
 
         public OpenData() { }
 
@@ -337,6 +341,35 @@ namespace kdz_manager
                     Raw = cr.Deserialize<MapDataRow>();
                 }
             }
+        }
+
+        /// <summary>
+        /// Recalculates the dynamic column for the row.
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="oldrow"></param>
+        /// <param name="newrow"></param>
+        public void UpdateDynamicColumnOnRowEdit(DataTable dt, DataRow oldrow, DataRow newrow)
+        {
+            // oh my god....
+            try
+            {
+                // deleting a row
+                if (oldrow != null)
+                {
+                    Outer2InnerQty[(string)oldrow[OuterKeyColumn]] -= 1;
+                }
+                // adding a row
+                if (newrow != null)
+                {
+                    Outer2InnerQty[(string)newrow[OuterKeyColumn]] += 1;
+                }
+                foreach (var row in dt.AsEnumerable())
+                {
+                    row[Outer2InnerQtyDynamicColumn] = Outer2InnerQty[(string)row[OuterKeyColumn]];
+                }
+            }
+            catch (Exception) { }
         }
 
         private IEnumerable<string> GetUniqAdmCodes()
@@ -359,17 +392,17 @@ namespace kdz_manager
         {
             Inner = new List<RegistryOfficeDataRow>();
             Outer = new List<AdminAreaDataRow>();
-            Author2books = new Dictionary<string,List<RegistryOfficeDataRow>>();
+            Outer2Inner = new Dictionary<string,List<RegistryOfficeDataRow>>();
             foreach (var c in GetUniqAdmCodes())
             {
-                Author2books[c] = new List<RegistryOfficeDataRow>();
+                Outer2Inner[c] = new List<RegistryOfficeDataRow>();
             }
             foreach (IGrouping<string,MapDataRow> grp in GetRegistryOfficeByArea())
             {
                 foreach (MapDataRow raw in  grp)
                 {
                     var book = new RegistryOfficeDataRow(raw);
-                    Author2books[grp.Key].Add(book);
+                    Outer2Inner[grp.Key].Add(book);
                     // we must build the inner list here, then "book" refers to the same object
                     Inner.Add(book);
                 }
@@ -377,14 +410,11 @@ namespace kdz_manager
             // all of the dictionary tricks were necessary so that we can now this:
             Outer = GetRegistryOfficeByArea().Select(grp => grp.First())
                 .Select(raw => new AdminAreaDataRow(raw)).ToList();
+            Outer2InnerQty = new Dictionary<string,int>();
             foreach (AdminAreaDataRow area in Outer)
             {
-                area.BOOKS = Author2books[area.AUTHOR];
-                area.QTY_DISTINCT_PRICES = area.GetQtyOfDistinctBookPrices();
-            }
-            foreach (var raw in Raw)
-            {
-                raw.QTY_DISCOUNT_PRICE = Outer.Find(area => area.AUTHOR == raw.AUTHOR).QTY_DISTINCT_PRICES;
+                area.BOOKS = Outer2Inner[area.AUTHOR];
+                Outer2InnerQty[area.AUTHOR] = area.GetQtyOfDistinctBookPrices();
             }
         }
 
@@ -395,10 +425,12 @@ namespace kdz_manager
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static DataTable ToDataTable<T>(IList<T> data)
+        public DataTable ToDataTable<T>(IList<T> data)
         {
-            // make columns
+            // make columns from base type
             var table = EmptyTableFromType<T>();
+            // add dynamic column (bad hack)
+            var dcolumn = table.Columns.Add(Outer2InnerQtyDynamicColumn, typeof(int));
             // fill table with rows
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
             foreach (T item in data)
@@ -408,6 +440,8 @@ namespace kdz_manager
                 {
                     row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
                 }
+                // bad hack fill dynamic column
+                row[Outer2InnerQtyDynamicColumn] = Outer2InnerQty[(string)row[OuterKeyColumn]];
                 table.Rows.Add(row);
             }
             return table;
@@ -419,7 +453,7 @@ namespace kdz_manager
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
         /// <returns></returns>
-        public static DataTable EmptyTableFromType<T>()
+        public DataTable EmptyTableFromType<T>()
         {
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
             var table = new DataTable();
@@ -437,19 +471,20 @@ namespace kdz_manager
         /// <param name="dt"></param>
         public void AddQtyOrRegionsPerAreaColumn(DataTable dt)
         {
+            throw null;
             // calculate cached
             var author2qty_distinct_price = new Dictionary<string, int>();
-            foreach (string author in Author2books.Keys)
+            foreach (string author in Outer2Inner.Keys)
             {
                 author2qty_distinct_price[author]
-                    = Author2books[author]
+                    = Outer2Inner[author]
                     .GroupBy(o => o.DISCOUNTED_PRICE).Count();
             }
             // get values
             var qtycol = dt.Columns.Add("RegionsInArea", typeof(int));
             foreach (DataRow row in dt.AsEnumerable())
             {
-                row[qtycol] = author2qty_distinct_price[(string)row["AUTHOR"]];
+                row[qtycol] = author2qty_distinct_price[(string)row[OuterKeyColumn]];
             }
         }
 
