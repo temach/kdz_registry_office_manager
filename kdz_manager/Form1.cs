@@ -350,6 +350,7 @@ namespace kdz_manager
             DataRowView source = View.ViewOfData.AddNew();
             EditRow(source);
             this.dataGridView1.Invalidate();
+            RefreshDataGridViewPager();
         }
 
         /// <summary>
@@ -365,6 +366,21 @@ namespace kdz_manager
             DataRowView source = (DataRowView)this.dataGridView1.CurrentRow.DataBoundItem;
             EditRow(source);
             this.dataGridView1.Invalidate();
+        }
+
+        /// <summary>
+        /// Delete row
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            if (View.ViewOfData == null) {
+                return;
+            }
+            ((DataRowView)this.dataGridView1.CurrentRow.DataBoundItem).Delete();
+            this.dataGridView1.Invalidate();
+            RefreshDataGridViewPager();
         }
 
         private void button_ApplyAdvancedFilter_Click(object sender, EventArgs e)
@@ -383,5 +399,6 @@ http://www.csharp-examples.net/dataview-rowfilter/ for
 details and filter dropdown for exmaples): \n" + ex.Message);
             }
         }
+
     }
 }

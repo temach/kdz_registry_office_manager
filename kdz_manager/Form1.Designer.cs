@@ -337,18 +337,18 @@
             // verifyCSVToolStripMenuItem1
             // 
             this.verifyCSVToolStripMenuItem1.Name = "verifyCSVToolStripMenuItem1";
-            this.verifyCSVToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.verifyCSVToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
             this.verifyCSVToolStripMenuItem1.Text = "&Verify CSV";
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(125, 6);
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.customizeToolStripMenuItem.Text = "&Options...";
             // 
             // helpToolStripMenuItem1
@@ -363,7 +363,7 @@
             // 
             this.aboutToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem1.Image")));
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem1.Text = "&About...";
             // 
             // toolStrip1
@@ -448,6 +448,7 @@
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             this.toolStripButton6.ToolTipText = "Delete record";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripSeparator2
             // 
