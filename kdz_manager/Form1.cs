@@ -164,7 +164,6 @@ namespace kdz_manager
         private void button_ClearFilters_Click(object sender, EventArgs e)
         {
             View.DropFilters();
-            //this.dataGridView1.DataSource = View.ViewOfData;
             CalculateFileStats();
         }
 
@@ -179,10 +178,9 @@ namespace kdz_manager
             string combine = this.comboBox_FilterOperation.SelectedItem.ToString();
             string area_name = this.textBox_FilterAdmAreaName.Text;
             string area_code = this.textBox_FilterAdmAreaCode.Text;
-            string filter = View.MakeFilter("AUTHOR", area_name) 
-                + combine + View.MakeFilter("ISBN", area_code);
+            string filter = View.MakeFilter(Open.FilterAdmArea, area_name) 
+                + combine + View.MakeFilter(Open.FilterAdmAreaCode, area_code);
             View.AddFilter(filter);
-            //this.dataGridView1.DataSource = View.ViewOfData;
             CalculateFileStats();
         }
 
@@ -217,12 +215,6 @@ namespace kdz_manager
             {
                 r.Visible = true;
             }
-            //this.dataGridView1.DataSource = View.PagedViewOfData;
-            //this.dataGridView1.Rows.RemoveAt()
-
-            //View.RePageViewOfData();
-            //this.dataGridView1.DataSource
-            //CalculateFileStats();
         }
 
         /// <summary>
@@ -253,6 +245,10 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (View.TableOfData == null)
+            {
+                return;
+            }
             string filepath = SaveData.SaveFileDialogGetPath();
             if (filepath == null) {
                 // user canceled save operation
@@ -271,6 +267,10 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void saveAsToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (View.TableOfData == null)
+            {
+                return;
+            }
             string filepath = SaveData.AppendFileDialogGetPath();
             if (filepath == null) {
                 // user canceled save operation
@@ -288,6 +288,10 @@ namespace kdz_manager
         /// <param name="e"></param>
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (View.TableOfData == null)
+            {
+                return;
+            }
             // if user created this file in memory and we don't 
             // know where to save it, run file selection dialog
             if (Recent.CurrentlyOpenFilePath == null)

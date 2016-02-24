@@ -9,44 +9,58 @@ namespace kdz_manager
     /// <summary>
     /// Maps one row in CSV file to properties.
     /// </summary>
-    class MapDataRow : IDeepCopy<MapDataRow>
+    class MapDataRow
     {
-        public DateTime REVIEW_DATE { get; set; }
-        public string AUTHOR { get; set; }
-        public string ISBN { get; set; }
-        public decimal DISCOUNTED_PRICE { get; set; }
+        public string ROWNUM { get; set; }
+        public string CommonName { get; set; }
+        public string FullName { get; set; }
+        public string ShortName {get;set;}
+        public string AdmAreaCode {get;set;}
+        public string AdmArea {get;set;}
+        public string District {get;set;}
+        public string PostalCode {get;set;}
+        public string Address {get;set;}
+        public string NearestMetroStations {get;set;}
+        public string ChiefName {get;set;}
+        public string ChiefPosition {get;set;}
+        public string ChiefPhone {get;set;}
+        public string ContactPhone {get;set;}
+        public string ArchivePhone {get;set;}
+        public string SignPGU {get;set;}
+        public string WorkingHours {get;set;}
+        public string ClarificationOfWorkingHours {get;set;}
+        public string WebSite {get;set;}
+        public string X_WGS {get;set;}
+        public string Y_WGS {get;set;}
+        public string GLOBALID {get;set;}
 
         /// <summary>
         /// Parameterless constructor necessary for use in CSV parser.
         /// </summary>
         public  MapDataRow()
         {
-            REVIEW_DATE = DateTime.Today;
-            AUTHOR = "Author";
-            ISBN = new string('0', 12);
-        	DISCOUNTED_PRICE = 0;
+            ROWNUM = string.Empty;
+            CommonName = string.Empty;
+            FullName = string.Empty;
+            ShortName = string.Empty;
+            AdmAreaCode = string.Empty;
+            AdmArea = string.Empty;
+            District = string.Empty;
+            PostalCode = string.Empty;
+            Address = string.Empty;
+            NearestMetroStations = string.Empty;
+            ChiefName = string.Empty;
+            ChiefPosition = string.Empty;
+            ChiefPhone = string.Empty;
+            ContactPhone = string.Empty;
+            ArchivePhone = string.Empty;
+            SignPGU = string.Empty;
+            WorkingHours = string.Empty;
+            ClarificationOfWorkingHours = string.Empty;
+            WebSite = string.Empty;
+            X_WGS = string.Empty;
+            Y_WGS = string.Empty;
+            GLOBALID = string.Empty;
         }
-
-        /// <summary>
-        /// Constructor for making a deep copy of the class.
-        /// </summary>
-        /// <param name="original">Original object to deep copy from.</param>
-        public  MapDataRow(MapDataRow original)
-        {
-            REVIEW_DATE = original.REVIEW_DATE;
-            AUTHOR = original.AUTHOR;
-            ISBN = original.ISBN;
-        	DISCOUNTED_PRICE = original.DISCOUNTED_PRICE;
-        }
-
-        /// <summary>
-        /// Implement deep copy interface. Then we have a sure way to dublicate a list of this classes.
-        /// </summary>
-        /// <returns></returns>
-        public  MapDataRow DeepCopy()
-        {
-            return new  MapDataRow(this);
-        }
-
     }
 }

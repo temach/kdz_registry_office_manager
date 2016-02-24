@@ -227,6 +227,7 @@ namespace kdz_manager
         public bool TryParseLine(string s, out string[] array)
         {
             bool success = true;
+            bool trailing_separator = (s.Trim().Last() == _separator);
             List<string> list = new List<string>();
             StringBuilder work = new StringBuilder();
             for (int i = 0; i < s.Length; i++)
@@ -290,7 +291,10 @@ namespace kdz_manager
                     work.Append(c);
                 }
             }
-            list.Add(work.ToString());
+            if (trailing_separator == false)
+            {
+                list.Add(work.ToString());
+            }
 
             // Return the array we parsed
             array = list.ToArray();
@@ -321,8 +325,12 @@ namespace kdz_manager
         private Dictionary<string, List<RegistryOfficeDataRow>> Outer2Inner;
         private Dictionary<string, int> Outer2InnerQty;
 
-        public string Outer2InnerQtyDynamicColumn = "QTY_DISTINCT";
-        public string OuterKeyColumn = "AUTHOR";
+        // as you wish name for the column to sort by regions in an area
+        public string Outer2InnerQtyDynamicColumn = "RegionsInAdmArea";
+        // will group regions by this column
+        public string OuterKeyColumn = "AdmAreaCode";
+        public string FilterAdmArea = "AdmArea";
+        public string FilterAdmAreaCode = "AdmAreaCode";
 
         public OpenData() { }
 
@@ -335,7 +343,7 @@ namespace kdz_manager
         {
             using (var input_stream = new StreamReader(filepath))
             {
-                using (CSVReader cr = new CSVReader(input_stream, separator: ',', text_escape: '"'))
+                using (CSVReader cr = new CSVReader(input_stream, separator: ';', text_escape: '"'))
                 {
                     // read into list then convert to data table
                     Raw = cr.Deserialize<MapDataRow>();
@@ -375,14 +383,14 @@ namespace kdz_manager
         private IEnumerable<string> GetUniqAdmCodes()
         {
             // this will be AdmCode
-            return Raw.GroupBy(o => o.AUTHOR).Select(g => g.Key);
+            return Raw.GroupBy(o => o.AdmAreaCode).Select(g => g.Key);
         }
 
         private IEnumerable<IGrouping<string,MapDataRow>> GetRegistryOfficeByArea()
         {
             // like a dictionary
             // area1 : [regoffice8, regoffice5, regoffice3]; area2 : [regoffice6, regoffice13];
-            return Raw.GroupBy(o => o.AUTHOR);
+            return Raw.GroupBy(o => o.AdmAreaCode);
         }
 
         /// <summary>
@@ -401,10 +409,10 @@ namespace kdz_manager
             {
                 foreach (MapDataRow raw in  grp)
                 {
-                    var book = new RegistryOfficeDataRow(raw);
-                    Outer2Inner[grp.Key].Add(book);
-                    // we must build the inner list here, then "book" refers to the same object
-                    Inner.Add(book);
+                    var reg_office = new RegistryOfficeDataRow(raw);
+                    Outer2Inner[grp.Key].Add(reg_office);
+                    // we must build the inner list here, then "reg_office" refers to the same object
+                    Inner.Add(reg_office);
                 }
             }
             // all of the dictionary tricks were necessary so that we can now this:
@@ -413,8 +421,8 @@ namespace kdz_manager
             Outer2InnerQty = new Dictionary<string,int>();
             foreach (AdminAreaDataRow area in Outer)
             {
-                area.BOOKS = Outer2Inner[area.AUTHOR];
-                Outer2InnerQty[area.AUTHOR] = area.GetQtyOfDistinctBookPrices();
+                area.Offices = Outer2Inner[area.AdmAreaCode];
+                Outer2InnerQty[area.AdmAreaCode] = area.GetQtyOfDistinctBookPrices();
             }
         }
 
