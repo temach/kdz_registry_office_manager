@@ -466,29 +466,6 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Calculate the value to sort by quantity of regions in an area
-        /// </summary>
-        /// <param name="dt"></param>
-        public void AddQtyOrRegionsPerAreaColumn(DataTable dt)
-        {
-            throw null;
-            // calculate cached
-            var author2qty_distinct_price = new Dictionary<string, int>();
-            foreach (string author in Outer2Inner.Keys)
-            {
-                author2qty_distinct_price[author]
-                    = Outer2Inner[author]
-                    .GroupBy(o => o.DISCOUNTED_PRICE).Count();
-            }
-            // get values
-            var qtycol = dt.Columns.Add("RegionsInArea", typeof(int));
-            foreach (DataRow row in dt.AsEnumerable())
-            {
-                row[qtycol] = author2qty_distinct_price[(string)row[OuterKeyColumn]];
-            }
-        }
-
-        /// <summary>
         /// Opens a dialog to get path of file to open from te user.
         /// </summary>
         /// <returns></returns>
