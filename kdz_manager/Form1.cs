@@ -59,6 +59,7 @@ namespace kdz_manager
             this.numericUpDown_CurrentPage.Value = 0;
             // assign to datagrid
             this.dataGridView1.DataSource = View.ViewOfData;
+            RefreshDataGridViewPager();
             // update status bar (to show that the new table is empty)
             CalculateFileStats();
         }
@@ -82,6 +83,7 @@ namespace kdz_manager
             this.numericUpDown_CurrentPage.Value = 0;
             // assign to datagrid
             this.dataGridView1.DataSource = View.ViewOfData;
+            RefreshDataGridViewPager();
             // update status bar
             CalculateFileStats();
         }
@@ -164,6 +166,7 @@ namespace kdz_manager
         private void button_ClearFilters_Click(object sender, EventArgs e)
         {
             View.DropFilters();
+            RefreshDataGridViewPager();
             CalculateFileStats();
         }
 
