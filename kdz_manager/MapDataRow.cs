@@ -11,7 +11,7 @@ namespace kdz_manager
     /// </summary>
     class MapDataRow
     {
-        public string ROWNUM { get; set; }
+        public int ROWNUM { get; set; }
         public string CommonName { get; set; }
         public string FullName { get; set; }
         public string ShortName {get;set;}
@@ -30,8 +30,8 @@ namespace kdz_manager
         public string WorkingHours {get;set;}
         public string ClarificationOfWorkingHours {get;set;}
         public string WebSite {get;set;}
-        public string X_WGS {get;set;}
-        public string Y_WGS {get;set;}
+        public float X_WGS {get;set;}
+        public float Y_WGS {get;set;}
         public string GLOBALID {get;set;}
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace kdz_manager
         /// </summary>
         public  MapDataRow()
         {
-            ROWNUM = string.Empty;
+            ROWNUM = 0;
             CommonName = string.Empty;
             FullName = string.Empty;
             ShortName = string.Empty;
@@ -58,8 +58,8 @@ namespace kdz_manager
             WorkingHours = string.Empty;
             ClarificationOfWorkingHours = string.Empty;
             WebSite = string.Empty;
-            X_WGS = string.Empty;
-            Y_WGS = string.Empty;
+            X_WGS = 0.0f;
+            Y_WGS = 0.0f;
             GLOBALID = string.Empty;
         }
     }
