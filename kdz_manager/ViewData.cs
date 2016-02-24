@@ -31,6 +31,21 @@ namespace kdz_manager
         }
 
         public DataView ViewOfData;
+        public DataView PagedViewOfData
+        {
+            get
+            {
+                var filter = ViewOfData.RowFilter;
+                var sort = ViewOfData.Sort;
+                IEnumerable<DataRow> toshow = TableOfData.Select(filter, sort)
+                    .Skip(CurrentPage * RowsPerPage)
+                    .Take(RowsPerPage);
+                var pagedview = new DataView(toshow.Count() > 0 ? toshow.CopyToDataTable() : TableOfData.Clone());
+                pagedview.RowFilter = filter;
+                pagedview.Sort = sort;
+                return pagedview;
+            }
+        }
 
         /// <summary>
         /// Get total number of rows that we have (after filtering and sorting on the datatable)
@@ -135,7 +150,6 @@ namespace kdz_manager
         public void AddFilter(string filter)
         {
             ViewOfData.RowFilter = filter;
-            RePageViewOfData();
         }
 
         /// <summary>
@@ -144,7 +158,6 @@ namespace kdz_manager
         public void DropFilters()
         {
             ViewOfData.RowFilter = string.Empty;
-            RePageViewOfData();
         }
 
         /// <summary>
@@ -158,6 +171,16 @@ namespace kdz_manager
             }
             string filter = ViewOfData.RowFilter;
             string sort = ViewOfData.Sort;
+            DataTable tmp = ViewOfData.ToTable();
+            TableOfData.Merge(tmp);
+
+            var old = this.TableOfData.AsEnumerable();
+            var changed = this.ViewOfData.Table.AsEnumerable();
+            var newitems = changed.Except(old);
+            foreach (var addrow in newitems)
+            {
+                TableOfData.Rows.Add(addrow);
+            }
             IEnumerable<DataRow> toshow = TableOfData.Select(ViewOfData.RowFilter, ViewOfData.Sort)
                 .Skip(CurrentPage * RowsPerPage)
                 .Take(RowsPerPage);

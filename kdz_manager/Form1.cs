@@ -164,7 +164,7 @@ namespace kdz_manager
         private void button_ClearFilters_Click(object sender, EventArgs e)
         {
             View.DropFilters();
-            this.dataGridView1.DataSource = View.ViewOfData;
+            //this.dataGridView1.DataSource = View.ViewOfData;
             CalculateFileStats();
         }
 
@@ -182,7 +182,7 @@ namespace kdz_manager
             string filter = View.MakeFilter("AUTHOR", area_name) 
                 + combine + View.MakeFilter("ISBN", area_code);
             View.AddFilter(filter);
-            this.dataGridView1.DataSource = View.ViewOfData;
+            //this.dataGridView1.DataSource = View.ViewOfData;
             CalculateFileStats();
         }
 
@@ -199,9 +199,30 @@ namespace kdz_manager
             if (View == null) {
                 return;
             }
-            View.RePageViewOfData();
-            this.dataGridView1.DataSource = View.ViewOfData;
-            CalculateFileStats();
+            // start crazy hack to set all rows to invisible
+            CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[this.dataGridView1.DataSource];
+            currencyManager1.SuspendBinding();
+            dataGridView1.CurrentCell = null;
+            foreach (DataGridViewRow row  in this.dataGridView1.Rows)
+            {
+                row.Visible = false;
+            }
+            currencyManager1.ResumeBinding();
+            // crazy hack end
+            var makevisible = this.dataGridView1.Rows
+                .Cast<DataGridViewRow>()
+                .Skip(View.CurrentPage * View.RowsPerPage)
+                .Take(View.RowsPerPage);
+            foreach (DataGridViewRow r in makevisible)
+            {
+                r.Visible = true;
+            }
+            //this.dataGridView1.DataSource = View.PagedViewOfData;
+            //this.dataGridView1.Rows.RemoveAt()
+
+            //View.RePageViewOfData();
+            //this.dataGridView1.DataSource
+            //CalculateFileStats();
         }
 
         /// <summary>
