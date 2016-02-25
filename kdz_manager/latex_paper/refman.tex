@@ -75,8 +75,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 05\+:33\+:02. Создано системой Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 05\+:33\+:02. Создано системой Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 07\+:14\+:25. Создано системой Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 07\+:14\+:25. Создано системой Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -104,28 +104,47 @@
 % Titlepage & ToC
 \pagenumbering{roman}
 \begin{titlepage}
+\begin{center}
 \vspace*{7cm}
-\begin{center}%
-{\Large КДЗ модуль 3 }\\
-\vspace*{1cm}
-{\large Создано системой Doxygen 1.8.10}\\
+{\large НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
+«ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» }\\
 \vspace*{0.5cm}
-{\small Чт 25 Фев 2016 05:33:02}\\
+{\large Факультет компьютерных наук }\\
+\vspace*{0.5cm}
+{\small Департамент программнoй инженерии \\
+}
+\vfill % заполняет длину страницы вертикально
+{\large\textbf{
+Контрольное домашнее задание \\
+по дисциплине\\
+«Программирование» \\
+}}
+\bigskip
+{\large Тема работы: Обработка данных из файла }\\
+\vfill
+\begin{flushright}
+Выполнил студент группы БПИ 151 \\
+Абрамов А.M. \\
+Преподаватель: Подбельский Вадим Валериевич \\
+\end{flushright}
+\vfill
+Москва \number\year \\
+Модуль 3
 \end{center}
 \end{titlepage}
+
 \tableofcontents
 \pagenumbering{arabic}
 
+% --- add my custom headers ---
+\section{Условие задачи}
+\input{Artem_1_problem_variant}
+\section{Функционал приложения}
+\input{Artem_2_functions}
+\section{Структура приложения}
+\input{Artem_3_structure}
+
 %--- Begin generated contents ---
-\section{Problem Variant}
-\label{md_1_problem_variant}
-\input{md_1_problem_variant}
-\section{2\+\_\+functions}
-\label{md_2_functions}
-\input{md_2_functions}
-\section{3\+\_\+structure}
-\label{md_3_structure}
-\input{md_3_structure}
 \section{Пространства имен}
 \input{namespacekdz__manager}
 \section{Классы}
