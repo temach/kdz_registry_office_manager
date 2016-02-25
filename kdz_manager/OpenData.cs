@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace kdz_manager
 {
     /// <summary>
-    /// Class to actually parse lines in CSV file.
+    /// Класс фактически разобрать строки в CSV -файл.
     /// </summary>
     public class CSVReader : IEnumerable<string[]>, IDisposable
     {
@@ -24,7 +24,7 @@ namespace kdz_manager
         private StreamReader _instream;
 
         /// <summary>
-        /// Construct a new CSV reader off a streamed source
+        /// Построить новый читатель CSV от источника потока
         /// </summary>
         /// <param name="source"></param>
         /// <param name="separator"></param>
@@ -37,7 +37,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Iterate through all lines in this CSV file
+        /// перебора всех строк в этой CSV файла
         /// </summary>
         /// <returns>An array of all data columns in the line</returns>
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
@@ -46,7 +46,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Iterate through all lines in this CSV file
+        /// перебора всех строк этого файла CSV
         /// </summary>
         /// <returns>An array of all data columns in the line</returns>
         IEnumerator<string[]> System.Collections.Generic.IEnumerable<string[]>.GetEnumerator()
@@ -55,7 +55,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Iterate through all lines in this CSV file
+        /// перебора всех строк этого файла CSV
         /// </summary>
         /// <returns>An array of all data columns in the line</returns>
         public IEnumerable<string[]> GetLines()
@@ -75,7 +75,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Retrieve the next line from the file.
+        /// Получить следующую строку из файла.
         /// </summary>
         /// <returns>One line from the file.</returns>
         public string[] NextLine()
@@ -84,7 +84,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Close our resources - specifically, the stream reader
+        /// закрывать ресурсы - в частности, читатель поток
         /// </summary>
         public void Dispose()
         {
@@ -93,7 +93,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Deserialize a CSV file into a list of typed objects
+        /// десериализации CSV файл в списке набранных объектов
         /// </summary>
         /// <typeparam name="T">The type of objects to deserialize from this CSV.</typeparam>
         /// <returns>An array of objects that were retrieved from the CSV file.</returns>
@@ -179,7 +179,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Parse a line whose values may include newline symbols or CR/LF
+        /// Разбор линию, значения которого могут включать новые символы строки или CR / LF
         /// </summary>
         /// <param name="sr"></param>
         /// <returns></returns>
@@ -209,7 +209,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Parse the line and return the array if it succeeds, or as best as we can get
+        /// Разбор строки и вернуть массив, если это удастся, или в лучшем случае как мы можем получить
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
@@ -221,7 +221,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Read in a line of text, and use the Add() function to add these items to the current CSV structure
+        /// прочитал в строке текста, а также использовать функцию Add (), чтобы добавить эти элементы к существующей структуре CSV
         /// </summary>
         /// <param name="s"></param>
         public bool TryParseLine(string s, out string[] array)
@@ -307,20 +307,20 @@ namespace kdz_manager
     {
 
         /// <summary>
-        /// Simple type.
+        /// Простой тип.
         /// </summary>
         public List<RegistryOfficeDataRow> Inner;
         /// <summary>
-        /// Advanced type that aggregates simple types.
+        /// Расширенный тип, который объединяет простые типы.
         /// </summary>
         public List<AdminAreaDataRow> Outer;
         /// <summary>
-        /// Result of parsing CSV file
+        /// Результат разбора файла CSV
         /// </summary>
         public List<MapDataRow> Raw;
 
         /// <summary>
-        /// Connect multiple inner to a few outer.
+        /// подключить несколько внутреннее до нескольких внешнее.
         /// </summary>
         private Dictionary<string, List<RegistryOfficeDataRow>> Outer2Inner;
         private Dictionary<string, int> Outer2InnerQty;
@@ -335,7 +335,7 @@ namespace kdz_manager
         public OpenData() { }
 
         /// <summary>
-        /// Open file, read and verify data, make data table and run control intialisations.
+        /// Открыть файл, читать и проверять данные, сделать таблицу данных и запустить контроля инициализацый.
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
@@ -352,7 +352,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Recalculates the dynamic column for the row.
+        /// перерасчет динамический столбец строки.
         /// </summary>
         /// <param name="dt"></param>
         /// <param name="oldrow"></param>
@@ -394,7 +394,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Function to fill Inner and Outer Lists based on data in Raw list.
+        /// Функция для заполнения внутренними и внешними списками на основе данных Raw списке.
         /// </summary>
         public void ImportProcessing()
         {
@@ -427,8 +427,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Read through the properties of T and 
-        /// assemble a DataTable that would represent it.
+        /// прочитал свойств Т и
+        /// собрать DataTable, которая будет представлять его.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
@@ -456,7 +456,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Make an empty data table with layout to contain type T.
+        /// сделать пустую таблицу данных с макета, чтобы содержать типа T.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="data"></param>
@@ -474,7 +474,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Opens a dialog to get path of file to open from te user.
+        /// открывает диалоговое окно для получения путь файла для открытия из тэ пользователя.
         /// </summary>
         /// <returns></returns>
         public static string OpenFileDialogGetPath()

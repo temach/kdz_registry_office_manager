@@ -28,7 +28,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Event to fire on current filepath change.
+        /// событие огонь по текущим изменением пути к файлу.
         /// </summary>
         public event Action<string> CurrentlyOpenFilePathChanged;
 
@@ -40,7 +40,7 @@ namespace kdz_manager
                 Properties.Settings.Default.RecentFiles = new StringCollection();
                 Properties.Settings.Default.Save();
             }
-            /// Set sensible value for directory in OpenFile dialog.
+            /// указан разумным соотношением каталога в диалоговом окне Open File.
             if (Properties.Settings.Default.RecentDirectory == null)
             {
                 Properties.Settings.Default.RecentDirectory
@@ -49,7 +49,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// The OpenRecent files have changed. Refresh the view in menu.
+        /// открытом Последние файлы были изменены.  Обновите представление в меню.
         /// </summary>
         public void ReplaceOpenRecentMenu(ToolStripMenuItem open_recent_menu, Action<string> onclick)
         {
@@ -68,7 +68,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Add a new item to the Recent-Files menu and save it persistently
+        /// Добавить новый элемент в меню недавних файлов и сохранить его упорно
         /// </summary>
         /// <param name="file"></param>
         public void AddRecentFile(string file)

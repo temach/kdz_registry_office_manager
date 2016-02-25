@@ -19,13 +19,13 @@ namespace kdz_manager
         public static Color Default = Color.White;
 
         /// <summary>
-        /// If we can bind succesfully to the DataTable 
-        /// (meaning: if the entered data is valid)
+        /// Если мы сможем успешно связываться с DataTable
+        /// (имеется в виду
         /// </summary>
         public bool BindingOK { get; protected set; }
 
         /// <summary>
-        /// String to describe the input box
+        /// Строка для описания окно ввода
         /// </summary>
         public string Label
         {
@@ -34,8 +34,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// With this constructor, remember to bind 
-        /// this control before use (call BindToDataRowView)
+        /// С помощью этого конструктора, помните, чтобы связать
+        /// этот контроль перед использованием (назовем Bind DataRowView )
         /// </summary>
         public EditorTextBox()
         {
@@ -43,7 +43,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Bind this control to DataRowView object
+        /// связать этот контроль на объекте DataRowView
         /// </summary>
         /// <param name="rowview"></param>
         public void BindToDataRowView(DataRowView rowview, string column_name)
@@ -60,8 +60,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Occurs when pushing from DataTable to Control.
-        /// We only allow you to push once. Then let the user edit stuff.
+        /// происходит при нажатии из DataTable с контролем.
+        /// Мы только позволяют выдвинуть один раз.  Тогда пусть пользователь редактировать материал.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -71,7 +71,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Occurs when binding is over, show the user if we were able to write the values or not.
+        /// происходит при связывании закончилась, показать пользователю, если мы смогли записать значения или нет.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -96,8 +96,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Resets control properties to default values.
-        /// This is useful since we can then reuse the controls.
+        /// Сброс свойства элемента управления на значения по умолчанию.
+        /// Это полезно, так как мы можем затем использовать элементы управления.
         /// </summary>
         public void UnbindFromData()
         {

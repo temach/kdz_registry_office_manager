@@ -39,7 +39,7 @@ namespace kdz_manager
 
 
         /// <summary>
-        /// On file load adjust some boundaries and reset user modifiable values.
+        /// от нагрузки файловой отрегулировать некоторые границы и сброса изменяемые значения пользователя.
         /// </summary>
         private void CalculateFileStats()
         {
@@ -89,7 +89,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get the items to show in open recent menu
+        /// Получить элементы, чтобы показать в открытом недавно меню
         /// </summary>
         private void RefreshOpenRecentMenu()
         {
@@ -100,7 +100,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// User clicked on column to sort by it.
+        /// Пользователь нажал на колонке для сортировки по ним.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -110,7 +110,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Open file, read and verify data, make data table and run control intialisations.
+        /// Открыть файл, читать и проверять данные, сделать таблицу данных и запустить контроля инициализацый.
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
@@ -130,7 +130,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Show open file dialog to choose csv file.
+        /// Показать выбирать CSV файл.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,7 +145,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Clicking on "New" menu entry creates empty datatable with default type.
+        /// нажатия на пункт меню"New"создает пустую DataTable с типом по умолчанию.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -158,8 +158,8 @@ namespace kdz_manager
 
 
         /// <summary>
-        /// Clears the internal filters and updates grid view.
-        /// Does not erase the strings that user entered into Fileter text boxes.
+        /// очищает вид сетки внутренние фильтры и обновлений.
+        /// не стирает строки, которые пользователь ввел в фильтр текстовых полях.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -171,7 +171,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Apply user submitted query to data table rows.
+        /// Применить введенные пользователем запрос таблицы данных строк.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -188,10 +188,10 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Called when we change to another page or change number rows per page.
-        /// Takes the filters into account.
+        /// Вызывается при переходе к другой странице или изменения номера строк на странице.
+        /// принимает во внимание фильтры.
         /// 
-        /// This is the event handler for numericUpDown.... ValueChanged event
+        /// Это обработчик событий для NumericUpDown.... ValueChanged событий
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -221,7 +221,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Write the datatable from memory to file.
+        /// Написать DataTable из памяти в файл.
         /// </summary>
         /// <param name="filepath"></param>
         /// <returns></returns>
@@ -242,7 +242,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Save As (new file) button click
+        /// Сохранить как ( Новый файл ) нажатие кнопки
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -264,7 +264,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Save To (append) menu entry is clicked.
+        /// сохранения файла ( добавление) пункт меню кнопки.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -285,7 +285,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Save (overwrite) menu button click
+        /// Сохранить ( перезаписи ) Кнопка меню нажмите
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -310,7 +310,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Save user settings on exit.
+        /// Сохранить настройки пользователя при выходе.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -320,7 +320,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Launches the form to edit a row.
+        /// Запускает форму для редактирования строки.
         /// </summary>
         /// <param name="source"></param>
         private void EditRow(DataRowView source)
@@ -338,7 +338,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Add new record
+        /// Добавить новую запись
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -354,7 +354,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Edit existing record
+        /// Редактировать существующая запись
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -369,7 +369,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Delete row
+        /// Удалить строку
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

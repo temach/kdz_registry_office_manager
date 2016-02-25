@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace kdz_manager
 {
     /// <summary>
-    /// Represents some books.
+    /// Представляет несколько книг.
     /// </summary>
     class RegistryOfficeDataRow : IFromMapDataRow<RegistryOfficeDataRow>
     {
@@ -35,7 +35,7 @@ namespace kdz_manager
         public string GLOBALID {get;set;}
 
         /// <summary>
-        /// Parameterless constructor necessary for use in CSV parser.
+        /// Беспараметрическая конструктор необходимо для использования в CSV парсер.
         /// </summary>
         public RegistryOfficeDataRow()
         {
@@ -64,7 +64,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Make from Map data raw
+        /// Сделать из карт необработанных данных
         /// </summary>
         /// <param name="input">Original object to deep copy from.</param>
         public RegistryOfficeDataRow(MapDataRow input)
@@ -95,7 +95,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Create new instance from parsed data
+        /// Создать новый экземпляр из разобранного данных
         /// </summary>
         /// <returns></returns>
         public RegistryOfficeDataRow FromMapDataRow(MapDataRow input)

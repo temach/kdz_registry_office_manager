@@ -25,8 +25,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Generate input fields based on class type. 
-        /// So one input field corresponds to class property.
+        /// Создать поля ввода в зависимости от типа класса.
+        /// Так один вход поле соответствует классу имущества.
         /// </summary>
         /// <typeparam name="Type">The type which should be filled with information.</typeparam>
         public void GenListTextLabels(Type rowtype)
@@ -52,10 +52,10 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Set text inputs to track the state of data grid.
-        /// This is to allow the user to edit the records.
-        /// Resets DataBindings and BackColor.
-        /// Must reset the controls since we resue them.
+        /// указан текст Входы для отслеживания состояния сетке данных.
+        /// Это должно позволить пользователю редактировать записи.
+        /// сбрасывает DataBindings и BackColor.
+        /// необходимо сбросить управления, так как мы повторно использовать их.
         /// </summary>
         /// <param name="rowview"></param>
         public void ReBindControlsToDataRow(DataRowView rowview)
@@ -69,7 +69,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// User clicked the submit data button.
+        /// Пользователь нажал кнопку отправки данных.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
