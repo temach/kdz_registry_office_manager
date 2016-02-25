@@ -75,8 +75,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 07\+:14\+:25. Создано системой Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. Последние изменения\+: Чт 25 Фев 2016 07\+:14\+:25. Создано системой Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Документация по КДЗ модуль 3. }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -96,6 +96,9 @@
   \newpage{\pagestyle{empty}\cleardoublepage}%
 }
 
+% Custom packages
+\usepackage{pdfpages}
+
 
 %===== C O N T E N T S =====
 
@@ -105,7 +108,7 @@
 \pagenumbering{roman}
 \begin{titlepage}
 \begin{center}
-\vspace*{7cm}
+\vspace*{1cm}
 {\large НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
 «ВЫСШАЯ ШКОЛА ЭКОНОМИКИ» }\\
 \vspace*{0.5cm}
