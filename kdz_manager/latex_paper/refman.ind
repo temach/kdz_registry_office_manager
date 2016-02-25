@@ -1,66 +1,66 @@
 \begin{theindex}
 
   \item {Add\+Filter}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 16
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
   \item {Add\+Recent\+File}
-    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 13
+    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 14
   \item {Admin\+Area\+Data\+Row}, 2
     \subitem {kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}, 3
   \item {Append\+File\+C\+S\+V$<$ T $>$}
-    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 15
+    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 16
   \item {Append\+File\+Dialog\+Get\+Path}
-    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 15
+    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 16
 
   \indexspace
 
   \item {Bind\+To\+Data\+Row\+View}
-    \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 8
+    \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 7
   \item {Binding\+O\+K}
     \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 8
 
   \indexspace
 
-  \item {C\+S\+V\+Reader}, 4
+  \item {C\+S\+V\+Reader}, 3
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 4
-  \item {C\+S\+V\+Writer}, 6
+  \item {C\+S\+V\+Writer}, 5
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 6
   \item {Current\+Page}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
   \item {Currently\+Open\+File\+Path\+Changed}
-    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 13
+    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 14
 
   \indexspace
 
   \item {Deserialize$<$ T $>$}
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 4
   \item {Dispose}
-    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 5
+    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 4
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 6
   \item {Drop\+Filters}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 16
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
 
   \indexspace
 
   \item {Edit\+Row\+Form}, 8
   \item {Editor\+Text\+Box}, 7
-    \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 8
+    \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 7
   \item {Empty\+Table\+From\+Type$<$ T $>$}
     \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 11
   \item {Escape\+Like\+Filter\+Value}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 16
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
 
   \indexspace
 
   \item {From\+Map\+Data\+Row}
     \subitem {kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}, 3
-    \subitem {kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}, 14
+    \subitem {kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}, 15
 
   \indexspace
 
   \item {Gen\+List\+Text\+Labels}
-    \subitem {kdz\+\_\+manager\+::\+Edit\+Row\+Form}, 9
+    \subitem {kdz\+\_\+manager\+::\+Edit\+Row\+Form}, 8
   \item {Get\+Lines}
-    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 5
+    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 4
   \item {Get\+Qty\+Of\+Distinct\+Book\+Prices}
     \subitem {kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}, 3
 
@@ -70,12 +70,11 @@
   \item {Import\+Processing}
     \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 11
   \item {Inner}
-    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 12
+    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 13
 
   \indexspace
 
   \item {kdz\+\_\+manager}, 2
-  \item {kdz\+\_\+manager.\+Properties}, 2
   \item {kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}
     \subitem {Admin\+Area\+Data\+Row}, 3
     \subitem {From\+Map\+Data\+Row}, 3
@@ -83,8 +82,8 @@
   \item {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}
     \subitem {C\+S\+V\+Reader}, 4
     \subitem {Deserialize$<$ T $>$}, 4
-    \subitem {Dispose}, 5
-    \subitem {Get\+Lines}, 5
+    \subitem {Dispose}, 4
+    \subitem {Get\+Lines}, 4
     \subitem {Next\+Line}, 5
     \subitem {Parse\+Line}, 5
     \subitem {Parse\+Multi\+Line}, 5
@@ -93,15 +92,15 @@
     \subitem {C\+S\+V\+Writer}, 6
     \subitem {Dispose}, 6
     \subitem {Make\+Output}, 6
-    \subitem {Write$<$ T $>$}, 7
-    \subitem {Write\+Line}, 7
+    \subitem {Write$<$ T $>$}, 6
+    \subitem {Write\+Line}, 6
   \item {kdz\+\_\+manager\+::\+Edit\+Row\+Form}
-    \subitem {Gen\+List\+Text\+Labels}, 9
-    \subitem {Re\+Bind\+Controls\+To\+Data\+Row}, 9
+    \subitem {Gen\+List\+Text\+Labels}, 8
+    \subitem {Re\+Bind\+Controls\+To\+Data\+Row}, 8
   \item {kdz\+\_\+manager\+::\+Editor\+Text\+Box}
-    \subitem {Bind\+To\+Data\+Row\+View}, 8
+    \subitem {Bind\+To\+Data\+Row\+View}, 7
     \subitem {Binding\+O\+K}, 8
-    \subitem {Editor\+Text\+Box}, 8
+    \subitem {Editor\+Text\+Box}, 7
     \subitem {Label}, 8
     \subitem {Unbind\+From\+Data}, 8
   \item {kdz\+\_\+manager\+::\+Map\+Data\+Row}
@@ -109,38 +108,38 @@
   \item {kdz\+\_\+manager\+::\+Open\+Data}
     \subitem {Empty\+Table\+From\+Type$<$ T $>$}, 11
     \subitem {Import\+Processing}, 11
-    \subitem {Inner}, 12
+    \subitem {Inner}, 13
     \subitem {Open\+File\+Dialog\+Get\+Path}, 11
-    \subitem {Outer}, 12
+    \subitem {Outer}, 13
     \subitem {Parse\+As\+Map\+Data\+C\+S\+V}, 11
-    \subitem {Raw}, 12
+    \subitem {Raw}, 13
     \subitem {To\+Data\+Table$<$ T $>$}, 11
-    \subitem {Update\+Dynamic\+Column\+On\+Row\+Edit}, 12
+    \subitem {Update\+Dynamic\+Column\+On\+Row\+Edit}, 11
   \item {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}
-    \subitem {Add\+Recent\+File}, 13
-    \subitem {Currently\+Open\+File\+Path\+Changed}, 13
-    \subitem {Recent\+Files\+Folders}, 13
-    \subitem {Replace\+Open\+Recent\+Menu}, 13
+    \subitem {Add\+Recent\+File}, 14
+    \subitem {Currently\+Open\+File\+Path\+Changed}, 14
+    \subitem {Recent\+Files\+Folders}, 14
+    \subitem {Replace\+Open\+Recent\+Menu}, 14
   \item {kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}
-    \subitem {From\+Map\+Data\+Row}, 14
-    \subitem {Registry\+Office\+Data\+Row}, 14
+    \subitem {From\+Map\+Data\+Row}, 15
+    \subitem {Registry\+Office\+Data\+Row}, 15
   \item {kdz\+\_\+manager\+::\+Save\+Data}
-    \subitem {Append\+File\+C\+S\+V$<$ T $>$}, 15
-    \subitem {Append\+File\+Dialog\+Get\+Path}, 15
-    \subitem {Save\+File\+Dialog\+Get\+Path}, 15
-    \subitem {Write\+File\+C\+S\+V$<$ T $>$}, 15
+    \subitem {Append\+File\+C\+S\+V$<$ T $>$}, 16
+    \subitem {Append\+File\+Dialog\+Get\+Path}, 16
+    \subitem {Save\+File\+Dialog\+Get\+Path}, 16
+    \subitem {Write\+File\+C\+S\+V$<$ T $>$}, 16
   \item {kdz\+\_\+manager\+::\+View\+Data}
-    \subitem {Add\+Filter}, 16
-    \subitem {Current\+Page}, 17
-    \subitem {Drop\+Filters}, 16
-    \subitem {Escape\+Like\+Filter\+Value}, 16
+    \subitem {Add\+Filter}, 17
+    \subitem {Current\+Page}, 19
+    \subitem {Drop\+Filters}, 17
+    \subitem {Escape\+Like\+Filter\+Value}, 17
     \subitem {Make\+Filter}, 17
-    \subitem {Re\+Page\+View\+Of\+Data}, 17
-    \subitem {Rows\+Per\+Page}, 17
-    \subitem {Total\+Filtered\+Pages}, 17
-    \subitem {Total\+Filtered\+Rows}, 17
-    \subitem {Total\+Pages}, 17
-    \subitem {Total\+Rows}, 17
+    \subitem {Re\+Page\+View\+Of\+Data}, 19
+    \subitem {Rows\+Per\+Page}, 19
+    \subitem {Total\+Filtered\+Pages}, 19
+    \subitem {Total\+Filtered\+Rows}, 19
+    \subitem {Total\+Pages}, 19
+    \subitem {Total\+Rows}, 19
 
   \indexspace
 
@@ -168,7 +167,7 @@
   \item {Open\+File\+Dialog\+Get\+Path}
     \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 11
   \item {Outer}
-    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 12
+    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 13
 
   \indexspace
 
@@ -178,43 +177,43 @@
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 5
   \item {Parse\+Multi\+Line}
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 5
-  \item {Program}, 12
+  \item {Program}, 13
 
   \indexspace
 
   \item {Raw}
-    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 12
+    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 13
   \item {Re\+Bind\+Controls\+To\+Data\+Row}
-    \subitem {kdz\+\_\+manager\+::\+Edit\+Row\+Form}, 9
+    \subitem {kdz\+\_\+manager\+::\+Edit\+Row\+Form}, 8
   \item {Re\+Page\+View\+Of\+Data}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
-  \item {Recent\+Files\+Folders}, 12
-    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 13
-  \item {Registry\+Office\+Data\+Row}, 13
-    \subitem {kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}, 14
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
+  \item {Recent\+Files\+Folders}, 13
+    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 14
+  \item {Registry\+Office\+Data\+Row}, 14
+    \subitem {kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}, 15
   \item {Replace\+Open\+Recent\+Menu}
-    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 13
+    \subitem {kdz\+\_\+manager\+::\+Recent\+Files\+Folders}, 14
   \item {Rows\+Per\+Page}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
 
   \indexspace
 
   \item {Save\+Data}, 15
   \item {Save\+File\+Dialog\+Get\+Path}
-    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 15
+    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 16
 
   \indexspace
 
   \item {To\+Data\+Table$<$ T $>$}
     \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 11
   \item {Total\+Filtered\+Pages}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
   \item {Total\+Filtered\+Rows}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
   \item {Total\+Pages}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
   \item {Total\+Rows}
-    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 17
+    \subitem {kdz\+\_\+manager\+::\+View\+Data}, 19
   \item {Try\+Parse\+Line}
     \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Reader}, 5
 
@@ -223,19 +222,19 @@
   \item {Unbind\+From\+Data}
     \subitem {kdz\+\_\+manager\+::\+Editor\+Text\+Box}, 8
   \item {Update\+Dynamic\+Column\+On\+Row\+Edit}
-    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 12
+    \subitem {kdz\+\_\+manager\+::\+Open\+Data}, 11
 
   \indexspace
 
-  \item {View\+Data}, 15
+  \item {View\+Data}, 16
 
   \indexspace
 
   \item {Write$<$ T $>$}
-    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 7
+    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 6
   \item {Write\+File\+C\+S\+V$<$ T $>$}
-    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 15
+    \subitem {kdz\+\_\+manager\+::\+Save\+Data}, 16
   \item {Write\+Line}
-    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 7
+    \subitem {kdz\+\_\+manager\+::\+C\+S\+V\+Writer}, 6
 
 \end{theindex}
