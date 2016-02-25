@@ -1,15 +1,9 @@
 Problem Variant
 ------------
 
-Markdown is a text-to-HTML conversion tool for web writers. Markdown
-allows you to write using an easy-to-read, easy-to-write plain text
-format, then convert it to structurally valid XHTML (or HTML).
+![alt text][problem_part_one]
+![alt text][problem_part_two]
 
-Thus, "Markdown" is two things: (1) a plain text formatting syntax;
-and (2) a software tool, written in Perl, that converts the plain text
-formatting to HTML. See the [Syntax][] page for details pertaining to
-Markdown's formatting syntax. You can try it out, right now, using the
-online
 
 A Second Level Header
 ---------------------
@@ -28,3 +22,7 @@ dog's back.
 > This is the second paragraph in the blockquote.
 >
 > ## This is an H2 in a blockquote
+
+
+[problem_part_one]: latex_paper/task_one.png ""
+[problem_part_two]: latex_paper/task_two.png ""
