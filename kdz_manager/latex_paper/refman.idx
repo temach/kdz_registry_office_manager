@@ -1,4 +1,4 @@
-\indexentry{kdz\+\_\+manager@{kdz\+\_\+manager}}{1}
+\indexentry{kdz\+\_\+manager@{kdz\+\_\+manager}}{2}
 \indexentry{kdz\+\_\+manager.\+Properties@{kdz\+\_\+manager.\+Properties}}{2}
 \indexentry{Admin\+Area\+Data\+Row@{Admin\+Area\+Data\+Row}}{2}
 \indexentry{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row@{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}!Admin\+Area\+Data\+Row@{Admin\+Area\+Data\+Row}}{3}
@@ -9,15 +9,15 @@
 \indexentry{From\+Map\+Data\+Row@{From\+Map\+Data\+Row}!kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row@{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}}{3}
 \indexentry{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row@{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}!Get\+Qty\+Of\+Distinct\+Book\+Prices@{Get\+Qty\+Of\+Distinct\+Book\+Prices}}{3}
 \indexentry{Get\+Qty\+Of\+Distinct\+Book\+Prices@{Get\+Qty\+Of\+Distinct\+Book\+Prices}!kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row@{kdz\+\_\+manager\+::\+Admin\+Area\+Data\+Row}}{3}
-\indexentry{C\+S\+V\+Reader@{C\+S\+V\+Reader}}{3}
+\indexentry{C\+S\+V\+Reader@{C\+S\+V\+Reader}}{4}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!C\+S\+V\+Reader@{C\+S\+V\+Reader}}{4}
 \indexentry{C\+S\+V\+Reader@{C\+S\+V\+Reader}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{4}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Deserialize$<$ T $>$@{Deserialize$<$ T $>$}}{4}
 \indexentry{Deserialize$<$ T $>$@{Deserialize$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{4}
-\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Dispose@{Dispose}}{4}
-\indexentry{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{4}
-\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Get\+Lines@{Get\+Lines}}{4}
-\indexentry{Get\+Lines@{Get\+Lines}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{4}
+\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Dispose@{Dispose}}{5}
+\indexentry{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{5}
+\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Get\+Lines@{Get\+Lines}}{5}
+\indexentry{Get\+Lines@{Get\+Lines}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{5}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Next\+Line@{Next\+Line}}{5}
 \indexentry{Next\+Line@{Next\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{5}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Parse\+Line@{Parse\+Line}}{5}
@@ -26,22 +26,22 @@
 \indexentry{Parse\+Multi\+Line@{Parse\+Multi\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{5}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Try\+Parse\+Line@{Try\+Parse\+Line}}{5}
 \indexentry{Try\+Parse\+Line@{Try\+Parse\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}{5}
-\indexentry{C\+S\+V\+Writer@{C\+S\+V\+Writer}}{5}
+\indexentry{C\+S\+V\+Writer@{C\+S\+V\+Writer}}{6}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!C\+S\+V\+Writer@{C\+S\+V\+Writer}}{6}
 \indexentry{C\+S\+V\+Writer@{C\+S\+V\+Writer}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{6}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Dispose@{Dispose}}{6}
 \indexentry{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{6}
 \indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Make\+Output@{Make\+Output}}{6}
 \indexentry{Make\+Output@{Make\+Output}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{6}
-\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write$<$ T $>$@{Write$<$ T $>$}}{6}
-\indexentry{Write$<$ T $>$@{Write$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{6}
-\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write\+Line@{Write\+Line}}{6}
-\indexentry{Write\+Line@{Write\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{6}
+\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write$<$ T $>$@{Write$<$ T $>$}}{7}
+\indexentry{Write$<$ T $>$@{Write$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{7}
+\indexentry{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write\+Line@{Write\+Line}}{7}
+\indexentry{Write\+Line@{Write\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}{7}
 \indexentry{Editor\+Text\+Box@{Editor\+Text\+Box}}{7}
-\indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Editor\+Text\+Box@{Editor\+Text\+Box}}{7}
-\indexentry{Editor\+Text\+Box@{Editor\+Text\+Box}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{7}
-\indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Bind\+To\+Data\+Row\+View@{Bind\+To\+Data\+Row\+View}}{7}
-\indexentry{Bind\+To\+Data\+Row\+View@{Bind\+To\+Data\+Row\+View}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{7}
+\indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Editor\+Text\+Box@{Editor\+Text\+Box}}{8}
+\indexentry{Editor\+Text\+Box@{Editor\+Text\+Box}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{8}
+\indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Bind\+To\+Data\+Row\+View@{Bind\+To\+Data\+Row\+View}}{8}
+\indexentry{Bind\+To\+Data\+Row\+View@{Bind\+To\+Data\+Row\+View}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{8}
 \indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Unbind\+From\+Data@{Unbind\+From\+Data}}{8}
 \indexentry{Unbind\+From\+Data@{Unbind\+From\+Data}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{8}
 \indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Binding\+O\+K@{Binding\+O\+K}}{8}
@@ -49,10 +49,10 @@
 \indexentry{kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}!Label@{Label}}{8}
 \indexentry{Label@{Label}!kdz\+\_\+manager\+::\+Editor\+Text\+Box@{kdz\+\_\+manager\+::\+Editor\+Text\+Box}}{8}
 \indexentry{Edit\+Row\+Form@{Edit\+Row\+Form}}{8}
-\indexentry{kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}!Gen\+List\+Text\+Labels@{Gen\+List\+Text\+Labels}}{8}
-\indexentry{Gen\+List\+Text\+Labels@{Gen\+List\+Text\+Labels}!kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}}{8}
-\indexentry{kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}!Re\+Bind\+Controls\+To\+Data\+Row@{Re\+Bind\+Controls\+To\+Data\+Row}}{8}
-\indexentry{Re\+Bind\+Controls\+To\+Data\+Row@{Re\+Bind\+Controls\+To\+Data\+Row}!kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}}{8}
+\indexentry{kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}!Gen\+List\+Text\+Labels@{Gen\+List\+Text\+Labels}}{9}
+\indexentry{Gen\+List\+Text\+Labels@{Gen\+List\+Text\+Labels}!kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}}{9}
+\indexentry{kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}!Re\+Bind\+Controls\+To\+Data\+Row@{Re\+Bind\+Controls\+To\+Data\+Row}}{9}
+\indexentry{Re\+Bind\+Controls\+To\+Data\+Row@{Re\+Bind\+Controls\+To\+Data\+Row}!kdz\+\_\+manager\+::\+Edit\+Row\+Form@{kdz\+\_\+manager\+::\+Edit\+Row\+Form}}{9}
 \indexentry{I\+From\+Map\+Data\+Row$<$ T $>$@{I\+From\+Map\+Data\+Row$<$ T $>$}}{9}
 \indexentry{Main\+Form@{Main\+Form}}{9}
 \indexentry{Map\+Data\+Row@{Map\+Data\+Row}}{9}
@@ -69,60 +69,60 @@
 \indexentry{Parse\+As\+Map\+Data\+C\+S\+V@{Parse\+As\+Map\+Data\+C\+S\+V}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{11}
 \indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!To\+Data\+Table$<$ T $>$@{To\+Data\+Table$<$ T $>$}}{11}
 \indexentry{To\+Data\+Table$<$ T $>$@{To\+Data\+Table$<$ T $>$}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{11}
-\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}}{11}
-\indexentry{Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{11}
-\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Inner@{Inner}}{13}
-\indexentry{Inner@{Inner}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{13}
-\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Outer@{Outer}}{13}
-\indexentry{Outer@{Outer}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{13}
-\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Raw@{Raw}}{13}
-\indexentry{Raw@{Raw}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{13}
-\indexentry{Program@{Program}}{13}
-\indexentry{Recent\+Files\+Folders@{Recent\+Files\+Folders}}{13}
-\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Recent\+Files\+Folders@{Recent\+Files\+Folders}}{14}
-\indexentry{Recent\+Files\+Folders@{Recent\+Files\+Folders}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{14}
-\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Add\+Recent\+File@{Add\+Recent\+File}}{14}
-\indexentry{Add\+Recent\+File@{Add\+Recent\+File}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{14}
-\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Replace\+Open\+Recent\+Menu@{Replace\+Open\+Recent\+Menu}}{14}
-\indexentry{Replace\+Open\+Recent\+Menu@{Replace\+Open\+Recent\+Menu}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{14}
-\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Currently\+Open\+File\+Path\+Changed@{Currently\+Open\+File\+Path\+Changed}}{14}
-\indexentry{Currently\+Open\+File\+Path\+Changed@{Currently\+Open\+File\+Path\+Changed}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{14}
-\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{14}
-\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{15}
-\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{15}
-\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{15}
-\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{15}
-\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!From\+Map\+Data\+Row@{From\+Map\+Data\+Row}}{15}
-\indexentry{From\+Map\+Data\+Row@{From\+Map\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{15}
+\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}}{12}
+\indexentry{Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{12}
+\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Inner@{Inner}}{12}
+\indexentry{Inner@{Inner}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{12}
+\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Outer@{Outer}}{12}
+\indexentry{Outer@{Outer}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{12}
+\indexentry{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Raw@{Raw}}{12}
+\indexentry{Raw@{Raw}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}{12}
+\indexentry{Program@{Program}}{12}
+\indexentry{Recent\+Files\+Folders@{Recent\+Files\+Folders}}{12}
+\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Recent\+Files\+Folders@{Recent\+Files\+Folders}}{13}
+\indexentry{Recent\+Files\+Folders@{Recent\+Files\+Folders}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{13}
+\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Add\+Recent\+File@{Add\+Recent\+File}}{13}
+\indexentry{Add\+Recent\+File@{Add\+Recent\+File}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{13}
+\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Replace\+Open\+Recent\+Menu@{Replace\+Open\+Recent\+Menu}}{13}
+\indexentry{Replace\+Open\+Recent\+Menu@{Replace\+Open\+Recent\+Menu}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{13}
+\indexentry{kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}!Currently\+Open\+File\+Path\+Changed@{Currently\+Open\+File\+Path\+Changed}}{13}
+\indexentry{Currently\+Open\+File\+Path\+Changed@{Currently\+Open\+File\+Path\+Changed}!kdz\+\_\+manager\+::\+Recent\+Files\+Folders@{kdz\+\_\+manager\+::\+Recent\+Files\+Folders}}{13}
+\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{13}
+\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{14}
+\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{14}
+\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}}{14}
+\indexentry{Registry\+Office\+Data\+Row@{Registry\+Office\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{14}
+\indexentry{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}!From\+Map\+Data\+Row@{From\+Map\+Data\+Row}}{14}
+\indexentry{From\+Map\+Data\+Row@{From\+Map\+Data\+Row}!kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row@{kdz\+\_\+manager\+::\+Registry\+Office\+Data\+Row}}{14}
 \indexentry{Save\+Data@{Save\+Data}}{15}
-\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Append\+File\+C\+S\+V$<$ T $>$@{Append\+File\+C\+S\+V$<$ T $>$}}{16}
-\indexentry{Append\+File\+C\+S\+V$<$ T $>$@{Append\+File\+C\+S\+V$<$ T $>$}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{16}
-\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Append\+File\+Dialog\+Get\+Path@{Append\+File\+Dialog\+Get\+Path}}{16}
-\indexentry{Append\+File\+Dialog\+Get\+Path@{Append\+File\+Dialog\+Get\+Path}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{16}
-\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Save\+File\+Dialog\+Get\+Path@{Save\+File\+Dialog\+Get\+Path}}{16}
-\indexentry{Save\+File\+Dialog\+Get\+Path@{Save\+File\+Dialog\+Get\+Path}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{16}
-\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Write\+File\+C\+S\+V$<$ T $>$@{Write\+File\+C\+S\+V$<$ T $>$}}{16}
-\indexentry{Write\+File\+C\+S\+V$<$ T $>$@{Write\+File\+C\+S\+V$<$ T $>$}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{16}
-\indexentry{View\+Data@{View\+Data}}{16}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Add\+Filter@{Add\+Filter}}{17}
-\indexentry{Add\+Filter@{Add\+Filter}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Drop\+Filters@{Drop\+Filters}}{17}
-\indexentry{Drop\+Filters@{Drop\+Filters}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}}{17}
-\indexentry{Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Append\+File\+C\+S\+V$<$ T $>$@{Append\+File\+C\+S\+V$<$ T $>$}}{15}
+\indexentry{Append\+File\+C\+S\+V$<$ T $>$@{Append\+File\+C\+S\+V$<$ T $>$}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{15}
+\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Append\+File\+Dialog\+Get\+Path@{Append\+File\+Dialog\+Get\+Path}}{15}
+\indexentry{Append\+File\+Dialog\+Get\+Path@{Append\+File\+Dialog\+Get\+Path}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{15}
+\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Save\+File\+Dialog\+Get\+Path@{Save\+File\+Dialog\+Get\+Path}}{15}
+\indexentry{Save\+File\+Dialog\+Get\+Path@{Save\+File\+Dialog\+Get\+Path}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{15}
+\indexentry{kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}!Write\+File\+C\+S\+V$<$ T $>$@{Write\+File\+C\+S\+V$<$ T $>$}}{15}
+\indexentry{Write\+File\+C\+S\+V$<$ T $>$@{Write\+File\+C\+S\+V$<$ T $>$}!kdz\+\_\+manager\+::\+Save\+Data@{kdz\+\_\+manager\+::\+Save\+Data}}{15}
+\indexentry{View\+Data@{View\+Data}}{15}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Add\+Filter@{Add\+Filter}}{16}
+\indexentry{Add\+Filter@{Add\+Filter}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{16}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Drop\+Filters@{Drop\+Filters}}{16}
+\indexentry{Drop\+Filters@{Drop\+Filters}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{16}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}}{16}
+\indexentry{Escape\+Like\+Filter\+Value@{Escape\+Like\+Filter\+Value}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{16}
 \indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Make\+Filter@{Make\+Filter}}{17}
 \indexentry{Make\+Filter@{Make\+Filter}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}}{19}
-\indexentry{Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Current\+Page@{Current\+Page}}{19}
-\indexentry{Current\+Page@{Current\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Rows\+Per\+Page@{Rows\+Per\+Page}}{19}
-\indexentry{Rows\+Per\+Page@{Rows\+Per\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Pages@{Total\+Filtered\+Pages}}{19}
-\indexentry{Total\+Filtered\+Pages@{Total\+Filtered\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Rows@{Total\+Filtered\+Rows}}{19}
-\indexentry{Total\+Filtered\+Rows@{Total\+Filtered\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Pages@{Total\+Pages}}{19}
-\indexentry{Total\+Pages@{Total\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
-\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Rows@{Total\+Rows}}{19}
-\indexentry{Total\+Rows@{Total\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{19}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}}{17}
+\indexentry{Re\+Page\+View\+Of\+Data@{Re\+Page\+View\+Of\+Data}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Current\+Page@{Current\+Page}}{17}
+\indexentry{Current\+Page@{Current\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Rows\+Per\+Page@{Rows\+Per\+Page}}{17}
+\indexentry{Rows\+Per\+Page@{Rows\+Per\+Page}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Pages@{Total\+Filtered\+Pages}}{17}
+\indexentry{Total\+Filtered\+Pages@{Total\+Filtered\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Filtered\+Rows@{Total\+Filtered\+Rows}}{17}
+\indexentry{Total\+Filtered\+Rows@{Total\+Filtered\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Pages@{Total\+Pages}}{17}
+\indexentry{Total\+Pages@{Total\+Pages}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}
+\indexentry{kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}!Total\+Rows@{Total\+Rows}}{17}
+\indexentry{Total\+Rows@{Total\+Rows}!kdz\+\_\+manager\+::\+View\+Data@{kdz\+\_\+manager\+::\+View\+Data}}{17}

@@ -3,7 +3,6 @@ all: refman.pdf
 pdf: refman.pdf
 
 refman.pdf: clean refman.tex
-	sed -e '/backmatter/d' refman.tex > refman.tex.tmp && mv refman.tex.tmp refman.tex
 	pdflatex refman
 	makeindex refman.idx
 	pdflatex refman

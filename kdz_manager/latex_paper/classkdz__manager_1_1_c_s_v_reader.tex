@@ -42,7 +42,7 @@ bool {\bf Try\+Parse\+Line} (string s, out string[$\,$] array)
 \subsubsection{Конструктор(ы)}
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!C\+S\+V\+Reader@{C\+S\+V\+Reader}}
 \index{C\+S\+V\+Reader@{C\+S\+V\+Reader}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{C\+S\+V\+Reader}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+S\+V\+Reader} (
+\paragraph[{C\+S\+V\+Reader(\+Stream\+Reader source, char separator, char text\+\_\+escape)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+S\+V\+Reader} (
 \begin{DoxyParamCaption}
 \item[{Stream\+Reader}]{source, }
 \item[{char}]{separator, }
@@ -67,7 +67,7 @@ bool {\bf Try\+Parse\+Line} (string s, out string[$\,$] array)
 \subsubsection{Методы}
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Deserialize$<$ T $>$@{Deserialize$<$ T $>$}}
 \index{Deserialize$<$ T $>$@{Deserialize$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Deserialize$<$ T $>$}]{\setlength{\rightskip}{0pt plus 5cm}List$<$T$>$ Deserialize$<$ T $>$ (
+\paragraph[{Deserialize$<$ T $>$()}]{\setlength{\rightskip}{0pt plus 5cm}List$<$T$>$ Deserialize$<$ T $>$ (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -90,7 +90,7 @@ An array of objects that were retrieved from the C\+S\+V file.
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Dispose@{Dispose}}
 \index{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Dispose}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose (
+\paragraph[{Dispose()}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -101,7 +101,7 @@ An array of objects that were retrieved from the C\+S\+V file.
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Get\+Lines@{Get\+Lines}}
 \index{Get\+Lines@{Get\+Lines}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Get\+Lines}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$string[$\,$]$>$ Get\+Lines (
+\paragraph[{Get\+Lines()}]{\setlength{\rightskip}{0pt plus 5cm}I\+Enumerable$<$string[$\,$]$>$ Get\+Lines (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -115,7 +115,7 @@ An array of all data columns in the line
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Next\+Line@{Next\+Line}}
 \index{Next\+Line@{Next\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Next\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Next\+Line (
+\paragraph[{Next\+Line()}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Next\+Line (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
@@ -129,7 +129,7 @@ One line from the file.
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Parse\+Line@{Parse\+Line}}
 \index{Parse\+Line@{Parse\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Parse\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Line (
+\paragraph[{Parse\+Line(string s)}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Line (
 \begin{DoxyParamCaption}
 \item[{string}]{s}
 \end{DoxyParamCaption}
@@ -148,7 +148,7 @@ One line from the file.
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Parse\+Multi\+Line@{Parse\+Multi\+Line}}
 \index{Parse\+Multi\+Line@{Parse\+Multi\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Parse\+Multi\+Line}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Multi\+Line (
+\paragraph[{Parse\+Multi\+Line(\+Stream\+Reader sr)}]{\setlength{\rightskip}{0pt plus 5cm}string [$\,$] Parse\+Multi\+Line (
 \begin{DoxyParamCaption}
 \item[{Stream\+Reader}]{sr}
 \end{DoxyParamCaption}
@@ -167,7 +167,7 @@ One line from the file.
 
 \index{kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}!Try\+Parse\+Line@{Try\+Parse\+Line}}
 \index{Try\+Parse\+Line@{Try\+Parse\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Reader@{kdz\+\_\+manager\+::\+C\+S\+V\+Reader}}
-\paragraph[{Try\+Parse\+Line}]{\setlength{\rightskip}{0pt plus 5cm}bool Try\+Parse\+Line (
+\paragraph[{Try\+Parse\+Line(string s, out string[] array)}]{\setlength{\rightskip}{0pt plus 5cm}bool Try\+Parse\+Line (
 \begin{DoxyParamCaption}
 \item[{string}]{s, }
 \item[{out string[$\,$]}]{array}
