@@ -2,7 +2,7 @@
 \label{classkdz__manager_1_1_c_s_v_reader}\index{C\+S\+V\+Reader@{C\+S\+V\+Reader}}
 
 
-Class to actually parse lines in C\+S\+V file.  
+Класс фактически разобрать строки в C\+S\+V -\/файл.  
 
 
 Граф наследования\+:C\+S\+V\+Reader\+:\begin{figure}[H]
@@ -15,21 +15,21 @@ Class to actually parse lines in C\+S\+V file.
 \begin{DoxyCompactItemize}
 \item 
 {\bf C\+S\+V\+Reader} (Stream\+Reader source, char separator, char text\+\_\+escape)
-\begin{DoxyCompactList}\small\item\em Construct a new C\+S\+V reader off a streamed source \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Построить новый читатель C\+S\+V от источника потока \end{DoxyCompactList}\item 
 I\+Enumerable$<$ string[$\,$]$>$ {\bf Get\+Lines} ()
-\begin{DoxyCompactList}\small\item\em Iterate through all lines in this C\+S\+V file \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em перебора всех строк этого файла C\+S\+V \end{DoxyCompactList}\item 
 string[$\,$] {\bf Next\+Line} ()
-\begin{DoxyCompactList}\small\item\em Retrieve the next line from the file. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить следующую строку из файла. \end{DoxyCompactList}\item 
 void {\bf Dispose} ()
-\begin{DoxyCompactList}\small\item\em Close our resources -\/ specifically, the stream reader \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em закрывать ресурсы -\/ в частности, читатель поток \end{DoxyCompactList}\item 
 List$<$ T $>$ {\bf Deserialize$<$ T $>$} ()
-\begin{DoxyCompactList}\small\item\em Deserialize a C\+S\+V file into a list of typed objects \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em десериализации C\+S\+V файл в списке набранных объектов \end{DoxyCompactList}\item 
 string[$\,$] {\bf Parse\+Multi\+Line} (Stream\+Reader sr)
-\begin{DoxyCompactList}\small\item\em Parse a line whose values may include newline symbols or C\+R/\+L\+F \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Разбор линию, значения которого могут включать новые символы строки или C\+R / L\+F \end{DoxyCompactList}\item 
 string[$\,$] {\bf Parse\+Line} (string s)
-\begin{DoxyCompactList}\small\item\em Parse the line and return the array if it succeeds, or as best as we can get \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Разбор строки и вернуть массив, если это удастся, или в лучшем случае как мы можем получить \end{DoxyCompactList}\item 
 bool {\bf Try\+Parse\+Line} (string s, out string[$\,$] array)
-\begin{DoxyCompactList}\small\item\em Read in a line of text, and use the Add() function to add these items to the current C\+S\+V structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em прочитал в строке текста, а также использовать функцию Add (), чтобы добавить эти элементы к существующей структуре C\+S\+V \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsubsection{Подробное описание}

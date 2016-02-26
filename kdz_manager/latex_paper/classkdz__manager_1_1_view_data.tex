@@ -7,15 +7,15 @@
 
 \item 
 string {\bf Escape\+Like\+Filter\+Value} (string value\+Without\+Wildcards)
-\begin{DoxyCompactList}\small\item\em Useful so user can supply their match exactly. (we escape wierd characters) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Полезный так что пользователь может поставить свой матч точно. ( Мы избегаем странные символы ) \end{DoxyCompactList}\item 
 string {\bf Make\+Filter} (string column, string match)
-\begin{DoxyCompactList}\small\item\em Create a basic filter based on column name and string to match. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Создание базовой фильтр, основанный на имени столбца и строки, чтобы соответствовать. \end{DoxyCompactList}\item 
 void {\bf Add\+Filter} (string filter)
-\begin{DoxyCompactList}\small\item\em Apply user submitted query to data table rows. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Применить введенные пользователем запрос таблицы данных строк. \end{DoxyCompactList}\item 
 void {\bf Drop\+Filters} ()
-\begin{DoxyCompactList}\small\item\em Remove all filters \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Удалить все фильтры \end{DoxyCompactList}\item 
 void {\bf Re\+Page\+View\+Of\+Data} ()
-\begin{DoxyCompactList}\small\item\em Called when we change to another page or change number rows per page. Takes the filters and sorting into account. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Вызывается при переходе к другой странице или номер изменения строк на странице. принимает фильтры и сортировки учетом. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Открытые атрибуты}
 \begin{DoxyCompactItemize}
 \item 
@@ -32,17 +32,17 @@ Data\+View {\bfseries Paged\+View\+Of\+Data}\hspace{0.3cm}{\ttfamily  [get]}\lab
 
 \item 
 int {\bf Total\+Rows}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get total number of rows that we have (after filtering and sorting on the datatable) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить общее количество строк, которые мы имеем ( после фильтрации и сортировки на Data\+Table ) \end{DoxyCompactList}\item 
 int {\bf Total\+Pages}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get the total number of pages \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить общее число страниц \end{DoxyCompactList}\item 
 int {\bf Total\+Filtered\+Rows}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get number of records after filters have been applied. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить количество записей после применения фильтров. \end{DoxyCompactList}\item 
 int {\bf Total\+Filtered\+Pages}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get number of pages full of records after filters have been applied. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить количество страниц, полных записей после применения фильтров. \end{DoxyCompactList}\item 
 int {\bf Rows\+Per\+Page}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get set number of records per page to show in data\+Grid\+View1 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Получить набор количество записей на странице, чтобы показать в data\+Grid\+View1 \end{DoxyCompactList}\item 
 int {\bf Current\+Page}\hspace{0.3cm}{\ttfamily  [get]}
-\begin{DoxyCompactList}\small\item\em Get set index of current page to display in data\+Grid\+View1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Получить набор индекс текущей страницы для отображения в data\+Grid\+View1 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsubsection{Подробное описание}

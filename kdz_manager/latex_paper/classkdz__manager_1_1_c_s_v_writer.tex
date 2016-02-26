@@ -2,7 +2,7 @@
 \label{classkdz__manager_1_1_c_s_v_writer}\index{C\+S\+V\+Writer@{C\+S\+V\+Writer}}
 
 
-Class to serialize C\+S\+V data from data table to file.  
+Класс сериализовать данные C\+S\+V из таблицы данных в файл.  
 
 
 Граф наследования\+:C\+S\+V\+Writer\+:\begin{figure}[H]
@@ -15,15 +15,15 @@ Class to serialize C\+S\+V data from data table to file.
 \begin{DoxyCompactItemize}
 \item 
 {\bf C\+S\+V\+Writer} (Stream\+Writer source, char separator, char text\+\_\+escape)
-\begin{DoxyCompactList}\small\item\em Construct a new C\+S\+V writer to produce output on the enclosed Stream\+Writer \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Создает новый C\+S\+V писатель производить вывод на прилагаемом Stream\+Writer \end{DoxyCompactList}\item 
 void {\bf Write$<$ T $>$} (Data\+Table dt, bool write\+\_\+header)
-\begin{DoxyCompactList}\small\item\em Write the data table to a stream in C\+S\+V format \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Написать таблицу данных в поток в формате C\+S\+V \end{DoxyCompactList}\item 
 void {\bf Dispose} ()
-\begin{DoxyCompactList}\small\item\em Close our resources -\/ specifically, the stream reader \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em закрывать ресурсы -\/ в частности, читатель поток \end{DoxyCompactList}\item 
 void {\bf Write\+Line} (I\+Enumerable$<$ object $>$ line)
-\begin{DoxyCompactList}\small\item\em Write one line to the file \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Написать одну строку в файл \end{DoxyCompactList}\item 
 string {\bf Make\+Output} (I\+Enumerable$<$ object $>$ line)
-\begin{DoxyCompactList}\small\item\em Output a single field value as appropriate \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Выходной одно значение поля по мере необходимости \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsubsection*{Защищенные данные}
 \begin{DoxyCompactItemize}
 \item 
