@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace kdz_manager
 {
     /// <summary>
-    /// Aggregates a number of books under the author's name.
+    /// агрегатов ряд книг под именем автора.
     /// </summary>
     class AdminAreaDataRow : IFromMapDataRow<AdminAreaDataRow>
     {
@@ -16,8 +16,8 @@ namespace kdz_manager
         public List<RegistryOfficeDataRow> Offices { get; set; }
 
         /// <summary>
-        /// Returns quantity of distinct book prices. 
-        /// (e.g. if three books have the same price they count as one)
+        /// Возвращает количество различных цен на книги.
+        /// (например, если три книги имеют ту же цену они считаться одним )
         /// </summary>
         /// <returns></returns>
         public int GetQtyOfDistinctBookPrices()
@@ -26,7 +26,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Parameterless constructor necessary for use in CSV parser.
+        /// Беспараметрическая конструктор необходимо для использования в CSV парсер.
         /// </summary>
         public AdminAreaDataRow()
         {
@@ -36,7 +36,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Contruct author from MapDataRow
+        /// Построить автора от карт DataRow
         /// </summary>
         /// <param name="input"></param>
         public AdminAreaDataRow(MapDataRow input)
@@ -47,7 +47,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Create new instance from parsed data
+        /// Создать новый экземпляр из разобранного данных
         /// </summary>
         /// <returns></returns>
         public AdminAreaDataRow FromMapDataRow(MapDataRow input)

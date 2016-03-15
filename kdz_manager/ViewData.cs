@@ -48,7 +48,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get total number of rows that we have (after filtering and sorting on the datatable)
+        /// Получить общее количество строк, которые мы имеем ( после фильтрации и сортировки на DataTable )
         /// </summary>
         public int TotalRows
         {
@@ -56,7 +56,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get the total number of pages
+        /// Получить общее число страниц
         /// </summary>
         public int TotalPages
         {
@@ -64,7 +64,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get number of records after filters have been applied.
+        /// Получить количество записей после применения фильтров.
         /// </summary>
         public int TotalFilteredRows
         {
@@ -72,7 +72,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get number of pages full of records after filters have been applied.
+        /// Получить количество страниц, полных записей после применения фильтров.
         /// </summary>
         public int TotalFilteredPages
         {
@@ -80,7 +80,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get set number of records per page to show in dataGridView1
+        /// Получить набор количество записей на странице, чтобы показать в dataGridView1
         /// </summary>
         public int RowsPerPage
         {
@@ -88,7 +88,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Get set index of current page to display in dataGridView1
+        /// Получить набор индекс текущей страницы для отображения в dataGridView1
         /// </summary>
         public int CurrentPage
         {
@@ -109,7 +109,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Useful so user can supply their match exactly. (we escape wierd characters)
+        /// Полезный так что пользователь может поставить свой матч точно.  ( Мы избегаем странные символы )
         /// </summary>
         /// <param name="valueWithoutWildcards"></param>
         /// <returns></returns>
@@ -130,7 +130,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Create a basic filter based on column name and string to match.
+        /// Создание базовой фильтр, основанный на имени столбца и строки, чтобы соответствовать.
         /// </summary>
         /// <param name="column"></param>
         /// <param name="match"></param>
@@ -143,7 +143,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Apply user submitted query to data table rows.
+        /// Применить введенные пользователем запрос таблицы данных строк.
         /// </summary>
         /// <param name="filter"></param>
         /// <param name="combining_operation">"how to combine the filter with previous: AND/OR"</param>
@@ -153,7 +153,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Remove all filters
+        /// Удалить все фильтры
         /// </summary>
         public void DropFilters()
         {
@@ -161,8 +161,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Called when we change to another page or change number rows per page.
-        /// Takes the filters and sorting into account.
+        /// Вызывается при переходе к другой странице или номер изменения строк на странице.
+        /// принимает фильтры и сортировки учетом.
         /// </summary>
         public void RePageViewOfData()
         {

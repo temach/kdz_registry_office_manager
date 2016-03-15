@@ -1,0 +1,116 @@
+AdminAreaDataRow.cs:10:    /// Aggregates a number of books under the author's name.
+AdminAreaDataRow.cs:19:        /// Returns quantity of distinct book prices. 
+AdminAreaDataRow.cs:20:        /// (e.g. if three books have the same price they count as one)
+AdminAreaDataRow.cs:29:        /// Parameterless constructor necessary for use in CSV parser.
+AdminAreaDataRow.cs:39:        /// Contruct author from MapDataRow
+AdminAreaDataRow.cs:50:        /// Create new instance from parsed data
+EditRowForm.cs:28:        /// Generate input fields based on class type. 
+EditRowForm.cs:29:        /// So one input field corresponds to class property.
+EditRowForm.cs:55:        /// Set text inputs to track the state of data grid.
+EditRowForm.cs:56:        /// This is to allow the user to edit the records.
+EditRowForm.cs:57:        /// Resets DataBindings and BackColor.
+EditRowForm.cs:58:        /// Must reset the controls since we resue them.
+EditRowForm.cs:72:        /// User clicked the submit data button.
+EditorTextBox.cs:22:        /// If we can bind succesfully to the DataTable 
+EditorTextBox.cs:23:        /// (meaning: if the entered data is valid)
+EditorTextBox.cs:28:        /// String to describe the input box
+EditorTextBox.cs:37:        /// With this constructor, remember to bind 
+EditorTextBox.cs:38:        /// this control before use (call BindToDataRowView)
+EditorTextBox.cs:46:        /// Bind this control to DataRowView object
+EditorTextBox.cs:63:        /// Occurs when pushing from DataTable to Control.
+EditorTextBox.cs:64:        /// We only allow you to push once. Then let the user edit stuff.
+EditorTextBox.cs:74:        /// Occurs when binding is over, show the user if we were able to write the values or not.
+EditorTextBox.cs:99:        /// Resets control properties to default values.
+EditorTextBox.cs:100:        /// This is useful since we can then reuse the controls.
+Form1.cs:42:        /// On file load adjust some boundaries and reset user modifiable values.
+Form1.cs:92:        /// Get the items to show in open recent menu
+Form1.cs:103:        /// User clicked on column to sort by it.
+Form1.cs:113:        /// Open file, read and verify data, make data table and run control intialisations.
+Form1.cs:133:        /// Show open file dialog to choose csv file.
+Form1.cs:148:        /// Clicking on "New" menu entry creates empty datatable with default type.
+Form1.cs:161:        /// Clears the internal filters and updates grid view.
+Form1.cs:162:        /// Does not erase the strings that user entered into Fileter text boxes.
+Form1.cs:174:        /// Apply user submitted query to data table rows.
+Form1.cs:191:        /// Called when we change to another page or change number rows per page.
+Form1.cs:192:        /// Takes the filters into account.
+Form1.cs:194:        /// This is the event handler for numericUpDown.... ValueChanged event
+Form1.cs:224:        /// Write the datatable from memory to file.
+Form1.cs:245:        /// Save As (new file) button click
+Form1.cs:267:        /// Save To (append) menu entry is clicked.
+Form1.cs:288:        /// Save (overwrite) menu button click
+Form1.cs:313:        /// Save user settings on exit.
+Form1.cs:323:        /// Launches the form to edit a row.
+Form1.cs:341:        /// Add new record
+Form1.cs:357:        /// Edit existing record
+Form1.cs:372:        /// Delete row
+MapDataRow.cs:10:    /// Maps one row in CSV file to properties.
+MapDataRow.cs:38:        /// Parameterless constructor necessary for use in CSV parser.
+OpenData.cs:15:    /// Class to actually parse lines in CSV file.
+OpenData.cs:27:        /// Construct a new CSV reader off a streamed source
+OpenData.cs:40:        /// Iterate through all lines in this CSV file
+OpenData.cs:49:        /// Iterate through all lines in this CSV file
+OpenData.cs:58:        /// Iterate through all lines in this CSV file
+OpenData.cs:78:        /// Retrieve the next line from the file.
+OpenData.cs:87:        /// Close our resources - specifically, the stream reader
+OpenData.cs:96:        /// Deserialize a CSV file into a list of typed objects
+OpenData.cs:182:        /// Parse a line whose values may include newline symbols or CR/LF
+OpenData.cs:212:        /// Parse the line and return the array if it succeeds, or as best as we can get
+OpenData.cs:224:        /// Read in a line of text, and use the Add() function to add these items to the current CSV structure
+OpenData.cs:310:        /// Simple type.
+OpenData.cs:314:        /// Advanced type that aggregates simple types.
+OpenData.cs:318:        /// Result of parsing CSV file
+OpenData.cs:323:        /// Connect multiple inner to a few outer.
+OpenData.cs:338:        /// Open file, read and verify data, make data table and run control intialisations.
+OpenData.cs:355:        /// Recalculates the dynamic column for the row.
+OpenData.cs:397:        /// Function to fill Inner and Outer Lists based on data in Raw list.
+OpenData.cs:430:        /// Read through the properties of T and 
+OpenData.cs:431:        /// assemble a DataTable that would represent it.
+OpenData.cs:459:        /// Make an empty data table with layout to contain type T.
+OpenData.cs:477:        /// Opens a dialog to get path of file to open from te user.
+Program.cs:3:/// TODO: Test OpenFileDialog try to click open when multiple files are selected.
+Program.cs:4:/// TODO: conditionall add final semicolon to user supplied cutsom query. (in user filter)
+Program.cs:5:/// TODO: Finish factoring out Save dialogs. (Open/Save dialogs to get paths from user)
+Program.cs:6:/// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
+Program.cs:7:/// TODO: Add warning on exit if there are unsaved changes to data (check _dataview.RowStatusFilter returns not empty)
+Program.cs:8:/// TODO: Save To (append) does not work becasue dialog with replace pops up.
+Program.cs:9:/// TODO: Fix CurrentlyOpneDirectory along with CurrentlyOpenFilename into RecentFilesFilders.cs
+Program.cs:10:/// TODO: Show filepath of current table in form status
+Program.cs:11:/// TODO: More robust parsing?
+Program.cs:12:/// TODO: On Save (overwrite) we should really ask what mode do you want in a message box.
+Program.cs:13:/// TODO: What if column for filtering has a wierd char that will mess everythign up? See ViewData.
+Program.cs:14:/// TODO: Test how editing a row will work with multiple pages. (because we get the relative index of DataGridView, will it be the same as the relative index in DataView)
+Program.cs:15:/// TODO: Test what happens on new file and various filters. Because when loading file frmo CSV we add a new column.
+Program.cs:33:        /// The main entry point for the application.
+RecentFilesFolders.cs:31:        /// Event to fire on current filepath change.
+RecentFilesFolders.cs:43:            /// Set sensible value for directory in OpenFile dialog.
+RecentFilesFolders.cs:52:        /// The OpenRecent files have changed. Refresh the view in menu.
+RecentFilesFolders.cs:71:        /// Add a new item to the Recent-Files menu and save it persistently
+RegistryOfficeDataRow.cs:10:    /// Represents some books.
+RegistryOfficeDataRow.cs:38:        /// Parameterless constructor necessary for use in CSV parser.
+RegistryOfficeDataRow.cs:67:        /// Make from Map data raw
+RegistryOfficeDataRow.cs:98:        /// Create new instance from parsed data
+SaveData.cs:15:    /// Class to serialize CSV data from data table to file.
+SaveData.cs:25:        /// Construct a new CSV writer to produce output on the enclosed StreamWriter
+SaveData.cs:36:        /// Write the data table to a stream in CSV format
+SaveData.cs:68:        /// Close our resources - specifically, the stream reader
+SaveData.cs:78:        /// Write one line to the file
+SaveData.cs:87:        /// Output a single field value as appropriate
+SaveData.cs:134:        /// Write the data table to a stream in CSV format
+SaveData.cs:151:        /// Write the data table to a stream in CSV format
+SaveData.cs:161:        /// Write the data table to a stream in CSV format
+SaveData.cs:162:        /// Append to existing file.
+SaveData.cs:172:        /// Opens the dialog to get the path at which to save the current data.
+SaveData.cs:192:        /// Opens the dialog to get the path at which to save the current data.
+SaveData.cs:193:        /// Does not warn the user about overwriting a file.
+ViewData.cs:51:        /// Get total number of rows that we have (after filtering and sorting on the datatable)
+ViewData.cs:59:        /// Get the total number of pages
+ViewData.cs:67:        /// Get number of records after filters have been applied.
+ViewData.cs:75:        /// Get number of pages full of records after filters have been applied.
+ViewData.cs:83:        /// Get set number of records per page to show in dataGridView1
+ViewData.cs:91:        /// Get set index of current page to display in dataGridView1
+ViewData.cs:112:        /// Useful so user can supply their match exactly. (we escape wierd characters)
+ViewData.cs:133:        /// Create a basic filter based on column name and string to match.
+ViewData.cs:146:        /// Apply user submitted query to data table rows.
+ViewData.cs:156:        /// Remove all filters
+ViewData.cs:164:        /// Called when we change to another page or change number rows per page.
+ViewData.cs:165:        /// Takes the filters and sorting into account.

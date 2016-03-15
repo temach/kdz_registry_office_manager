@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace kdz_manager
 {
     /// <summary>
-    /// Maps one row in CSV file to properties.
+    /// Карты одна строка в CSV файл со свойствами.
     /// </summary>
     class MapDataRow
     {
@@ -35,7 +35,7 @@ namespace kdz_manager
         public string GLOBALID {get;set;}
 
         /// <summary>
-        /// Parameterless constructor necessary for use in CSV parser.
+        /// Беспараметрическая конструктор, необходимые для использования в CSV парсер.
         /// </summary>
         public  MapDataRow()
         {

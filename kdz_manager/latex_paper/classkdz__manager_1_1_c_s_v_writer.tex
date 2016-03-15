@@ -1,0 +1,123 @@
+\subsection{Класс C\+S\+V\+Writer}
+\label{classkdz__manager_1_1_c_s_v_writer}\index{C\+S\+V\+Writer@{C\+S\+V\+Writer}}
+
+
+Класс сериализовать данные C\+S\+V из таблицы данных в файл.  
+
+
+Граф наследования\+:C\+S\+V\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classkdz__manager_1_1_c_s_v_writer}
+\end{center}
+\end{figure}
+\subsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+{\bf C\+S\+V\+Writer} (Stream\+Writer source, char separator, char text\+\_\+escape)
+\begin{DoxyCompactList}\small\item\em Создает новый C\+S\+V писатель производить вывод на прилагаемом Stream\+Writer \end{DoxyCompactList}\item 
+void {\bf Write$<$ T $>$} (Data\+Table dt, bool write\+\_\+header)
+\begin{DoxyCompactList}\small\item\em Написать таблицу данных в поток в формате C\+S\+V \end{DoxyCompactList}\item 
+void {\bf Dispose} ()
+\begin{DoxyCompactList}\small\item\em закрывать ресурсы -\/ в частности, читатель поток \end{DoxyCompactList}\item 
+void {\bf Write\+Line} (I\+Enumerable$<$ object $>$ line)
+\begin{DoxyCompactList}\small\item\em Написать одну строку в файл \end{DoxyCompactList}\item 
+string {\bf Make\+Output} (I\+Enumerable$<$ object $>$ line)
+\begin{DoxyCompactList}\small\item\em Выходной одно значение поля по мере необходимости \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+Stream\+Writer {\bfseries \+\_\+outstream}\label{classkdz__manager_1_1_c_s_v_writer_a0d60c35e43981c0780523edaf95392a5}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Подробное описание}
+
+
+См. определение в файле Save\+Data.\+cs строка 17
+
+
+
+\subsubsection{Конструктор(ы)}
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!C\+S\+V\+Writer@{C\+S\+V\+Writer}}
+\index{C\+S\+V\+Writer@{C\+S\+V\+Writer}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}
+\paragraph[{C\+S\+V\+Writer(\+Stream\+Writer source, char separator, char text\+\_\+escape)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+S\+V\+Writer} (
+\begin{DoxyParamCaption}
+\item[{Stream\+Writer}]{source, }
+\item[{char}]{separator, }
+\item[{char}]{text\+\_\+escape}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_writer_a04ed3b59c01bbfd1939ac7a164b47df1_a04ed3b59c01bbfd1939ac7a164b47df1}
+
+
+См. определение в файле Save\+Data.\+cs строка 27
+
+
+
+\subsubsection{Методы}
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}
+\paragraph[{Dispose()}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_writer_a6e2d745cdb7a7b983f861ed6a9a541a7_a6e2d745cdb7a7b983f861ed6a9a541a7}
+
+
+См. определение в файле Save\+Data.\+cs строка 70
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Make\+Output@{Make\+Output}}
+\index{Make\+Output@{Make\+Output}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}
+\paragraph[{Make\+Output(\+I\+Enumerable$<$ object $>$ line)}]{\setlength{\rightskip}{0pt plus 5cm}string Make\+Output (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ object $>$}]{line}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_writer_aef7efde1fb807e691a6199db2c1c2394_aef7efde1fb807e691a6199db2c1c2394}
+
+\begin{DoxyParams}{Аргументы}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Save\+Data.\+cs строка 91
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write$<$ T $>$@{Write$<$ T $>$}}
+\index{Write$<$ T $>$@{Write$<$ T $>$}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}
+\paragraph[{Write$<$ T $>$(\+Data\+Table dt, bool write\+\_\+header)}]{\setlength{\rightskip}{0pt plus 5cm}void Write$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{Data\+Table}]{dt, }
+\item[{bool}]{write\+\_\+header}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_writer_a4d37d1340fbf2388538dbcd29f47f378_a4d37d1340fbf2388538dbcd29f47f378}
+
+\begin{DoxyParams}{Аргументы}
+{\em dt} & The data table to write\\
+\hline
+{\em write\+\_\+header} & Do not write the headers when appending\\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Save\+Data.\+cs строка 40
+
+\index{kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}!Write\+Line@{Write\+Line}}
+\index{Write\+Line@{Write\+Line}!kdz\+\_\+manager\+::\+C\+S\+V\+Writer@{kdz\+\_\+manager\+::\+C\+S\+V\+Writer}}
+\paragraph[{Write\+Line(\+I\+Enumerable$<$ object $>$ line)}]{\setlength{\rightskip}{0pt plus 5cm}void Write\+Line (
+\begin{DoxyParamCaption}
+\item[{I\+Enumerable$<$ object $>$}]{line}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_c_s_v_writer_a3f4e316842d73fede25ec91c6b93b7f9_a3f4e316842d73fede25ec91c6b93b7f9}
+
+\begin{DoxyParams}{Аргументы}
+{\em line} & The array of values for this line\\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Save\+Data.\+cs строка 81
+

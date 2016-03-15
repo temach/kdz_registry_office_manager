@@ -1,20 +1,18 @@
-﻿/// @mainpage
-/// Hello wrold
+﻿///
 ///
-///
-/// TODO: Test OpenFileDialog try to click open when multiple files are selected.
-/// TODO: conditionall add final semicolon to user supplied cutsom query. (in user filter)
-/// TODO: Finish factoring out Save dialogs. (Open/Save dialogs to get paths from user)
-/// TODO: Run bugtests on adding recent files. Make sure lambda expressions do not cahce old filenames.
-/// TODO: Add warning on exit if there are unsaved changes to data (check _dataview.RowStatusFilter returns not empty)
-/// TODO: Save To (append) does not work becasue dialog with replace pops up.
-/// TODO: Fix CurrentlyOpneDirectory along with CurrentlyOpenFilename into RecentFilesFilders.cs
-/// TODO: Show filepath of current table in form status
-/// TODO: More robust parsing?
-/// TODO: On Save (overwrite) we should really ask what mode do you want in a message box.
-/// TODO: What if column for filtering has a wierd char that will mess everythign up? See ViewData.
-/// TODO: Test how editing a row will work with multiple pages. (because we get the relative index of DataGridView, will it be the same as the relative index in DataView)
-/// TODO: Test what happens on new file and various filters. Because when loading file frmo CSV we add a new column.
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO
+/// TODO тест
+/// TODO
 ///
 ///
 ///
@@ -32,7 +30,7 @@ namespace kdz_manager
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
         static void Main()

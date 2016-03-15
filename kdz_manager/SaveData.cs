@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace kdz_manager
 {
     /// <summary>
-    /// Class to serialize CSV data from data table to file.
+    /// Класс сериализовать данные CSV из таблицы данных в файл.
     /// </summary>
     public class CSVWriter : IDisposable
     {
@@ -22,7 +22,7 @@ namespace kdz_manager
         protected StreamWriter _outstream;
 
         /// <summary>
-        /// Construct a new CSV writer to produce output on the enclosed StreamWriter
+        /// Создает новый CSV писатель производить вывод на прилагаемом StreamWriter
         /// </summary>
         public CSVWriter(StreamWriter source, char separator, char text_escape)
         {
@@ -33,7 +33,7 @@ namespace kdz_manager
 
 
         /// <summary>
-        /// Write the data table to a stream in CSV format
+        /// Написать таблицу данных в поток в формате CSV
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="write_header">Do not write the headers when appending</param>
@@ -65,7 +65,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Close our resources - specifically, the stream reader
+        /// закрывать ресурсы - в частности, читатель поток
         /// </summary>
         public void Dispose()
         {
@@ -75,7 +75,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Write one line to the file
+        /// Написать одну строку в файл
         /// </summary>
         /// <param name="line">The array of values for this line</param>
         public void WriteLine(IEnumerable<object> line)
@@ -84,7 +84,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Output a single field value as appropriate
+        /// Выходной одно значение поля по мере необходимости
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -131,7 +131,7 @@ namespace kdz_manager
     {
 
         /// <summary>
-        /// Write the data table to a stream in CSV format
+        /// Написать таблицу данных в поток в формате CSV
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
@@ -148,7 +148,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Write the data table to a stream in CSV format
+        /// Написать таблицу данных в поток в формате CSV
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
@@ -158,8 +158,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Write the data table to a stream in CSV format
-        /// Append to existing file.
+        /// Написать таблицу данных в поток в формате CSV
+        /// Добавить к существующему файлу.
         /// </summary>
         /// <param name="dt">The data table to write</param>
         /// <param name="filepath">The file path where the CSV text will be written</param>
@@ -169,7 +169,7 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Opens the dialog to get the path at which to save the current data.
+        /// Открывает диалог, чтобы получить путь, по которому для сохранения текущих данных.
         /// </summary>
         /// <returns></returns>
         public static string SaveFileDialogGetPath()
@@ -189,8 +189,8 @@ namespace kdz_manager
         }
 
         /// <summary>
-        /// Opens the dialog to get the path at which to save the current data.
-        /// Does not warn the user about overwriting a file.
+        /// Открывает диалог, чтобы получить путь, по которому для сохранения текущих данных.
+        /// Не предупреждать пользователя о перезаписи файла.
         /// </summary>
         /// <returns></returns>
         public static string AppendFileDialogGetPath()

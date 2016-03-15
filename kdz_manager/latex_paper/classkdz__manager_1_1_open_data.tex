@@ -1,0 +1,189 @@
+\subsection{Класс Open\+Data}
+\label{classkdz__manager_1_1_open_data}\index{Open\+Data@{Open\+Data}}
+\subsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf Parse\+As\+Map\+Data\+C\+S\+V} (string filepath)
+\begin{DoxyCompactList}\small\item\em Открыть файл, читать и проверять данные, сделать таблицу данных и запустить контроля инициализацый. \end{DoxyCompactList}\item 
+void {\bf Update\+Dynamic\+Column\+On\+Row\+Edit} (Data\+Table dt, Data\+Row oldrow, Data\+Row newrow)
+\begin{DoxyCompactList}\small\item\em перерасчет динамический столбец строки. \end{DoxyCompactList}\item 
+void {\bf Import\+Processing} ()
+\begin{DoxyCompactList}\small\item\em Функция для заполнения внутренними и внешними списками на основе данных Raw списке. \end{DoxyCompactList}\item 
+Data\+Table {\bf To\+Data\+Table$<$ T $>$} (I\+List$<$ T $>$ data)
+\begin{DoxyCompactList}\small\item\em прочитал свойств Т и собрать Data\+Table, которая будет представлять его. \end{DoxyCompactList}\item 
+Data\+Table {\bf Empty\+Table\+From\+Type$<$ T $>$} ()
+\begin{DoxyCompactList}\small\item\em сделать пустую таблицу данных с макета, чтобы содержать типа T. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static string {\bf Open\+File\+Dialog\+Get\+Path} ()
+\begin{DoxyCompactList}\small\item\em открывает диалоговое окно для получения путь файла для открытия из тэ пользователя. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ {\bf Registry\+Office\+Data\+Row} $>$ {\bf Inner}
+\begin{DoxyCompactList}\small\item\em Простой тип. \end{DoxyCompactList}\item 
+List$<$ {\bf Admin\+Area\+Data\+Row} $>$ {\bf Outer}
+\begin{DoxyCompactList}\small\item\em Расширенный тип, который объединяет простые типы. \end{DoxyCompactList}\item 
+List$<$ {\bf Map\+Data\+Row} $>$ {\bf Raw}
+\begin{DoxyCompactList}\small\item\em Результат разбора файла C\+S\+V \end{DoxyCompactList}\item 
+string {\bfseries Outer2\+Inner\+Qty\+Dynamic\+Column} = \char`\"{}Regions\+In\+Adm\+Area\char`\"{}\label{classkdz__manager_1_1_open_data_a93728bb726e51b49493c8628f2037c94}
+
+\item 
+string {\bfseries Outer\+Key\+Column} = \char`\"{}Adm\+Area\+Code\char`\"{}\label{classkdz__manager_1_1_open_data_a8190edc858cdfea68fb72782608ea6f8}
+
+\item 
+string {\bfseries Filter\+Adm\+Area} = \char`\"{}Adm\+Area\char`\"{}\label{classkdz__manager_1_1_open_data_a5fc102f36a819b3bc81627a8d931ab3e}
+
+\item 
+string {\bfseries Filter\+Adm\+Area\+Code} = \char`\"{}Adm\+Area\+Code\char`\"{}\label{classkdz__manager_1_1_open_data_afd6b740ac445668267e4f69729b7d391}
+
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Подробное описание}
+
+
+См. определение в файле Open\+Data.\+cs строка 306
+
+
+
+\subsubsection{Методы}
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Empty\+Table\+From\+Type$<$ T $>$@{Empty\+Table\+From\+Type$<$ T $>$}}
+\index{Empty\+Table\+From\+Type$<$ T $>$@{Empty\+Table\+From\+Type$<$ T $>$}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Empty\+Table\+From\+Type$<$ T $>$()}]{\setlength{\rightskip}{0pt plus 5cm}Data\+Table Empty\+Table\+From\+Type$<$ T $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_open_data_a92775521c23e5242e0266086338c4ef6_a92775521c23e5242e0266086338c4ef6}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 464
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Import\+Processing@{Import\+Processing}}
+\index{Import\+Processing@{Import\+Processing}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Import\+Processing()}]{\setlength{\rightskip}{0pt plus 5cm}void Import\+Processing (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_open_data_ae25690f340153fc869429ee913b711bd_ae25690f340153fc869429ee913b711bd}
+
+
+См. определение в файле Open\+Data.\+cs строка 399
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Open\+File\+Dialog\+Get\+Path@{Open\+File\+Dialog\+Get\+Path}}
+\index{Open\+File\+Dialog\+Get\+Path@{Open\+File\+Dialog\+Get\+Path}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Open\+File\+Dialog\+Get\+Path()}]{\setlength{\rightskip}{0pt plus 5cm}static string Open\+File\+Dialog\+Get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{classkdz__manager_1_1_open_data_a9d5c1006b3d1e0c9bcef28e7b0283fda_a9d5c1006b3d1e0c9bcef28e7b0283fda}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 480
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Parse\+As\+Map\+Data\+C\+S\+V@{Parse\+As\+Map\+Data\+C\+S\+V}}
+\index{Parse\+As\+Map\+Data\+C\+S\+V@{Parse\+As\+Map\+Data\+C\+S\+V}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Parse\+As\+Map\+Data\+C\+S\+V(string filepath)}]{\setlength{\rightskip}{0pt plus 5cm}void Parse\+As\+Map\+Data\+C\+S\+V (
+\begin{DoxyParamCaption}
+\item[{string}]{filepath}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_open_data_a36bd09dfa54a1139e116b9baf7d0fd45_a36bd09dfa54a1139e116b9baf7d0fd45}
+
+\begin{DoxyParams}{Аргументы}
+{\em filepath} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 342
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!To\+Data\+Table$<$ T $>$@{To\+Data\+Table$<$ T $>$}}
+\index{To\+Data\+Table$<$ T $>$@{To\+Data\+Table$<$ T $>$}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{To\+Data\+Table$<$ T $>$(\+I\+List$<$ T $>$ data)}]{\setlength{\rightskip}{0pt plus 5cm}Data\+Table To\+Data\+Table$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{I\+List$<$ T $>$}]{data}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_open_data_ab27f76fc2774c51bfd4cd5e03d25ff16_ab27f76fc2774c51bfd4cd5e03d25ff16}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+
+\end{DoxyReturn}
+
+
+См. определение в файле Open\+Data.\+cs строка 436
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}}
+\index{Update\+Dynamic\+Column\+On\+Row\+Edit@{Update\+Dynamic\+Column\+On\+Row\+Edit}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Update\+Dynamic\+Column\+On\+Row\+Edit(\+Data\+Table dt, Data\+Row oldrow, Data\+Row newrow)}]{\setlength{\rightskip}{0pt plus 5cm}void Update\+Dynamic\+Column\+On\+Row\+Edit (
+\begin{DoxyParamCaption}
+\item[{Data\+Table}]{dt, }
+\item[{Data\+Row}]{oldrow, }
+\item[{Data\+Row}]{newrow}
+\end{DoxyParamCaption}
+)}\label{classkdz__manager_1_1_open_data_a6399c5b40ed128a5012b87773d630ce6_a6399c5b40ed128a5012b87773d630ce6}
+
+\begin{DoxyParams}{Аргументы}
+{\em dt} & \\
+\hline
+{\em oldrow} & \\
+\hline
+{\em newrow} & \\
+\hline
+\end{DoxyParams}
+
+
+См. определение в файле Open\+Data.\+cs строка 360
+
+
+
+\subsubsection{Данные класса}
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Inner@{Inner}}
+\index{Inner@{Inner}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Inner}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Registry\+Office\+Data\+Row}$>$ Inner}\label{classkdz__manager_1_1_open_data_a4a48764400c4991c8b0c82ab12e191e6_a4a48764400c4991c8b0c82ab12e191e6}
+
+
+См. определение в файле Open\+Data.\+cs строка 312
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Outer@{Outer}}
+\index{Outer@{Outer}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Outer}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Admin\+Area\+Data\+Row}$>$ Outer}\label{classkdz__manager_1_1_open_data_af87c250148a042bdc1abafe9273c25ce_af87c250148a042bdc1abafe9273c25ce}
+
+
+См. определение в файле Open\+Data.\+cs строка 316
+
+\index{kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}!Raw@{Raw}}
+\index{Raw@{Raw}!kdz\+\_\+manager\+::\+Open\+Data@{kdz\+\_\+manager\+::\+Open\+Data}}
+\paragraph[{Raw}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Map\+Data\+Row}$>$ Raw}\label{classkdz__manager_1_1_open_data_aaa7963fb899e3dafb354bb287c7156c7_aaa7963fb899e3dafb354bb287c7156c7}
+
+
+См. определение в файле Open\+Data.\+cs строка 320
+
